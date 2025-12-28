@@ -32,7 +32,6 @@
     .fade-out { opacity: 0; }
     .fade-in { opacity: 1; }
 
-    /* Offset automatico per sezioni (per header sticky) */
     section {
       scroll-margin-top: 160px;
     }
@@ -48,7 +47,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 0 12px rgba(30, 111, 168, 0.25);
+      box-shadow: 0 0 12px rgba(1, 14, 128, 0.35);
     }
 
     header h1 {
@@ -183,7 +182,7 @@
       cursor: pointer;
       transition: 0.2s;
       font-weight: 600;
-      box-shadow: 0 0 12px rgba(30, 111, 168, 0.35);
+      box-shadow: 0 0 12px rgba(1, 14, 128, 0.35);
     }
 
     button::before {
@@ -214,11 +213,11 @@
 
     button:hover {
       background: var(--accent-blue-strong);
-      box-shadow: 0 0 16px rgba(255, 211, 78, 0.45);
+      box-shadow: 0 0 16px rgba(163, 146, 97, 0.45);
     }
 
     /* ===========================
-       GALLERIA ARTISTICA
+       GALLERIA GENITORI
     ============================ */
     .gallery {
       display: grid;
@@ -252,11 +251,8 @@
     .photo:hover img {
       transform: scale(1.08);
       filter: brightness(1.18);
-      box-shadow: 0 0 18px rgba(30, 111, 168, 0.45);
+      box-shadow: 0 0 18px rgba(1, 14, 128, 0.45);
     }
-
-    .photo.wide { grid-column: span 2; }
-    .photo.tall { grid-row: span 2; }
 
     .caption {
       position: absolute;
@@ -266,7 +262,7 @@
       background: linear-gradient(
         to top,
         rgba(0,0,0,0.75),
-        rgba(255, 211, 78, 0.15)
+        rgba(163, 146, 97, 0.15)
       );
       color: #e6e6e6;
       font-size: 1em;
@@ -274,7 +270,7 @@
     }
 
     /* ===========================
-       LIGHTBOX CINEMATICO
+       LIGHTBOX
     ============================ */
     .lightbox {
       position: fixed;
@@ -300,7 +296,7 @@
       margin-bottom: 20px;
       box-shadow:
         0 0 40px rgba(0,0,0,0.8),
-        0 0 25px rgba(255, 211, 78, 0.25);
+        0 0 25px rgba(163, 146, 97, 0.25);
       animation: cinematicZoom .6s ease-out;
     }
 
@@ -332,7 +328,7 @@
       background: #1a1a1a;
       color: #888;
       margin-top: 40px;
-      border-top: 1px solid rgba(255, 211, 78, 0.35);
+      border-top: 1px solid rgba(163, 146, 97, 0.35);
     }
 
   </style>
@@ -352,7 +348,7 @@
     <nav>
       <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
       <a href="#cucciolata" data-it="La cucciolata" data-en="The litter">La cucciolata</a>
-      <a href="#fotografie" data-it="Fotografie" data-en="Photos">Fotografie</a>
+      <a href="#genitori" data-it="Genitori" data-en="Parents">Genitori</a>
       <a href="#prenotazioni" data-it="Prenotazioni" data-en="Reservations">Prenotazioni</a>
       <a href="#contatti" data-it="Contatti" data-en="Contacts">Contatti</a>
     </nav>
@@ -395,30 +391,20 @@
   </section>
 
   <!-- ===========================
-       GALLERIA ARTISTICA
+       GENITORI
   ============================ -->
-  <section id="fotografie">
-    <h2 data-it="Fotografie" data-en="Photos">Fotografie</h2>
-    <p data-it="Alcuni momenti speciali dei nostri Bobtail."
-       data-en="Some special moments of our Bobtails.">
-       Alcuni momenti speciali dei nostri Bobtail.
+  <section id="genitori">
+    <h2 data-it="Genitori" data-en="Parents">Genitori</h2>
+    <p data-it="I genitori dei cuccioli: mamma e papà Bobtail."
+       data-en="The parents of the puppies: mother and father Bobtail.">
+       I genitori dei cuccioli: mamma e papà Bobtail.
     </p>
 
     <div class="gallery">
 
       <div class="photo">
-        <img src="https://placehold.co/600x400?text=Foto+1"
-             alt="Foto 1"
-             data-label-it="Cucciolo curioso"
-             data-label-en="Curious puppy">
-        <span class="caption"
-              data-it="Cucciolo curioso"
-              data-en="Curious puppy">Cucciolo curioso</span>
-      </div>
-
-      <div class="photo tall">
-        <img src="https://placehold.co/600x800?text=Foto+2"
-             alt="Foto 2"
+        <img src="https://placehold.co/600x400?text=Mamma"
+             alt="Mamma Bobtail"
              data-label-it="Mamma Bobtail"
              data-label-en="Bobtail mother">
         <span class="caption"
@@ -426,24 +412,14 @@
               data-en="Bobtail mother">Mamma Bobtail</span>
       </div>
 
-      <div class="photo wide">
-        <img src="https://placehold.co/900x400?text=Foto+3"
-             alt="Foto 3"
-             data-label-it="Momento di gioco"
-             data-label-en="Playtime moment">
-        <span class="caption"
-              data-it="Momento di gioco"
-              data-en="Playtime moment">Momento di gioco</span>
-      </div>
-
       <div class="photo">
-        <img src="https://placehold.co/600x400?text=Foto+4"
-             alt="Foto 4"
-             data-label-it="Sguardo dolce"
-             data-label-en="Sweet look">
+        <img src="https://placehold.co/600x400?text=Papa"
+             alt="Papà Bobtail"
+             data-label-it="Papà Bobtail"
+             data-label-en="Bobtail father">
         <span class="caption"
-              data-it="Sguardo dolce"
-              data-en="Sweet look">Sguardo dolce</span>
+              data-it="Papà Bobtail"
+              data-en="Bobtail father">Papà Bobtail</span>
       </div>
 
     </div>
@@ -519,7 +495,6 @@
       setTimeout(() => {
         const lang = selector.value;
 
-        // Traduzione robusta di tutti gli elementi con data-it / data-en
         document.querySelectorAll("[data-it]").forEach(el => {
           const newText = el.getAttribute(`data-${lang}`);
           if (newText !== null && newText !== "") {
@@ -527,7 +502,6 @@
           }
         });
 
-        // Aggiornamento etichette della galleria
         document.querySelectorAll(".photo img").forEach(img => {
           const label = img.getAttribute(`data-label-${lang}`);
           if (label) {
@@ -536,45 +510,4 @@
           }
         });
 
-        body.classList.remove("fade-out");
-        body.classList.add("fade-in");
-      }, 300);
-    });
-
-    // Lightbox cinematico
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-
-    document.querySelectorAll(".photo img").forEach(img => {
-      img.addEventListener("click", () => {
-        const lang = selector.value;
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.getAttribute(`data-label-${lang}`);
-        lightbox.classList.remove("hidden");
-        setTimeout(() => lightbox.classList.add("visible"), 10);
-      });
-    });
-
-    lightbox.addEventListener("click", () => {
-      lightbox.classList.remove("visible");
-      setTimeout(() => lightbox.classList.add("hidden"), 300);
-    });
-
-    // Redirect dinamico Formspree
-    const form = document.getElementById("contact-form");
-    const redirectField = document.getElementById("redirect-field");
-
-    form.addEventListener("submit", () => {
-      const lang = selector.value;
-      if (lang === "it") {
-        redirectField.value = "https://devismazzucco.github.io/Isotta/grazie.html";
-      } else {
-        redirectField.value = "https://devismazzucco.github.io/Isotta/thanks.html";
-      }
-    });
-  </script>
-
-</body>
-</html>
-
+        body.class
