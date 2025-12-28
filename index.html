@@ -43,6 +43,17 @@
       color: #ffffff;
     }
 
+    /* Language selector */
+    #lang-select {
+      margin-top: 15px;
+      padding: 8px 14px;
+      background: #2a2a2a;
+      color: white;
+      border: 1px solid #444;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
     .hero {
       background: url('bobtail.jpg') no-repeat center;
       background-size: cover;
@@ -83,11 +94,6 @@
     }
 
     /* Form */
-    form label {
-      font-size: 1.1em;
-      color: #dddddd;
-    }
-
     input, textarea {
       width: 100%;
       padding: 12px;
@@ -136,70 +142,97 @@
 <body>
 
   <header>
-    <h1>Cucciolata Bobtail – Eleganza & Dolcezza</h1>
+    <h1 data-it="Cucciolata Bobtail – Eleganza & Dolcezza"
+        data-en="Bobtail Litter – Elegance & Sweetness">
+        Cucciolata Bobtail – Eleganza & Dolcezza
+    </h1>
+
     <nav>
-      <a href="#chi-siamo">Chi siamo</a>
-      <a href="#cucciolata">La cucciolata</a>
-      <a href="#prenotazioni">Prenotazioni</a>
-      <a href="#contatti">Contatti</a>
+      <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
+      <a href="#cucciolata" data-it="La cucciolata" data-en="The litter">La cucciolata</a>
+      <a href="#prenotazioni" data-it="Prenotazioni" data-en="Reservations">Prenotazioni</a>
+      <a href="#contatti" data-it="Contatti" data-en="Contacts">Contatti</a>
     </nav>
+
+    <select id="lang-select">
+      <option value="it">Italiano</option>
+      <option value="en">English</option>
+    </select>
   </header>
 
-  <div class="hero">
-    I nostri Bobtail stanno arrivando
+  <div class="hero"
+       data-it="I nostri Bobtail stanno arrivando"
+       data-en="Our Bobtails are on the way">
+       I nostri Bobtail stanno arrivando
   </div>
 
   <section id="chi-siamo">
-    <h2>Chi siamo</h2>
-    <p>
-      Cresciamo Bobtail con passione, cura e professionalità.  
-      Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto.
+    <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
+    <p data-it="Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto."
+       data-en="We raise Bobtails with passion, care and professionalism. Each puppy grows in a calm environment, loved and followed day by day.">
+       Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto.
     </p>
   </section>
 
   <section id="cucciolata">
-    <h2>La cucciolata</h2>
-    <p>
-      I cuccioli nasceranno a gennaio 2026.  
-      Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale.
+    <h2 data-it="La cucciolata" data-en="The litter">La cucciolata</h2>
+    <p data-it="I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale."
+       data-en="The puppies will be born in January 2026. Only a few reservations will be available to ensure each puppy finds the perfect family.">
+       I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale.
     </p>
   </section>
 
   <section id="prenotazioni">
-    <h2>Prenotazioni</h2>
+    <h2 data-it="Prenotazioni" data-en="Reservations">Prenotazioni</h2>
 
-    <form action="https://formspree.io/f/abcd1234" method="POST">
+    <form action="https://formspree.io/f/mgoezdgl" method="POST">
       <input type="hidden" name="_redirect" value="https://devismazzucco.github.io/Isotta/grazie.html">
 
-      <label>Nome:
-        <input type="text" name="nome" required>
-      </label>
+      <label data-it="Nome:" data-en="Name:">Nome:</label>
+      <input type="text" name="nome" required>
 
-      <label>Email:
-        <input type="email" name="email" required>
-      </label>
+      <label data-it="Email:" data-en="Email:">Email:</label>
+      <input type="email" name="email" required>
 
-      <label>Telefono:
-        <input type="tel" name="telefono" required>
-      </label>
+      <label data-it="Telefono:" data-en="Phone:">Telefono:</label>
+      <input type="tel" name="telefono" required>
 
-      <label>Messaggio:
-        <textarea name="messaggio" placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
-      </label>
+      <label data-it="Messaggio:" data-en="Message:">Messaggio:</label>
+      <textarea name="messaggio" placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
 
-      <button type="submit">Prenota ora</button>
+      <button type="submit"
+              data-it="Prenota ora"
+              data-en="Book now">
+              Prenota ora
+      </button>
     </form>
   </section>
 
   <section id="contatti">
-    <h2>Contatti</h2>
-    <p>Email: info@bobtailcuccioli.it</p>
-    <p>Telefono: +39 333 1234567</p>
+    <h2 data-it="Contatti" data-en="Contacts">Contatti</h2>
+    <p data-it="Email: info@bobtailcuccioli.it" data-en="Email: info@bobtailcuccioli.it">
+      Email: info@bobtailcuccioli.it
+    </p>
+    <p data-it="Telefono: +39 333 1234567" data-en="Phone: +39 333 1234567">
+      Telefono: +39 333 1234567
+    </p>
   </section>
 
-  <footer>
+  <footer data-it="© 2025 Cucciolata Bobtail – Tutti i diritti riservati"
+          data-en="© 2025 Bobtail Litter – All rights reserved">
     © 2025 Cucciolata Bobtail – Tutti i diritti riservati
   </footer>
+
+  <script>
+    const selector = document.getElementById("lang-select");
+
+    selector.addEventListener("change", () => {
+      const lang = selector.value;
+      document.querySelectorAll("[data-it]").forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+    });
+  </script>
 
 </body>
 </html>
