@@ -16,12 +16,8 @@
     }
 
     /* Fade animation */
-    .fade-out {
-      opacity: 0;
-    }
-    .fade-in {
-      opacity: 1;
-    }
+    .fade-out { opacity: 0; }
+    .fade-in { opacity: 1; }
 
     header {
       background: #1a1a1a;
@@ -48,11 +44,8 @@
       transition: 0.2s;
     }
 
-    nav a:hover {
-      color: #ffffff;
-    }
+    nav a:hover { color: #ffffff; }
 
-    /* Language selector */
     #lang-select {
       margin-top: 15px;
       padding: 8px 14px;
@@ -75,6 +68,12 @@
       font-size: 2.4em;
       font-weight: 600;
       letter-spacing: 1px;
+      animation: heroFade 2s ease-out;
+    }
+
+    @keyframes heroFade {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     section {
@@ -86,6 +85,12 @@
       border-radius: 18px;
       box-shadow: 0 0 25px rgba(0,0,0,0.4);
       border: 1px solid #222;
+      animation: sectionFade 0.8s ease-out;
+    }
+
+    @keyframes sectionFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
@@ -133,9 +138,102 @@
       font-weight: 600;
     }
 
-    button:hover {
-      background: #2f8fc7;
+    button:hover { background: #2f8fc7; }
+
+    /* Artistic gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      margin-top: 30px;
     }
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #333;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      animation: photoFade 1s ease-out;
+    }
+
+    @keyframes photoFade {
+      from { opacity: 0; transform: scale(1.05); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease, filter .5s ease;
+      cursor: pointer;
+    }
+
+    .photo:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.15);
+    }
+
+    .photo.wide { grid-column: span 2; }
+    .photo.tall { grid-row: span 2; }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: #e6e6e6;
+      font-size: 1em;
+      text-shadow: 0 0 6px black;
+    }
+
+    /* Lightbox cinematic */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.92);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70vh;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+      animation: cinematicZoom .6s ease-out;
+    }
+
+    @keyframes cinematicZoom {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .lightbox p {
+      font-size: 1.3em;
+      color: #e6e6e6;
+      animation: captionFade .8s ease-out;
+    }
+
+    @keyframes captionFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .lightbox.visible { opacity: 1; }
+    .hidden { display: none; }
 
     footer {
       text-align: center;
@@ -159,6 +257,7 @@
     <nav>
       <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
       <a href="#cucciolata" data-it="La cucciolata" data-en="The litter">La cucciolata</a>
+      <a href="#fotografie" data-it="Fotografie" data-en="Photos">Fotografie</a>
       <a href="#prenotazioni" data-it="Prenotazioni" data-en="Reservations">Prenotazioni</a>
       <a href="#contatti" data-it="Contatti" data-en="Contacts">Contatti</a>
     </nav>
@@ -190,6 +289,42 @@
        I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale.
     </p>
   </section>
+
+  <!-- GALLERIA ARTISTICA + LIGHTBOX -->
+  <section id="fotografie">
+    <h2 data-it="Fotografie" data-en="Photos">Fotografie</h2>
+    <p data-it="Alcuni momenti speciali dei nostri Bobtail."
+       data-en="Some special moments of our Bobtails.">
+       Alcuni momenti speciali dei nostri Bobtail.
+    </p>
+
+    <div class="gallery">
+      <div class="photo">
+        <img src="https://placehold.co/600x400?text=Foto+1" alt="Foto 1" data-label-it="Cucciolo curioso" data-label-en="Curious puppy">
+        <span class="caption" data-it="Cucciolo curioso" data-en="Curious puppy">Cucciolo curioso</span>
+      </div>
+
+      <div class="photo tall">
+        <img src="https://placehold.co/600x800?text=Foto+2" alt="Foto 2" data-label-it="Mamma Bobtail" data-label-en="Bobtail mother">
+        <span class="caption" data-it="Mamma Bobtail" data-en="Bobtail mother">Mamma Bobtail</span>
+      </div>
+
+      <div class="photo wide">
+        <img src="https://placehold.co/900x400?text=Foto+3" alt="Foto 3" data-label-it="Momento di gioco" data-label-en="Playtime moment">
+        <span class="caption" data-it="Momento di gioco" data-en="Playtime moment">Momento di gioco</span>
+      </div>
+
+      <div class="photo">
+        <img src="https://placehold.co/600x400?text=Foto+4" alt="Foto 4" data-label-it="Sguardo dolce" data-label-en="Sweet look">
+        <span class="caption" data-it="Sguardo dolce" data-en="Sweet look">Sguardo dolce</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox hidden">
+    <img id="lightbox-img" src="">
+    <p id="lightbox-caption"></p>
+  </div>
 
   <section id="prenotazioni">
     <h2 data-it="Prenotazioni" data-en="Reservations">Prenotazioni</h2>
@@ -236,7 +371,7 @@
     const selector = document.getElementById("lang-select");
     const body = document.body;
 
-    // Fade + language switch
+    /* Fade + language switch */
     selector.addEventListener("change", () => {
       body.classList.add("fade-out");
 
@@ -247,12 +382,38 @@
           el.textContent = el.getAttribute(`data-${lang}`);
         });
 
+        /* Update captions inside gallery */
+        document.querySelectorAll(".photo img").forEach(img => {
+          const label = img.getAttribute(`data-label-${lang}`);
+          img.parentElement.querySelector(".caption").textContent = label;
+        });
+
         body.classList.remove("fade-out");
         body.classList.add("fade-in");
       }, 300);
     });
 
-    // Dynamic redirect for Formspree
+    /* Lightbox cinematic */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+
+    document.querySelectorAll(".photo img").forEach(img => {
+      img.addEventListener("click", () => {
+        const lang = selector.value;
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.getAttribute(`data-label-${lang}`);
+        lightbox.classList.remove("hidden");
+        setTimeout(() => lightbox.classList.add("visible"), 10);
+      });
+    });
+
+    lightbox.addEventListener("click", () => {
+      lightbox.classList.remove("visible");
+      setTimeout(() => lightbox.classList.add("hidden"), 300);
+    });
+
+    /* Dynamic redirect for Formspree */
     const form = document.getElementById("contact-form");
     const redirectField = document.getElementById("redirect-field");
 
@@ -269,4 +430,3 @@
 
 </body>
 </html>
-
