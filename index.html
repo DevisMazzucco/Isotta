@@ -6,6 +6,20 @@
   <title>Cucciolata Bobtail – Elegance Dark</title>
 
   <style>
+
+    /* ===========================
+       PALETTE COLORI
+    ============================ */
+    :root {
+      --accent-blue: #4aaee8;
+      --accent-blue-strong: #6bc6ff;
+      --accent-yellow: #f2d675;
+      --accent-yellow-soft: #f7e7b0;
+    }
+
+    /* ===========================
+       BASE
+    ============================ */
     body {
       font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
@@ -15,10 +29,17 @@
       transition: opacity 0.4s ease;
     }
 
-    /* Fade animation */
     .fade-out { opacity: 0; }
     .fade-in { opacity: 1; }
 
+    /* Offset automatico per sezioni */
+    section {
+      scroll-margin-top: 160px;
+    }
+
+    /* ===========================
+       HEADER
+    ============================ */
     header {
       background: #1a1a1a;
       padding: 25px;
@@ -27,6 +48,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 0 12px rgba(74, 174, 232, 0.25);
     }
 
     header h1 {
@@ -56,6 +78,9 @@
       font-size: 1em;
     }
 
+    /* ===========================
+       HERO
+    ============================ */
     .hero {
       background: url('bobtail.jpg') no-repeat center;
       background-size: cover;
@@ -76,6 +101,9 @@
       to { opacity: 1; transform: scale(1); }
     }
 
+    /* ===========================
+       SEZIONI
+    ============================ */
     section {
       padding: 50px;
       background: #141414;
@@ -97,8 +125,20 @@
       color: #ffffff;
       font-size: 1.9em;
       margin-bottom: 15px;
-      border-left: 4px solid #4aaee8;
+      border-left: 4px solid var(--accent-blue);
       padding-left: 12px;
+      position: relative;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--accent-yellow);
+      border-radius: 2px;
     }
 
     p {
@@ -107,7 +147,9 @@
       color: #cccccc;
     }
 
-    /* Form */
+    /* ===========================
+       FORM
+    ============================ */
     input, textarea {
       width: 100%;
       padding: 12px;
@@ -122,25 +164,62 @@
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: #4aaee8;
-      box-shadow: 0 0 6px #4aaee8;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 6px var(--accent-blue);
     }
 
+    /* ===========================
+       PULSANTI CON BORDO LUMINOSO
+    ============================ */
     button {
-      background: #4aaee8;
+      position: relative;
+      overflow: hidden;
+      background: var(--accent-blue);
       color: white;
       padding: 14px 28px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 1.2em;
       cursor: pointer;
       transition: 0.2s;
       font-weight: 600;
+      box-shadow: 0 0 12px rgba(74, 174, 232, 0.35);
     }
 
-    button:hover { background: #2f8fc7; }
+    button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 2px;
+      background: linear-gradient(120deg,
+        var(--accent-blue),
+        var(--accent-yellow),
+        var(--accent-blue)
+      );
+      background-size: 300% 300%;
+      animation: glowBorder 4s ease infinite;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+    }
 
-    /* Artistic gallery */
+    @keyframes glowBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    button:hover {
+      background: var(--accent-blue-strong);
+      box-shadow: 0 0 16px rgba(242, 214, 117, 0.45);
+    }
+
+    /* ===========================
+       GALLERIA ARTISTICA
+    ============================ */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -172,7 +251,8 @@
 
     .photo:hover img {
       transform: scale(1.08);
-      filter: brightness(1.15);
+      filter: brightness(1.18);
+      box-shadow: 0 0 18px rgba(74, 174, 232, 0.45);
     }
 
     .photo.wide { grid-column: span 2; }
@@ -183,13 +263,19 @@
       bottom: 0;
       width: 100%;
       padding: 10px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(242, 214, 117, 0.15)
+      );
       color: #e6e6e6;
       font-size: 1em;
       text-shadow: 0 0 6px black;
     }
 
-    /* Lightbox cinematic */
+    /* ===========================
+       LIGHTBOX CINEMATICO
+    ============================ */
     .lightbox {
       position: fixed;
       top: 0;
@@ -212,7 +298,9 @@
       max-height: 70vh;
       border-radius: 12px;
       margin-bottom: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+      box-shadow:
+        0 0 40px rgba(0,0,0,0.8),
+        0 0 25px rgba(242, 214, 117, 0.25);
       animation: cinematicZoom .6s ease-out;
     }
 
@@ -235,19 +323,26 @@
     .lightbox.visible { opacity: 1; }
     .hidden { display: none; }
 
+    /* ===========================
+       FOOTER
+    ============================ */
     footer {
       text-align: center;
       padding: 25px;
       background: #1a1a1a;
       color: #888;
       margin-top: 40px;
-      border-top: 1px solid #333;
+      border-top: 1px solid rgba(242, 214, 117, 0.35);
     }
+
   </style>
 </head>
 
 <body class="fade-in">
 
+  <!-- ===========================
+       HEADER
+  ============================ -->
   <header>
     <h1 data-it="Cucciolata Bobtail – Eleganza & Dolcezza"
         data-en="Bobtail Litter – Elegance & Sweetness">
@@ -268,12 +363,18 @@
     </select>
   </header>
 
+  <!-- ===========================
+       HERO
+  ============================ -->
   <div class="hero"
        data-it="I nostri Bobtail stanno arrivando"
        data-en="Our Bobtails are on the way">
        I nostri Bobtail stanno arrivando
   </div>
 
+  <!-- ===========================
+       CHI SIAMO
+  ============================ -->
   <section id="chi-siamo">
     <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
     <p data-it="Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto."
@@ -282,6 +383,9 @@
     </p>
   </section>
 
+  <!-- ===========================
+       CUCCIOLATA
+  ============================ -->
   <section id="cucciolata">
     <h2 data-it="La cucciolata" data-en="The litter">La cucciolata</h2>
     <p data-it="I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale."
@@ -290,7 +394,9 @@
     </p>
   </section>
 
-  <!-- GALLERIA ARTISTICA + LIGHTBOX -->
+  <!-- ===========================
+       GALLERIA ARTISTICA
+  ============================ -->
   <section id="fotografie">
     <h2 data-it="Fotografie" data-en="Photos">Fotografie</h2>
     <p data-it="Alcuni momenti speciali dei nostri Bobtail."
@@ -299,33 +405,59 @@
     </p>
 
     <div class="gallery">
+
       <div class="photo">
-        <img src="https://placehold.co/600x400?text=Foto+1" alt="Foto 1" data-label-it="Cucciolo curioso" data-label-en="Curious puppy">
-        <span class="caption" data-it="Cucciolo curioso" data-en="Curious puppy">Cucciolo curioso</span>
+        <img src="https://placehold.co/600x400?text=Foto+1"
+             alt="Foto 1"
+             data-label-it="Cucciolo curioso"
+             data-label-en="Curious puppy">
+        <span class="caption"
+              data-it="Cucciolo curioso"
+              data-en="Curious puppy">Cucciolo curioso</span>
       </div>
 
       <div class="photo tall">
-        <img src="https://placehold.co/600x800?text=Foto+2" alt="Foto 2" data-label-it="Mamma Bobtail" data-label-en="Bobtail mother">
-        <span class="caption" data-it="Mamma Bobtail" data-en="Bobtail mother">Mamma Bobtail</span>
+        <img src="https://placehold.co/600x800?text=Foto+2"
+             alt="Foto 2"
+             data-label-it="Mamma Bobtail"
+             data-label-en="Bobtail mother">
+        <span class="caption"
+              data-it="Mamma Bobtail"
+              data-en="Bobtail mother">Mamma Bobtail</span>
       </div>
 
       <div class="photo wide">
-        <img src="https://placehold.co/900x400?text=Foto+3" alt="Foto 3" data-label-it="Momento di gioco" data-label-en="Playtime moment">
-        <span class="caption" data-it="Momento di gioco" data-en="Playtime moment">Momento di gioco</span>
+        <img src="https://placehold.co/900x400?text=Foto+3"
+             alt="Foto 3"
+             data-label-it="Momento di gioco"
+             data-label-en="Playtime moment">
+        <span class="caption"
+              data-it="Momento di gioco"
+              data-en="Playtime moment">Momento di gioco</span>
       </div>
 
       <div class="photo">
-        <img src="https://placehold.co/600x400?text=Foto+4" alt="Foto 4" data-label-it="Sguardo dolce" data-label-en="Sweet look">
-        <span class="caption" data-it="Sguardo dolce" data-en="Sweet look">Sguardo dolce</span>
+        <img src="https://placehold.co/600x400?text=Foto+4"
+             alt="Foto 4"
+             data-label-it="Sguardo dolce"
+             data-label-en="Sweet look">
+        <span class="caption"
+              data-it="Sguardo dolce"
+              data-en="Sweet look">Sguardo dolce</span>
       </div>
+
     </div>
   </section>
 
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox hidden">
     <img id="lightbox-img" src="">
     <p id="lightbox-caption"></p>
   </div>
 
+  <!-- ===========================
+       PRENOTAZIONI
+  ============================ -->
   <section id="prenotazioni">
     <h2 data-it="Prenotazioni" data-en="Reservations">Prenotazioni</h2>
 
@@ -352,6 +484,9 @@
     </form>
   </section>
 
+  <!-- ===========================
+       CONTATTI
+  ============================ -->
   <section id="contatti">
     <h2 data-it="Contatti" data-en="Contacts">Contatti</h2>
     <p data-it="Email: info@bobtailcuccioli.it" data-en="Email: info@bobtailcuccioli.it">
@@ -362,71 +497,8 @@
     </p>
   </section>
 
+  <!-- ===========================
+       FOOTER
+  ============================ -->
   <footer data-it="© 2025 Cucciolata Bobtail – Tutti i diritti riservati"
-          data-en="© 2025 Bobtail Litter – All rights reserved">
-    © 2025 Cucciolata Bobtail – Tutti i diritti riservati
-  </footer>
-
-  <script>
-    const selector = document.getElementById("lang-select");
-    const body = document.body;
-
-    /* Fade + language switch */
-    selector.addEventListener("change", () => {
-      body.classList.add("fade-out");
-
-      setTimeout(() => {
-        const lang = selector.value;
-
-        document.querySelectorAll("[data-it]").forEach(el => {
-          el.textContent = el.getAttribute(`data-${lang}`);
-        });
-
-        /* Update captions inside gallery */
-        document.querySelectorAll(".photo img").forEach(img => {
-          const label = img.getAttribute(`data-label-${lang}`);
-          img.parentElement.querySelector(".caption").textContent = label;
-        });
-
-        body.classList.remove("fade-out");
-        body.classList.add("fade-in");
-      }, 300);
-    });
-
-    /* Lightbox cinematic */
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-
-    document.querySelectorAll(".photo img").forEach(img => {
-      img.addEventListener("click", () => {
-        const lang = selector.value;
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.getAttribute(`data-label-${lang}`);
-        lightbox.classList.remove("hidden");
-        setTimeout(() => lightbox.classList.add("visible"), 10);
-      });
-    });
-
-    lightbox.addEventListener("click", () => {
-      lightbox.classList.remove("visible");
-      setTimeout(() => lightbox.classList.add("hidden"), 300);
-    });
-
-    /* Dynamic redirect for Formspree */
-    const form = document.getElementById("contact-form");
-    const redirectField = document.getElementById("redirect-field");
-
-    form.addEventListener("submit", () => {
-      const lang = selector.value;
-
-      if (lang === "it") {
-        redirectField.value = "https://devismazzucco.github.io/Isotta/grazie.html";
-      } else {
-        redirectField.value = "https://devismazzucco.github.io/Isotta/thanks.html";
-      }
-    });
-  </script>
-
-</body>
-</html>
+          data
