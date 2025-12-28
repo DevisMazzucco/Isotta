@@ -8,13 +8,13 @@
   <style>
 
     /* ===========================
-       PALETTE COLORI (NUOVA)
+       PALETTE COLORI INTER
     ============================ */
     :root {
-      --accent-blue: #1e6fa8;          /* blu più scuro */
-      --accent-blue-strong: #2f8fc7;   /* blu più brillante */
-      --accent-yellow: #ffd34e;        /* giallo intenso */
-      --accent-yellow-soft: #ffe9a3;   /* giallo chiaro */
+      --inter-blue: #010E80;
+      --inter-blue-strong: #0A1CB8;
+      --inter-gold: #A39261;
+      --inter-gold-soft: #C8B78A;
     }
 
     /* ===========================
@@ -24,7 +24,7 @@
       font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #0f0f0f;
+      background: #000000;
       color: #e6e6e6;
       transition: opacity 0.4s ease;
     }
@@ -32,7 +32,6 @@
     .fade-out { opacity: 0; }
     .fade-in { opacity: 1; }
 
-    /* Offset automatico per sezioni (per header sticky) */
     section {
       scroll-margin-top: 160px;
     }
@@ -41,39 +40,39 @@
        HEADER
     ============================ */
     header {
-      background: #1a1a1a;
+      background: #000000;
       padding: 25px;
       text-align: center;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #111;
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 0 12px rgba(30, 111, 168, 0.25);
+      box-shadow: 0 0 12px rgba(1, 14, 128, 0.4);
     }
 
     header h1 {
       margin: 0;
       font-size: 2.2em;
-      color: #ffffff;
+      color: white;
       letter-spacing: 1px;
     }
 
     nav a {
       margin: 0 18px;
       text-decoration: none;
-      color: #bbbbbb;
+      color: #cccccc;
       font-size: 1.1em;
       transition: 0.2s;
     }
 
-    nav a:hover { color: #ffffff; }
+    nav a:hover { color: white; }
 
     #lang-select {
       margin-top: 15px;
       padding: 8px 14px;
-      background: #2a2a2a;
+      background: #111;
       color: white;
-      border: 1px solid #444;
+      border: 1px solid #333;
       border-radius: 6px;
       font-size: 1em;
     }
@@ -89,7 +88,7 @@
       align-items: center;
       justify-content: center;
       color: white;
-      text-shadow: 0 0 12px rgba(0,0,0,0.8);
+      text-shadow: 0 0 12px black;
       font-size: 2.4em;
       font-weight: 600;
       letter-spacing: 1px;
@@ -106,13 +105,13 @@
     ============================ */
     section {
       padding: 50px;
-      background: #141414;
+      background: #0A0A0A;
       margin: 30px auto;
       width: 85%;
       max-width: 900px;
       border-radius: 18px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.4);
-      border: 1px solid #222;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      border: 1px solid #111;
       animation: sectionFade 0.8s ease-out;
     }
 
@@ -122,10 +121,10 @@
     }
 
     h2 {
-      color: #ffffff;
+      color: white;
       font-size: 1.9em;
       margin-bottom: 15px;
-      border-left: 4px solid var(--accent-blue);
+      border-left: 4px solid var(--inter-blue);
       padding-left: 12px;
       position: relative;
     }
@@ -137,7 +136,7 @@
       left: 0;
       width: 60px;
       height: 3px;
-      background: var(--accent-yellow);
+      background: var(--inter-gold);
       border-radius: 2px;
     }
 
@@ -155,17 +154,17 @@
       padding: 12px;
       margin-top: 6px;
       margin-bottom: 22px;
-      border: 1px solid #444;
+      border: 1px solid #333;
       border-radius: 8px;
       font-size: 1em;
-      background: #1f1f1f;
+      background: #111;
       color: #e6e6e6;
     }
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 6px var(--accent-blue);
+      border-color: var(--inter-blue);
+      box-shadow: 0 0 6px var(--inter-blue);
     }
 
     /* ===========================
@@ -174,7 +173,7 @@
     button {
       position: relative;
       overflow: hidden;
-      background: var(--accent-blue);
+      background: var(--inter-blue);
       color: white;
       padding: 14px 28px;
       border: none;
@@ -183,7 +182,7 @@
       cursor: pointer;
       transition: 0.2s;
       font-weight: 600;
-      box-shadow: 0 0 12px rgba(30, 111, 168, 0.35);
+      box-shadow: 0 0 12px rgba(1, 14, 128, 0.4);
     }
 
     button::before {
@@ -193,9 +192,9 @@
       border-radius: 12px;
       padding: 2px;
       background: linear-gradient(120deg,
-        var(--accent-blue),
-        var(--accent-yellow),
-        var(--accent-blue)
+        var(--inter-blue),
+        var(--inter-gold),
+        var(--inter-blue)
       );
       background-size: 300% 300%;
       animation: glowBorder 4s ease infinite;
@@ -213,8 +212,8 @@
     }
 
     button:hover {
-      background: var(--accent-blue-strong);
-      box-shadow: 0 0 16px rgba(255, 211, 78, 0.45);
+      background: var(--inter-blue-strong);
+      box-shadow: 0 0 16px rgba(163, 146, 97, 0.45);
     }
 
     /* ===========================
@@ -231,8 +230,8 @@
       position: relative;
       overflow: hidden;
       border-radius: 14px;
-      border: 1px solid #333;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      border: 1px solid #222;
+      box-shadow: 0 0 18px rgba(0,0,0,0.5);
       animation: photoFade 1s ease-out;
     }
 
@@ -252,7 +251,7 @@
     .photo:hover img {
       transform: scale(1.08);
       filter: brightness(1.18);
-      box-shadow: 0 0 18px rgba(30, 111, 168, 0.45);
+      box-shadow: 0 0 18px rgba(1, 14, 128, 0.45);
     }
 
     .photo.wide { grid-column: span 2; }
@@ -266,7 +265,7 @@
       background: linear-gradient(
         to top,
         rgba(0,0,0,0.75),
-        rgba(255, 211, 78, 0.15)
+        rgba(163, 146, 97, 0.15)
       );
       color: #e6e6e6;
       font-size: 1em;
@@ -274,7 +273,7 @@
     }
 
     /* ===========================
-       LIGHTBOX CINEMATICO
+       LIGHTBOX
     ============================ */
     .lightbox {
       position: fixed;
@@ -300,7 +299,7 @@
       margin-bottom: 20px;
       box-shadow:
         0 0 40px rgba(0,0,0,0.8),
-        0 0 25px rgba(255, 211, 78, 0.25);
+        0 0 25px rgba(163, 146, 97, 0.25);
       animation: cinematicZoom .6s ease-out;
     }
 
@@ -329,10 +328,10 @@
     footer {
       text-align: center;
       padding: 25px;
-      background: #1a1a1a;
+      background: #000000;
       color: #888;
       margin-top: 40px;
-      border-top: 1px solid rgba(255, 211, 78, 0.35);
+      border-top: 1px solid rgba(163, 146, 97, 0.35);
     }
 
   </style>
@@ -502,78 +501,4 @@
   ============================ -->
   <footer data-it="© 2025 Cucciolata Bobtail – Tutti i diritti riservati"
           data-en="© 2025 Bobtail Litter – All rights reserved">
-    © 2025 Cucciolata Bobtail – Tutti i diritti riservati
-  </footer>
-
-  <!-- ===========================
-       SCRIPT
-  ============================ -->
-  <script>
-    const selector = document.getElementById("lang-select");
-    const body = document.body;
-
-    // Traduzione + fade
-    selector.addEventListener("change", () => {
-      body.classList.add("fade-out");
-
-      setTimeout(() => {
-        const lang = selector.value;
-
-        // Traduzione robusta di tutti gli elementi con data-it / data-en
-        document.querySelectorAll("[data-it]").forEach(el => {
-          const newText = el.getAttribute(`data-${lang}`);
-          if (newText !== null && newText !== "") {
-            el.textContent = newText;
-          }
-        });
-
-        // Aggiornamento etichette della galleria
-        document.querySelectorAll(".photo img").forEach(img => {
-          const label = img.getAttribute(`data-label-${lang}`);
-          if (label) {
-            const caption = img.parentElement.querySelector(".caption");
-            if (caption) caption.textContent = label;
-          }
-        });
-
-        body.classList.remove("fade-out");
-        body.classList.add("fade-in");
-      }, 300);
-    });
-
-    // Lightbox cinematico
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-
-    document.querySelectorAll(".photo img").forEach(img => {
-      img.addEventListener("click", () => {
-        const lang = selector.value;
-        lightboxImg.src = img.src;
-        lightboxCaption.textContent = img.getAttribute(`data-label-${lang}`);
-        lightbox.classList.remove("hidden");
-        setTimeout(() => lightbox.classList.add("visible"), 10);
-      });
-    });
-
-    lightbox.addEventListener("click", () => {
-      lightbox.classList.remove("visible");
-      setTimeout(() => lightbox.classList.add("hidden"), 300);
-    });
-
-    // Redirect dinamico Formspree
-    const form = document.getElementById("contact-form");
-    const redirectField = document.getElementById("redirect-field");
-
-    form.addEventListener("submit", () => {
-      const lang = selector.value;
-      if (lang === "it") {
-        redirectField.value = "https://devismazzucco.github.io/Isotta/grazie.html";
-      } else {
-        redirectField.value = "https://devismazzucco.github.io/Isotta/thanks.html";
-      }
-    });
-  </script>
-
-</body>
-</html>
+    © 2025 Cucciolata Bobtail – Tut
