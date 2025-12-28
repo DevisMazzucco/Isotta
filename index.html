@@ -434,33 +434,71 @@
        SCRIPT
   ============================ -->
   <script>
-    const selector = document.getElementById("lang-select");
-    const body = document.body;
+  const selector = document.getElementById("lang-select");
+  const body = document.body;
 
-    selector.addEventListener("change", () => {
-      body.classList.add("fade-out");
+  // DEBUG: verifica che trovi il select
+  console.log("Lang select:", selector);
 
-      setTimeout(() => {
-        const lang = selector.value;
+  selector.addEventListener("change", () => {
+    const lang = selector.value;
+    console.log("Cambio lingua a:", lang);
 
-        document.querySelectorAll("[data-it]").forEach(el => {
-          const newText = el.getAttribute(`data-${lang}`);
-          if (newText) el.textContent = newText;
-        });
+    body.classList.add("fade-out");
 
-        document.querySelectorAll(".photo img").forEach(img => {
-          const label = img.getAttribute(`data-label-${lang}`);
-          if (label) {
-            const caption = img.parentElement.querySelector(".caption");
-            if (caption) caption.textContent = label;
-          }
-        });
+    setTimeout(() => {
+      // Traduzione testi con data-it / data-en
+      document.querySelectorAll("[data-it]").forEach(el => {
+        const newText = el.getAttribute(`data-${lang}`);
+        if (newText) {
+          el.textContent = newText;
+        }
+      });
 
-        body.classList.remove("fade-out");
-        body.classList.add("fade-in");
-      }, 300);
+      // Traduzione etichette delle immagini (galleria)
+      document.querySelectorAll(".photo img").forEach(img => {
+        const label = img.getAttribute(`data-label-${lang}`);
+        if (label) {
+          const caption = img.parentElement.querySelector(".caption");
+          if (caption) caption.textContent = label;
+        }
+      });
+
+      body.classList.remove("fade-out");
+      body.classList.add("fade-in");
+    }, 300);
+  });
+
+  // LIGHTBOX
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+
+  document.querySelectorAll(".photo img").forEach(img => {
+    img.addEventListener("click", () => {
+      const lang = selector.value;
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.getAttribute(`data-label-${lang}`);
+      lightbox.classList.remove("hidden");
+      setTimeout(() => lightbox.classList.add("visible"), 10);
     });
+  });
 
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxCaption = document.getElementById
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("visible");
+    setTimeout(() => lightbox.classList.add("hidden"), 300);
+  });
+
+  // REDIRECT FORM
+  const form = document.getElementById("contact-form");
+  const redirectField = document.getElementById("redirect-field");
+
+  form.addEventListener("submit", () => {
+    const lang = selector.value;
+    if (lang === "it") {
+      redirectField.value = "https://devismazzucco.github.io/Isotta/grazie.html";
+    } else {
+      redirectField.value = "https://devismazzucco.github.io/Isotta/thanks.html";
+    }
+  });
+</script>
