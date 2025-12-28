@@ -4,19 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cucciolata Bobtail in arrivo</title>
+
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; }
-    header { background:#f2f2f2; text-align:center; padding:20px; }
-    nav a { margin:0 15px; text-decoration:none; color:#333; }
-    .hero { background:url('bobtail.jpg') no-repeat center; background-size:cover; height:400px; display:flex; align-items:center; justify-content:center; color:white; font-size:2em; }
-    section { padding:40px; }
-    footer { background:#333; color:white; text-align:center; padding:20px; }
-    button { background:#0077cc; color:white; padding:10px 20px; border:none; cursor:pointer; }
+    body {
+      font-family: "Comic Sans MS", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #dff7ff, #fff4e6);
+    }
+
+    header {
+      background: #ffffffaa;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #444;
+      font-size: 1.1em;
+    }
+
+    .hero {
+      background: url('bobtail.jpg') no-repeat center;
+      background-size: cover;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      font-size: 2.2em;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 40px;
+      background: #ffffffdd;
+      margin: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #ff8c94;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    form label {
+      font-size: 1.1em;
+      color: #444;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 20px;
+      border: 2px solid #ffd1dc;
+      border-radius: 10px;
+      font-size: 1em;
+      background: #fffafc;
+    }
+
+    button {
+      background: #6ec6ff;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #4aaee8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #ffffffaa;
+      margin-top: 40px;
+      font-size: 1em;
+      color: #666;
+    }
   </style>
 </head>
+
 <body>
+
   <header>
-    <h1>Dolci Bobtail in arrivo</h1>
+    <h1>Dolci Bobtail in arrivo 🐶💖</h1>
     <nav>
       <a href="#chi-siamo">Chi siamo</a>
       <a href="#cucciolata">La cucciolata</a>
@@ -26,37 +117,60 @@
   </header>
 
   <div class="hero">
-    <p>Scopri i nostri cuccioli Bobtail!</p>
+    I nostri cuccioli stanno arrivando!
   </div>
 
   <section id="chi-siamo">
     <h2>Chi siamo</h2>
-    <p>Ci prendiamo cura dei nostri Bobtail con amore e dedizione, garantendo salute e pedigree certificato.</p>
+    <p>
+      Siamo una famiglia che cresce Bobtail con amore, dolcezza e dedizione.
+      I nostri cuccioli crescono in un ambiente sereno, coccolati e seguiti giorno per giorno.
+    </p>
   </section>
 
   <section id="cucciolata">
     <h2>La cucciolata</h2>
-    <p>I cuccioli nasceranno a gennaio 2026. Prenota subito per assicurarti il tuo compagno di vita!</p>
+    <p>
+      I cuccioli nasceranno a gennaio 2026.  
+      Saranno disponibili poche prenotazioni: ogni cucciolo merita la famiglia perfetta.
+    </p>
   </section>
 
   <section id="prenotazioni">
     <h2>Prenotazioni</h2>
-    <form>
-      <label>Nome: <input type="text" name="nome"></label><br><br>
-      <label>Email: <input type="email" name="email"></label><br><br>
-      <label>Telefono: <input type="tel" name="telefono"></label><br><br>
-      <button type="submit">Prenota ora</button>
+
+    <form action="https://formspree.io/f/abcd1234" method="POST">
+      <input type="hidden" name="_redirect" value="https://devismazzucco.github.io/Isotta/grazie.html">
+
+      <label>Nome:
+        <input type="text" name="nome" required>
+      </label>
+
+      <label>Email:
+        <input type="email" name="email" required>
+      </label>
+
+      <label>Telefono:
+        <input type="tel" name="telefono" required>
+      </label>
+
+      <label>Messaggio:
+        <textarea name="messaggio" placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
+      </label>
+
+      <button type="submit">Prenota ora 🐾</button>
     </form>
   </section>
 
   <section id="contatti">
     <h2>Contatti</h2>
-    <p>Email: Devis.Mazzucco@gmail.com</p>
-    <p>Telefono: +39 333 5067861</p>
+    <p>Email: info@bobtailcuccioli.it</p>
+    <p>Telefono: +39 333 1234567</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Cucciolata Bobtail - Tutti i diritti riservati</p>
+    © 2025 Cucciolata Bobtail – Tutti i diritti riservati
   </footer>
+
 </body>
 </html>
