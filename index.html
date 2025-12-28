@@ -8,13 +8,13 @@
   <style>
 
     /* ===========================
-       PALETTE COLORI
+       PALETTE COLORI (NUOVA)
     ============================ */
     :root {
-      --accent-blue: #4aaee8;
-      --accent-blue-strong: #6bc6ff;
-      --accent-yellow: #f2d675;
-      --accent-yellow-soft: #f7e7b0;
+      --accent-blue: #1e6fa8;          /* blu più scuro */
+      --accent-blue-strong: #2f8fc7;   /* blu più brillante */
+      --accent-yellow: #ffd34e;        /* giallo intenso */
+      --accent-yellow-soft: #ffe9a3;   /* giallo chiaro */
     }
 
     /* ===========================
@@ -48,7 +48,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 0 12px rgba(74, 174, 232, 0.25);
+      box-shadow: 0 0 12px rgba(30, 111, 168, 0.25);
     }
 
     header h1 {
@@ -183,7 +183,7 @@
       cursor: pointer;
       transition: 0.2s;
       font-weight: 600;
-      box-shadow: 0 0 12px rgba(74, 174, 232, 0.35);
+      box-shadow: 0 0 12px rgba(30, 111, 168, 0.35);
     }
 
     button::before {
@@ -214,7 +214,7 @@
 
     button:hover {
       background: var(--accent-blue-strong);
-      box-shadow: 0 0 16px rgba(242, 214, 117, 0.45);
+      box-shadow: 0 0 16px rgba(255, 211, 78, 0.45);
     }
 
     /* ===========================
@@ -252,7 +252,7 @@
     .photo:hover img {
       transform: scale(1.08);
       filter: brightness(1.18);
-      box-shadow: 0 0 18px rgba(74, 174, 232, 0.45);
+      box-shadow: 0 0 18px rgba(30, 111, 168, 0.45);
     }
 
     .photo.wide { grid-column: span 2; }
@@ -266,7 +266,7 @@
       background: linear-gradient(
         to top,
         rgba(0,0,0,0.75),
-        rgba(242, 214, 117, 0.15)
+        rgba(255, 211, 78, 0.15)
       );
       color: #e6e6e6;
       font-size: 1em;
@@ -300,7 +300,7 @@
       margin-bottom: 20px;
       box-shadow:
         0 0 40px rgba(0,0,0,0.8),
-        0 0 25px rgba(242, 214, 117, 0.25);
+        0 0 25px rgba(255, 211, 78, 0.25);
       animation: cinematicZoom .6s ease-out;
     }
 
@@ -332,7 +332,7 @@
       background: #1a1a1a;
       color: #888;
       margin-top: 40px;
-      border-top: 1px solid rgba(242, 214, 117, 0.35);
+      border-top: 1px solid rgba(255, 211, 78, 0.35);
     }
 
   </style>
@@ -502,3 +502,4 @@
   ============================ -->
   <footer data-it="© 2025 Cucciolata Bobtail – Tutti i diritti riservati"
           data
+
