@@ -12,6 +12,15 @@
       padding: 0;
       background: #0f0f0f;
       color: #e6e6e6;
+      transition: opacity 0.4s ease;
+    }
+
+    /* Fade animation */
+    .fade-out {
+      opacity: 0;
+    }
+    .fade-in {
+      opacity: 1;
     }
 
     header {
@@ -139,7 +148,7 @@
   </style>
 </head>
 
-<body>
+<body class="fade-in">
 
   <header>
     <h1 data-it="Cucciolata Bobtail – Eleganza & Dolcezza"
@@ -185,8 +194,8 @@
   <section id="prenotazioni">
     <h2 data-it="Prenotazioni" data-en="Reservations">Prenotazioni</h2>
 
-    <form action="https://formspree.io/f/mgoezdgl" method="POST">
-      <input type="hidden" name="_redirect" value="https://devismazzucco.github.io/Isotta/grazie.html">
+    <form id="contact-form" action="https://formspree.io/f/mgoezdgl" method="POST">
+      <input type="hidden" name="_redirect" id="redirect-field" value="">
 
       <label data-it="Nome:" data-en="Name:">Nome:</label>
       <input type="text" name="nome" required>
@@ -225,14 +234,39 @@
 
   <script>
     const selector = document.getElementById("lang-select");
+    const body = document.body;
 
+    // Fade + language switch
     selector.addEventListener("change", () => {
+      body.classList.add("fade-out");
+
+      setTimeout(() => {
+        const lang = selector.value;
+
+        document.querySelectorAll("[data-it]").forEach(el => {
+          el.textContent = el.getAttribute(`data-${lang}`);
+        });
+
+        body.classList.remove("fade-out");
+        body.classList.add("fade-in");
+      }, 300);
+    });
+
+    // Dynamic redirect for Formspree
+    const form = document.getElementById("contact-form");
+    const redirectField = document.getElementById("redirect-field");
+
+    form.addEventListener("submit", () => {
       const lang = selector.value;
-      document.querySelectorAll("[data-it]").forEach(el => {
-        el.textContent = el.getAttribute(`data-${lang}`);
-      });
+
+      if (lang === "it") {
+        redirectField.value = "https://devismazzucco.github.io/Isotta/grazie.html";
+      } else {
+        redirectField.value = "https://devismazzucco.github.io/Isotta/thanks.html";
+      }
     });
   </script>
 
 </body>
 </html>
+
