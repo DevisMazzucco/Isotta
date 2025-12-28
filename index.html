@@ -189,10 +189,16 @@
       inset: 0;
       border-radius: 12px;
       padding: 2px;
-      background: linear-gradient(120deg, var(--accent-blue), var(--accent-yellow), var(--accent-blue));
+      background: linear-gradient(120deg,
+        var(--accent-blue),
+        var(--accent-yellow),
+        var(--accent-blue)
+      );
       background-size: 300% 300%;
       animation: glowBorder 4s ease infinite;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
               mask-composite: exclude;
     }
@@ -209,7 +215,7 @@
     }
 
     /* ===========================
-       GALLERIA GENITORI
+       GALLERIA
     ============================ */
     .gallery {
       display: grid;
@@ -251,7 +257,11 @@
       bottom: 0;
       width: 100%;
       padding: 10px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(163,146,97,0.15));
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.75),
+        rgba(163, 146, 97, 0.15)
+      );
       color: #e6e6e6;
       font-size: 1em;
       text-shadow: 0 0 6px black;
@@ -282,7 +292,9 @@
       max-height: 70vh;
       border-radius: 12px;
       margin-bottom: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.8), 0 0 25px rgba(163,146,97,0.25);
+      box-shadow:
+        0 0 40px rgba(0,0,0,0.8),
+        0 0 25px rgba(163, 146, 97, 0.25);
       animation: cinematicZoom .6s ease-out;
     }
 
@@ -314,7 +326,7 @@
       background: #1a1a1a;
       color: #888;
       margin-top: 40px;
-      border-top: 1px solid rgba(163,146,97,0.35);
+      border-top: 1px solid rgba(163, 146, 97, 0.35);
     }
 
   </style>
@@ -326,11 +338,13 @@
        HEADER
   ============================ -->
   <header>
-    <h1 data-it="Cucciolata Bobtail – Eleganza & Dolcezza" data-en="Bobtail Litter – Elegance & Sweetness">Cucciolata Bobtail – Eleganza & Dolcezza</h1>
+    <h1 data-it="Cucciolata Bobtail – Eleganza & Dolcezza"
+        data-en="Bobtail Litter – Elegance & Sweetness">Cucciolata Bobtail – Eleganza & Dolcezza</h1>
 
     <nav>
       <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
       <a href="#cucciolata" data-it="La cucciolata" data-en="The litter">La cucciolata</a>
+      <a href="#fotografie" data-it="Fotografie" data-en="Photos">Fotografie</a>
       <a href="#genitori" data-it="Genitori" data-en="Parents">Genitori</a>
       <a href="#prenotazioni" data-it="Prenotazioni" data-en="Reservations">Prenotazioni</a>
       <a href="#contatti" data-it="Contatti" data-en="Contacts">Contatti</a>
@@ -345,14 +359,17 @@
   <!-- ===========================
        HERO
   ============================ -->
-  <div class="hero" data-it="I nostri Bobtail stanno arrivando" data-en="Our Bobtails are on the way">I nostri Bobtail stanno arrivando</div>
+  <div class="hero"
+       data-it="I nostri Bobtail stanno arrivando"
+       data-en="Our Bobtails are on the way">I nostri Bobtail stanno arrivando</div>
 
   <!-- ===========================
        CHI SIAMO
   ============================ -->
   <section id="chi-siamo">
     <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
-    <p data-it="Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto." data-en="We raise Bobtails with passion, care and professionalism. Each puppy grows in a calm environment, loved and followed day by day.">Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto.</p>
+    <p data-it="Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto."
+       data-en="We raise Bobtails with passion, care and professionalism. Each puppy grows in a calm environment, loved and followed day by day.">Cresciamo Bobtail con passione, cura e professionalità. Ogni cucciolo nasce in un ambiente sereno, seguito con attenzione e affetto.</p>
   </section>
 
   <!-- ===========================
@@ -360,7 +377,61 @@
   ============================ -->
   <section id="cucciolata">
     <h2 data-it="La cucciolata" data-en="The litter">La cucciolata</h2>
-    <p data-it="I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale." data-en="The puppies will be born in January 2026. Only a few reservations will be available to ensure each puppy finds the perfect family.">I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale.</p>
+    <p data-it="I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale."
+       data-en="The puppies will be born in January 2026. Only a few reservations will be available to ensure each puppy finds the perfect family.">I cuccioli nasceranno a gennaio 2026. Saranno disponibili poche prenotazioni per garantire ad ogni cucciolo la famiglia ideale.</p>
+  </section>
+
+  <!-- ===========================
+       FOTOGRAFIE
+  ============================ -->
+  <section id="fotografie">
+    <h2 data-it="Fotografie" data-en="Photos">Fotografie</h2>
+    <p data-it="Alcuni momenti speciali dei nostri Bobtail."
+       data-en="Some special moments of our Bobtails.">Alcuni momenti speciali dei nostri Bobtail.</p>
+
+    <div class="gallery">
+
+      <div class="photo">
+        <img src="https://placehold.co/600x400?text=Foto+1"
+             alt="Foto 1"
+             data-label-it="Cucciolo curioso"
+             data-label-en="Curious puppy">
+        <span class="caption"
+              data-it="Cucciolo curioso"
+              data-en="Curious puppy">Cucciolo curioso</span>
+      </div>
+
+      <div class="photo">
+        <img src="https://placehold.co/600x400?text=Foto+2"
+             alt="Foto 2"
+             data-label-it="Momento di gioco"
+             data-label-en="Playtime moment">
+        <span class="caption"
+              data-it="Momento di gioco"
+              data-en="Playtime moment">Momento di gioco</span>
+      </div>
+
+      <div class="photo">
+        <img src="https://placehold.co/600x400?text=Foto+3"
+             alt="Foto 3"
+             data-label-it="Sguardo dolce"
+             data-label-en="Sweet look">
+        <span class="caption"
+              data-it="Sguardo dolce"
+              data-en="Sweet look">Sguardo dolce</span>
+      </div>
+
+      <div class="photo">
+        <img src="https://placehold.co/600x400?text=Foto+4"
+             alt="Foto 4"
+             data-label-it="Bobtail in posa"
+             data-label-en="Bobtail posing">
+        <span class="caption"
+              data-it="Bobtail in posa"
+              data-en="Bobtail posing">Bobtail in posa</span>
+      </div>
+
+    </div>
   </section>
 
   <!-- ===========================
@@ -368,18 +439,29 @@
   ============================ -->
   <section id="genitori">
     <h2 data-it="Genitori" data-en="Parents">Genitori</h2>
-    <p data-it="I genitori dei cuccioli: mamma e papà Bobtail." data-en="The parents of the puppies: mother and father Bobtail.">I genitori dei cuccioli: mamma e papà Bobtail.</p>
+    <p data-it="I genitori dei cuccioli: mamma e papà Bobtail."
+       data-en="The parents of the puppies: mother and father Bobtail.">I genitori dei cuccioli: mamma e papà Bobtail.</p>
 
     <div class="gallery">
 
       <div class="photo">
-        <img src="https://placehold.co/600x400?text=Mamma" alt="Mamma Bobtail" data-label-it="Mamma Bobtail" data-label-en="Bobtail mother">
-        <span class="caption" data-it="Mamma Bobtail" data-en="Bobtail mother">Mamma Bobtail</span>
+        <img src="https://placehold.co/600x400?text=Mamma"
+             alt="Mamma Bobtail"
+             data-label-it="Mamma Bobtail"
+             data-label-en="Bobtail mother">
+        <span class="caption"
+              data-it="Mamma Bobtail"
+              data-en="Bobtail mother">Mamma Bobtail</span>
       </div>
 
       <div class="photo">
-        <img src="https://placehold.co/600x400?text=Papa" alt="Papà Bobtail" data-label-it="Papà Bobtail" data-label-en="Bobtail father">
-        <span class="caption" data-it="Papà Bobtail" data-en="Bobtail father">Papà Bobtail</span>
+        <img src="https://placehold.co/600x400?text=Papa"
+             alt="Papà Bobtail"
+             data-label-it="Papà Bobtail"
+             data-label-en="Bobtail father">
+        <span class="caption"
+              data-it="Papà Bobtail"
+              data-en="Bobtail father">Papà Bobtail</span>
       </div>
 
     </div>
@@ -410,95 +492,4 @@
       <input type="tel" name="telefono" required>
 
       <label data-it="Messaggio:" data-en="Message:">Messaggio:</label>
-      <textarea name="messaggio" placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
-
-      <button type="submit" data-it="Prenota ora" data-en="Book now">Prenota ora</button>
-    </form>
-  </section>
-
-  <!-- ===========================
-       CONTATTI
-  ============================ -->
-  <section id="contatti">
-    <h2 data-it="Contatti" data-en="Contacts">Contatti</h2>
-    <p data-it="Email: info@bobtailcuccioli.it" data-en="Email: info@bobtailcuccioli.it">Email: info@bobtailcuccioli.it</p>
-    <p data-it="Telefono: +39 333 1234567" data-en="Phone: +39 333 1234567">Telefono: +39 333 1234567</p>
-  </section>
-
-  <!-- ===========================
-       FOOTER
-  ============================ -->
-  <footer data-it="© 2025 Cucciolata Bobtail – Tutti i diritti riservati" data-en="© 2025 Bobtail Litter – All rights reserved">© 2025 Cucciolata Bobtail – Tutti i diritti riservati</footer>
-
-  <!-- ===========================
-       SCRIPT
-  ============================ -->
-  <script>
-  const selector = document.getElementById("lang-select");
-  const body = document.body;
-
-  // DEBUG: verifica che trovi il select
-  console.log("Lang select:", selector);
-
-  selector.addEventListener("change", () => {
-    const lang = selector.value;
-    console.log("Cambio lingua a:", lang);
-
-    body.classList.add("fade-out");
-
-    setTimeout(() => {
-      // Traduzione testi con data-it / data-en
-      document.querySelectorAll("[data-it]").forEach(el => {
-        const newText = el.getAttribute(`data-${lang}`);
-        if (newText) {
-          el.textContent = newText;
-        }
-      });
-
-      // Traduzione etichette delle immagini (galleria)
-      document.querySelectorAll(".photo img").forEach(img => {
-        const label = img.getAttribute(`data-label-${lang}`);
-        if (label) {
-          const caption = img.parentElement.querySelector(".caption");
-          if (caption) caption.textContent = label;
-        }
-      });
-
-      body.classList.remove("fade-out");
-      body.classList.add("fade-in");
-    }, 300);
-  });
-
-  // LIGHTBOX
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-
-  document.querySelectorAll(".photo img").forEach(img => {
-    img.addEventListener("click", () => {
-      const lang = selector.value;
-      lightboxImg.src = img.src;
-      lightboxCaption.textContent = img.getAttribute(`data-label-${lang}`);
-      lightbox.classList.remove("hidden");
-      setTimeout(() => lightbox.classList.add("visible"), 10);
-    });
-  });
-
-  lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("visible");
-    setTimeout(() => lightbox.classList.add("hidden"), 300);
-  });
-
-  // REDIRECT FORM
-  const form = document.getElementById("contact-form");
-  const redirectField = document.getElementById("redirect-field");
-
-  form.addEventListener("submit", () => {
-    const lang = selector.value;
-    if (lang === "it") {
-      redirectField.value = "https://devismazzucco.github.io/Isotta/grazie.html";
-    } else {
-      redirectField.value = "https://devismazzucco.github.io/Isotta/thanks.html";
-    }
-  });
-</script>
+      <
