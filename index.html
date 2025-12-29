@@ -7,23 +7,12 @@
 
   <style>
 
-/* Miniature più piccole per le foto del papà */
+/* Evita il crop nelle miniature del papà */
 .photo img[src*="papa-"] {
-  transform: scale(0.7);
-  transform-origin: center;
-}
-
-/* Miniature più piccole per le foto del mamma */
-.photo img[src*="mamma-"] {
-  transform: scale(0.7);
-  transform-origin: center;
-}
-
-    
-.photo img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  background: #000; /* opzionale, evita bande trasparenti */
 }
 
     
@@ -605,6 +594,7 @@
 
 </body>
 </html>
+
 
 
 
