@@ -257,7 +257,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-align: center;
       padding: 20px;
       z-index: 999;
       opacity: 0;
@@ -290,7 +290,11 @@
   </style>
 </head>
 
-<body class="fade-in">
+
+
+
+
+  <body class="fade-in">
 
   <!-- ===========================
        HEADER
@@ -472,26 +476,105 @@
     © 2025 Cucciolata Bobtail – Tutti i diritti riservati
   </footer>
 
-  <!-- ===========================
-       SCRIPT
-  ============================ -->
+
+
+
+
   <script>
 
-    const selector = document.getElementById("lang-select");
-    const body = document.body;
+  const selector = document.getElementById("lang-select");
+  const body = document.body;
 
-    /* ===========================
+  /* ===========================
        CAMBIO LINGUA
-    ============================ */
-    selector.addEventListener("change", () => {
+  ============================ */
+  selector.addEventListener("change", () => {
+    const lang = selector.value;
+
+    body.classList.add("fade-out");
+
+    setTimeout(() => {
+
+      // Cambia tutti gli elementi con data-it / data-en
+      document.querySelectorAll("[data-it]").forEach(el => {
+        const newText = el.getAttribute(`data-${lang}`);
+        if (!newText) return;
+
+        // Se è una textarea → cambia placeholder
+        if (el.tagName === "TEXTAREA") {
+          el.placeholder = newText;
+        } else {
+          el.textContent = newText;
+        }
+      });
+
+      // Aggiorna didascalie delle foto
+      document.querySelectorAll(".photo img").forEach(img => {
+        const label = img.getAttribute(`data-label-${lang}`);
+        if (label) {
+          const caption = img.parentElement.querySelector(".caption");
+          if (caption) caption.textContent = label;
+        }
+      });
+
+      body.classList.remove("fade-out");
+      body.classList.add("fade-in");
+
+    }, 300);
+  });
+
+  /* ===========================
+       LIGHTBOX
+  ============================ */
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+
+  document.querySelectorAll(".photo img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+
       const lang = selector.value;
+      const label = img.getAttribute(`data-label-${lang}`) || img.alt;
+      lightboxCaption.textContent = label;
 
-      body.classList.add("fade-out");
+      lightbox.classList.remove("hidden");
+      setTimeout(() => lightbox.classList.add("visible"), 10);
+    });
+  });
 
-      setTimeout(() => {
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("visible");
+    setTimeout(() => lightbox.classList.add("hidden"), 300);
+  });
 
-        document.querySelectorAll("[data-it]").forEach(el => {
-          const newText = el.getAttribute(`data-${lang}`);
-          if (!newText) return;
+  /* ===========================
+       REDIRECT FORM
+  ============================ */
+  const form = document.getElementById("contact-form");
+  const redirectField = document.getElementById("redirect-field");
 
-          if (el.tagName
+  form.addEventListener("submit", () => {
+    const lang = selector.value;
+    redirectField.value =
+      lang === "it"
+        ? "https://devismazzucco.github.io/Isotta/grazie.html"
+        : "https://devismazzucco.github.io/Isotta/thanks.html";
+  });
+
+  /* ===========================
+       SHRINK ON SCROLL
+  ============================ */
+  const header = document.querySelector("header.header-bg");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 80) {
+      header.classList.add("shrink");
+    } else {
+      header.classList.remove("shrink");
+    }
+  });
+
+</script>
+</body>
+</html>
