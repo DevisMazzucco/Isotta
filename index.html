@@ -7,30 +7,6 @@
 
   <style>
 
-/* Evita il crop nelle miniature del papà */
-.photo img[src*="papa-"] {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: #000; /* opzionale, evita bande trasparenti */
-}
-
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.header-img {
-  width: 100px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.4);
-}
-    
-    
     /* ===========================
        PALETTE COLORI INTER
     ============================ */
@@ -59,67 +35,75 @@
     section { scroll-margin-top: 160px; }
 
     /* ===========================
-       HEADER
+       HEADER CON SFONDO + OVERLAY
     ============================ */
-    header {
-      background: #1a1a1a;
-      padding: 25px;
-      text-align: center;
-      border-bottom: 1px solid #333;
+    header.header-bg {
       position: sticky;
       top: 0;
       z-index: 10;
+      text-align: center;
+      padding: 60px 25px 40px;
+      color: white;
+      border-bottom: 1px solid #333;
       box-shadow: 0 0 12px rgba(1, 14, 128, 0.35);
+
+      background: url('img/header-dog.jpeg') center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 {
+    /* Overlay sfumato nero */
+    header.header-bg::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.25)
+      );
+      z-index: 0;
+    }
+
+    header.header-bg * {
+      position: relative;
+      z-index: 1;
+    }
+
+    header.header-bg h1 {
       margin: 0;
-      font-size: 2.2em;
+      font-size: 2.4em;
       color: #ffffff;
       letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(0,0,0,0.7);
     }
 
-    nav a {
+    header.header-bg nav {
+      margin-top: 20px;
+    }
+
+    header.header-bg nav a {
       margin: 0 18px;
       text-decoration: none;
-      color: #bbbbbb;
+      color: #eeeeee;
       font-size: 1.1em;
       transition: 0.2s;
     }
 
-    nav a:hover { color: #ffffff; }
+    header.header-bg nav a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 6px rgba(255,255,255,0.4);
+    }
 
-    #lang-select {
+    header.header-bg #lang-select {
       margin-top: 15px;
       padding: 8px 14px;
-      background: #2a2a2a;
+      background: rgba(0,0,0,0.5);
       color: white;
       border: 1px solid #444;
       border-radius: 6px;
       font-size: 1em;
-    }
-
-    /* ===========================
-       HERO
-    ============================ */
-    .hero {
-      background: url('bobtail.jpg') no-repeat center;
-      background-size: cover;
-      height: 420px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 0 0 12px rgba(0,0,0,0.8);
-      font-size: 2.4em;
-      font-weight: 600;
-      letter-spacing: 1px;
-      animation: heroFade 2s ease-out;
-    }
-
-    @keyframes heroFade {
-      from { opacity: 0; transform: scale(1.05); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     /* ===========================
@@ -207,33 +191,13 @@
       box-shadow: 0 0 12px rgba(1, 14, 128, 0.35);
     }
 
-    button::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      padding: 2px;
-      background: linear-gradient(120deg, var(--accent-blue), var(--accent-yellow), var(--accent-blue));
-      background-size: 300% 300%;
-      animation: glowBorder 4s ease infinite;
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-    }
-
-    @keyframes glowBorder {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     button:hover {
       background: var(--accent-blue-strong);
-      box-shadow: 0 0 16px rgba(163, 146, 97, 0.45);
+      box-shadow: 0 0 16px rgba(163,146,97,0.45);
     }
 
     /* ===========================
-       GALLERIA GENITORI
+       GALLERIA
     ============================ */
     .gallery {
       display: grid;
@@ -264,10 +228,16 @@
       cursor: pointer;
     }
 
+    /* Evita crop per le foto del papà */
+    .photo img[src*="papa-"] {
+      height: auto;
+      object-fit: contain;
+      background: #000;
+    }
+
     .photo:hover img {
       transform: scale(1.08);
       filter: brightness(1.18);
-      box-shadow: 0 0 18px rgba(1, 14, 128, 0.45);
     }
 
     .caption {
@@ -310,22 +280,6 @@
       animation: cinematicZoom .6s ease-out;
     }
 
-    @keyframes cinematicZoom {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    .lightbox p {
-      font-size: 1.3em;
-      color: #e6e6e6;
-      animation: captionFade .8s ease-out;
-    }
-
-    @keyframes captionFade {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .lightbox.visible { opacity: 1; }
     .hidden { display: none; }
 
@@ -346,17 +300,13 @@
 
 <body class="fade-in">
 
-
-
   <!-- ===========================
-       HEADER
+       HEADER CON SFONDO + OVERLAY
   ============================ -->
- <div class="header-flex">
-  <img src="img/header.jpeg" alt="header" class="header-img">
-  <h1 data-it="Cucciolata Isotta Bobtail" data-en="Cucciolata Isotta Bobtail">
-    Cucciolata Isotta Bobtail
-  </h1>
-</div>
+  <header class="header-bg">
+    <h1 data-it="Cucciolata Isotta Bobtail" data-en="Cucciolata Isotta Bobtail">
+      Cucciolata Isotta Bobtail
+    </h1>
 
     <nav>
       <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
@@ -372,9 +322,7 @@
     </select>
   </header>
 
-
-  
-    <!-- ===========================
+  <!-- ===========================
        CHI SIAMO
   ============================ -->
   <section id="chi-siamo">
@@ -416,10 +364,7 @@
     </div>
   </section>
 
-
-
-
-    <!-- ===========================
+  <!-- ===========================
        GENITORI
   ============================ -->
   <section id="genitori">
@@ -431,68 +376,62 @@
 
     <div class="gallery">
 
-      <!-- ===========================
-           MAMMA (2 FOTO)
-      ============================ -->
+      <!-- MAMMA -->
       <div class="photo">
         <img src="img/mamma-1.jpeg"
-             alt="Etichetta Nera Ponyo Sulla Scogliera “Isotta”"
-             data-label-it="Etichetta Nera Ponyo Sulla Scogliera “Isotta”"
-             data-label-en="Etichetta Nera Ponyo Sulla Scogliera “Isotta”">
-        <span class="caption" data-it="Etichetta Nera Ponyo Sulla Scogliera “Isotta”" data-en="Etichetta Nera Ponyo Sulla Scogliera “Isotta”">Etichetta Nera Ponyo Sulla Scogliera “Isotta”</span>
+             alt="Mamma Bobtail 1"
+             data-label-it="Mamma Bobtail 1"
+             data-label-en="Bobtail mother 1">
+        <span class="caption" data-it="Mamma Bobtail 1" data-en="Bobtail mother 1">Mamma Bobtail 1</span>
       </div>
 
       <div class="photo">
         <img src="img/mamma-2.jpeg"
-             alt="Etichetta Nera Ponyo Sulla Scogliera “Isotta”"
-             data-label-it="Etichetta Nera Ponyo Sulla Scogliera “Isotta”"
-             data-label-en="Etichetta Nera Ponyo Sulla Scogliera “Isotta”">
-        <span class="caption" data-it="Etichetta Nera Ponyo Sulla Scogliera “Isotta”" data-en="Etichetta Nera Ponyo Sulla Scogliera “Isotta”">Etichetta Nera Ponyo Sulla Scogliera “Isotta”</span>
+             alt="Mamma Bobtail 2"
+             data-label-it="Mamma Bobtail 2"
+             data-label-en="Bobtail mother 2">
+        <span class="caption" data-it="Mamma Bobtail 2" data-en="Bobtail mother 2">Mamma Bobtail 2</span>
       </div>
 
     </div>
 
-    <!-- DESCRIZIONE MAMMA -->
-    <p data-it="La mamma è una femmina Old English Sheepdog dal carattere dolce ed equilibrato, attenta e affettuosa con le persone. Proviene da una linea selezionata per salute, tipicità ed eleganza, con un mantello folto e un movimento armonioso. Una compagna ideale e una mamma premurosa."
-       data-en="The mother is a sweet and well-balanced Old English Sheepdog female, attentive and affectionate with people. She comes from a bloodline selected for health, breed type and elegance, with a full coat and harmonious movement. A wonderful companion and a caring mother.">
-       La mamma è una femmina Old English Sheepdog dal carattere dolce ed equilibrato, attenta e affettuosa con le persone. Proviene da una linea selezionata per salute, tipicità ed eleganza, con un mantello folto e un movimento armonioso. Una compagna ideale e una mamma premurosa.
+    <p data-it="La mamma è una femmina Old English Sheepdog dal carattere dolce ed equilibrato..."
+       data-en="The mother is a sweet and well-balanced Old English Sheepdog female...">
+       La mamma è una femmina Old English Sheepdog dal carattere dolce ed equilibrato...
     </p>
 
     <div class="gallery">
 
-      <!-- ===========================
-           PADRE (2 FOTO REALI)
-      ============================ -->
+      <!-- PADRE -->
       <div class="photo">
         <img src="img/papa-1.jpeg"
-             alt="Balou aus dem Rotmaintal Schorschi"
-             data-label-it="Balou aus dem Rotmaintal “Schorschi”"
-             data-label-en="Balou aus dem Rotmaintal “Schorschi”">
+             alt="Balou aus dem Rotmaintal Schorschi in esposizione"
+             data-label-it="Balou aus dem Rotmaintal “Schorschi” in esposizione"
+             data-label-en="Balou aus dem Rotmaintal “Schorschi” at dog show">
         <span class="caption"
-              data-it="Balou aus dem Rotmaintal “Schorschi”"
-              data-en="Balou aus dem Rotmaintal “Schorschi”">
-              Balou aus dem Rotmaintal “Schorschi”
+              data-it="Balou aus dem Rotmaintal “Schorschi” in esposizione"
+              data-en="Balou aus dem Rotmaintal “Schorschi” at dog show">
+              Balou aus dem Rotmaintal “Schorschi” in esposizione
         </span>
       </div>
 
       <div class="photo">
         <img src="img/papa-2.jpeg"
-             alt="Balou aus dem Rotmaintal Schorschi"
-             data-label-it="Balou aus dem Rotmaintal “Schorschi”"
-             data-label-en="Balou aus dem Rotmaintal “Schorschi”">
+             alt="Balou aus dem Rotmaintal Schorschi in giardino"
+             data-label-it="Balou aus dem Rotmaintal “Schorschi” in giardino"
+             data-label-en="Balou aus dem Rotmaintal “Schorschi” in the garden">
         <span class="caption"
-              data-it="Balou aus dem Rotmaintal “Schorschi”"
-              data-en="Balou aus dem Rotmaintal “Schorschi”">
-              Balou aus dem Rotmaintal “Schorschi”
+              data-it="Balou aus dem Rotmaintal “Schorschi” in giardino"
+              data-en="Balou aus dem Rotmaintal “Schorschi” in the garden">
+              Balou aus dem Rotmaintal “Schorschi” in giardino
         </span>
       </div>
 
     </div>
 
-    <!-- DESCRIZIONE PADRE -->
-    <p data-it="Balou aus dem Rotmaintal “Schorschi” è un maschio Old English Sheepdog di prestigiosa linea tedesca, selezionato per struttura, movimento e temperamento. Pluripremiato in esposizione, si distingue per il carattere equilibrato e la tipica eleganza della razza."
-       data-en="Balou aus dem Rotmaintal “Schorschi” is a male Old English Sheepdog from a prestigious German bloodline, selected for structure, movement and temperament. A multi-awarded show dog, he stands out for his balanced character and the classic elegance of the breed.">
-       Balou aus dem Rotmaintal “Schorschi” è un maschio Old English Sheepdog di prestigiosa linea tedesca, selezionato per struttura, movimento e temperamento. Pluripremiato in esposizione, si distingue per il carattere equilibrato e la tipica eleganza della razza.
+    <p data-it="Balou aus dem Rotmaintal “Schorschi” è un maschio Old English Sheepdog..."
+       data-en="Balou aus dem Rotmaintal “Schorschi” is a male Old English Sheepdog...">
+       Balou aus dem Rotmaintal “Schorschi” è un maschio Old English Sheepdog...
     </p>
 
   </section>
@@ -611,6 +550,7 @@
 
 </body>
 </html>
+
 
 
 
