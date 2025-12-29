@@ -211,6 +211,7 @@
       border-radius: 14px;
       border: 1px solid #333;
       box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      transition: box-shadow 0.3s ease;
     }
 
     .photo img {
@@ -228,9 +229,21 @@
       background: #000;
     }
 
+    /* Effetto hover */
     .photo:hover img {
       transform: scale(1.08);
       filter: brightness(1.18);
+    }
+
+    /* Effetto click */
+    .photo.clicked img {
+      transform: scale(1.15) !important;
+      filter: brightness(1.25);
+    }
+
+    .photo.clicked {
+      box-shadow: 0 0 25px rgba(163,146,97,0.6), 0 0 10px rgba(255,255,255,0.2);
+      border-color: var(--accent-yellow);
     }
 
     .caption {
@@ -245,34 +258,31 @@
     }
 
     /* ===========================
-       LIGHTBOX
+       WHATSAPP BUTTON TONDO
     ============================ */
-    .lightbox {
+    .whatsapp-circle {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.92);
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-align: center;
-      padding: 20px;
-      z-index: 999;
-      opacity: 0;
-      transition: opacity .4s ease;
+      align-items: center;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      z-index: 9999;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+      background-size: 60%;
+      background-repeat: no-repeat;
+      background-position: center;
     }
 
-    .lightbox.visible { opacity: 1; }
-    .hidden { display: none; }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 70vh;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    .whatsapp-circle:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 25px rgba(37,211,102,0.6);
     }
 
     /* ===========================
@@ -289,7 +299,6 @@
 
   </style>
 </head>
-
 
 
 
@@ -323,6 +332,7 @@
   ============================ -->
   <section id="chi-siamo">
     <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
+
     <p data-it="Siamo Daniela e Devis e condividiamo da sempre la passione per lo sport e la natura insieme ai nostri cani. Con loro viviamo l’aria aperta, le esperienze e ogni momento importante della nostra vita, costruendo un legame profondo fatto di movimento, scoperta e relazione.
 I cani sono parte della nostra storia e della nostra famiglia: compagni di crescita, presenze rassicuranti e alleati preziosi in ogni fase della vita.
 Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliendo Isotta – Etichetta Nera Ponyo sulla Scogliera, che con il suo carattere dolce, equilibrato e affettuoso ci ha fatto innamorare di questa meravigliosa razza."
@@ -331,7 +341,7 @@ Dogs are part of our history and our family: companions as we grow, reassuring p
 In 2021, we discovered the world of Old English Sheepdogs when we welcomed Isotta – Etichetta Nera Ponyo sulla Scogliera, whose sweet, balanced, and affectionate nature made us fall in love with this wonderful breed.">
        Siamo Daniela e Devis e condividiamo da sempre la passione per lo sport e la natura insieme ai nostri cani. Con loro viviamo l’aria aperta, le esperienze e ogni momento importante della nostra vita, costruendo un legame profondo fatto di movimento, scoperta e relazione.
 I cani sono parte della nostra storia e della nostra famiglia: compagni di crescita, presenze rassicuranti e alleati preziosi in ogni fase della vita.
-Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliendo Isotta – Etichetta Nera Ponyo sulla Scogliera, che con il suo carattere dolce, equilibrato e affettuoso ci ha fatto innamorare di questa meravigliosa razza. 
+Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliendo Isotta – Etichetta Nera Ponyo sulla Scogliera, che con il suo carattere dolce, equilibrato e affettuoso ci ha fatto innamorare di questa meravigliosa razza.
     </p>
   </section>
 
@@ -424,12 +434,6 @@ Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliend
 
   </section>
 
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox hidden">
-    <img id="lightbox-img" src="">
-    <p id="lightbox-caption"></p>
-  </div>
-
   <!-- ===========================
        PRENOTAZIONI
   ============================ -->
@@ -482,11 +486,18 @@ Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliend
     © 2025 Cucciolata Bobtail – Tutti i diritti riservati
   </footer>
 
+  <!-- ===========================
+       WHATSAPP BUTTON TONDO
+  ============================ -->
+  <a href="https://wa.me/393391650393"
+     class="whatsapp-circle"
+     target="_blank"
+     rel="noopener"></a>
 
 
 
 
-  <script>
+<script>
 
   const selector = document.getElementById("lang-select");
   const body = document.body;
@@ -530,28 +541,17 @@ Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliend
   });
 
   /* ===========================
-       LIGHTBOX
+       EFFETTO CLICK SU FOTO
   ============================ */
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
+  document.querySelectorAll(".photo").forEach(photo => {
+    photo.addEventListener("click", () => {
 
-  document.querySelectorAll(".photo img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
+      // Rimuove l'effetto da tutte le altre
+      document.querySelectorAll(".photo").forEach(p => p.classList.remove("clicked"));
 
-      const lang = selector.value;
-      const label = img.getAttribute(`data-label-${lang}`) || img.alt;
-      lightboxCaption.textContent = label;
-
-      lightbox.classList.remove("hidden");
-      setTimeout(() => lightbox.classList.add("visible"), 10);
+      // Applica l'effetto solo alla foto cliccata
+      photo.classList.add("clicked");
     });
-  });
-
-  lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("visible");
-    setTimeout(() => lightbox.classList.add("hidden"), 300);
   });
 
   /* ===========================
@@ -585,4 +585,4 @@ Nel 2021 abbiamo scoperto il mondo dei Bobtail (Old English Sheepdog) accogliend
 </body>
 </html>
 
-
+    
