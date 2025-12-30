@@ -563,7 +563,8 @@
         if (el.tagName === "TEXTAREA") {
           el.placeholder = newText;
         } else {
-          el.textContent = newText;
+          el.innerHTML = newText;
+
         }
       });
 
@@ -628,6 +629,7 @@
 </html>
 
     
+
 
 
 
