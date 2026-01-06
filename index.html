@@ -335,20 +335,96 @@
     }
 
     /* ===========================
-       OTTIMIZZAZIONE MOBILE
-    ============================ */
-    @media (max-width: 480px) {
-      body { margin-top: 180px; }
-      header.header-bg { padding: 40px 20px 25px; }
-      header.header-bg h1 { font-size: 1.6em; }
-      header.header-bg nav a { margin: 6px 10px; font-size: 1em; }
-      section { padding: 30px 20px; width: 92%; }
-      .gallery { grid-template-columns: 1fr; gap: 18px; }
-      .caption { font-size: 0.9em; }
-      #informazioni input, #informazioni textarea { font-size: 1.1em; padding: 16px; }
-      #informazioni button { font-size: 1.2em; padding: 16px; }
-      .whatsapp-circle { width: 52px; height: 52px; bottom: 18px; right: 18px; }
-    }
+   OTTIMIZZAZIONE MOBILE
+   (schermi fino a 480px)
+=========================== */
+@media (max-width: 480px) {
+
+  /* Evita tagli laterali */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Header più compatto e centrato */
+  body {
+    margin-top: 160px;
+  }
+
+  header.header-bg {
+    padding: 38px 18px 22px;
+    background-position: center;
+  }
+
+  header.header-bg h1 {
+    font-size: 1.35em;
+    line-height: 1.2em;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  header.header-bg nav a {
+    margin: 6px 8px;
+    font-size: 0.95em;
+  }
+
+  #lang-select {
+    margin-top: 8px;
+    font-size: 0.95em;
+    padding: 5px;
+  }
+
+  /* Sezioni più strette e fluide */
+  section {
+    width: 94%;
+    padding: 24px 16px;
+    margin: 22px auto;
+  }
+
+  h2 {
+    font-size: 1.55em;
+  }
+
+  /* Galleria più armoniosa */
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .caption {
+    font-size: 0.9em;
+    padding: 6px 10px;
+  }
+
+  /* Form più comodo */
+  #informazioni input,
+  #informazioni textarea {
+    font-size: 1.05em;
+    padding: 15px;
+  }
+
+  #informazioni button {
+    font-size: 1.15em;
+    padding: 15px;
+  }
+
+  /* Pulsante WhatsApp più discreto */
+  .whatsapp-circle {
+    width: 50px;
+    height: 50px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  /* Blocchi genitori più compatti */
+  .parent-block {
+    padding: 20px 16px;
+  }
+
+  .parent-block h3 {
+    font-size: 1.25em;
+  }
+}
 
     /* ===========================
        OTTIMIZZAZIONE TABLET
@@ -719,3 +795,4 @@
 
 </body>
 </html>
+
