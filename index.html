@@ -5,13 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cuccioli Isotta - Bobtail</title>
 
+  <!-- ===========================
+       SEO BASE
+  ============================ -->
+  <meta name="description" content="Cuccioli di Bobtail (Old English Sheepdog) da genitori sani, testati e di alta genealogia. Cresciuti in casa con amore, socializzati e certificati ENCI. Disponibili vicino a Pavia.">
+  <meta name="keywords" content="cuccioli bobtail, old english sheepdog, cuccioli enci, bobtail allevamento, cuccioli pavia, cuccioli lombardia, isotta bobtail, cuccioli old english sheepdog">
+  <meta name="author" content="Cuccioli Bobtail Isotta">
+  <meta name="robots" content="index, follow">
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://www.cuccioli-bobtail-isotta.it/">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Cuccioli Bobtail Isotta – Old English Sheepdog">
+  <meta property="og:description" content="Cuccioli di Bobtail da genitori sani e testati, cresciuti in casa con amore.">
+  <meta property="og:image" content="https://www.cuccioli-bobtail-isotta.it/img/mamma-1.jpeg">
+  <meta property="og:url" content="https://www.cuccioli-bobtail-isotta.it/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cuccioli Bobtail Isotta – Old English Sheepdog">
+  <meta name="twitter:description" content="Cuccioli di Bobtail da genitori sani e testati, cresciuti in casa con amore.">
+  <meta name="twitter:image" content="https://www.cuccioli-bobtail-isotta.it/img/mamma-1.jpeg">
+
+  <!-- MOBILE -->
+  <meta name="theme-color" content="#0f0f0f">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- ===========================
+       SCHEMA.ORG JSON-LD
+  ============================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PetStore",
+    "name": "Cuccioli Bobtail Isotta",
+    "description": "Cuccioli di Bobtail (Old English Sheepdog) cresciuti in casa con amore, da genitori sani e testati.",
+    "url": "https://www.cuccioli-bobtail-isotta.it",
+    "image": "https://www.cuccioli-bobtail-isotta.it/img/mamma-1.jpeg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pavia",
+      "addressRegion": "Lombardia",
+      "addressCountry": "IT"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+39 3391650393",
+      "contactType": "customer service",
+      "areaServed": "IT"
+    }
+  }
+  </script>
+
+  <!-- ===========================
+       CSS COMPLETO
+  ============================ -->
   <style>
 
     :root {
       --accent-blue: #010E80;
-      --accent-blue-strong: #0A1CB8;
       --accent-yellow: #A39261;
-      --accent-yellow-soft: #C8B78A;
     }
 
     body {
@@ -29,9 +86,7 @@
 
     section { scroll-margin-top: 200px; }
 
-    /* ===========================
-       HEADER + OVERLAY + SHRINK
-    ============================ */
+    /* HEADER */
     header.header-bg {
       position: fixed;
       top: 0;
@@ -45,84 +100,44 @@
       box-shadow: 0 0 12px rgba(1, 14, 128, 0.35);
       background: url('img/header-dog.jpeg') center/cover no-repeat;
       overflow: hidden;
-      transition: padding 0.35s ease, background-size 0.35s ease;
+      transition: padding 0.35s ease;
     }
 
     header.header-bg::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.45),
-        rgba(0,0,0,0.25)
-      );
+      background: linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.25));
       z-index: 0;
     }
 
-    header.header-bg * {
-      position: relative;
-      z-index: 1;
-    }
+    header.header-bg * { position: relative; z-index: 1; }
 
     header.header-bg h1 {
       margin: 0;
       font-size: 2.4em;
-      letter-spacing: 1px;
       text-shadow: 0 0 12px rgba(0,0,0,0.7);
       transition: font-size 0.35s ease;
-    }
-
-    header.header-bg nav {
-      margin-top: 20px;
-      transition: margin 0.35s ease;
     }
 
     header.header-bg nav a {
       margin: 0 18px;
       text-decoration: none;
-      color: #eeeeee;
+      color: #eee;
       font-size: 1.1em;
       transition: 0.2s;
     }
 
     header.header-bg nav a:hover {
-      color: #ffffff;
+      color: #fff;
       text-shadow: 0 0 6px rgba(255,255,255,0.4);
     }
 
-    header.header-bg #lang-select {
-      margin-top: 15px;
-      padding: 8px 14px;
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: 1px solid #444;
-      border-radius: 6px;
-      font-size: 1em;
-      transition: transform 0.35s ease;
-    }
+    header.header-bg.shrink { padding: 20px 25px 15px; }
+    header.header-bg.shrink h1 { font-size: 1.6em; }
+    header.header-bg.shrink nav a { font-size: 1em; }
 
-    /* SHRINK */
-    header.header-bg.shrink {
-      padding: 20px 25px 15px;
-    }
-
-    header.header-bg.shrink h1 {
-      font-size: 1.6em;
-    }
-
-    header.header-bg.shrink nav a {
-      font-size: 1em;
-    }
-
-    header.header-bg.shrink #lang-select {
-      transform: scale(0.9);
-    }
-
-    /* ===========================
-       SEZIONI
-    ============================ */
+    /* SEZIONI */
     section {
       padding: 50px;
       background: #141414;
@@ -135,7 +150,7 @@
     }
 
     h2 {
-      color: #ffffff;
+      color: #fff;
       font-size: 1.9em;
       margin-bottom: 15px;
       border-left: 4px solid var(--accent-blue);
@@ -154,15 +169,7 @@
       border-radius: 2px;
     }
 
-    p {
-      font-size: 1.15em;
-      line-height: 1.6em;
-      color: #cccccc;
-    }
-
-    /* ===========================
-       GALLERIA — VERSIONE PERFETTA
-    ============================ */
+    /* GALLERIA PERFETTA */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -189,20 +196,7 @@
       transition: transform .5s ease, filter .5s ease;
     }
 
-    .photo:hover img {
-      transform: scale(1.08);
-      filter: brightness(1.18);
-    }
-
-    .photo.clicked img {
-      transform: scale(1.15) !important;
-      filter: brightness(1.25);
-    }
-
-    .photo.clicked {
-      box-shadow: 0 0 25px rgba(163,146,97,0.6), 0 0 10px rgba(255,255,255,0.2);
-      border-color: var(--accent-yellow);
-    }
+    .photo:hover img { transform: scale(1.08); filter: brightness(1.18); }
 
     .caption {
       position: relative;
@@ -216,34 +210,7 @@
       border-radius: 0 0 14px 14px;
     }
 
-    /* ===========================
-       WHATSAPP BUTTON TONDO
-    ============================ */
-    .whatsapp-circle {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      z-index: 9999;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
-      background-size: 60%;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    .whatsapp-circle:hover {
-      transform: scale(1.12);
-      box-shadow: 0 0 25px rgba(37,211,102,0.6);
-    }
-
+    /* FOOTER */
     footer {
       text-align: center;
       padding: 25px;
@@ -252,6 +219,26 @@
       margin-top: 40px;
       border-top: 1px solid rgba(163,146,97,0.35);
     }
+
+    /* WHATSAPP */
+    .whatsapp-circle {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+      background-size: 60%;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease;
+      z-index: 9999;
+    }
+
+    .whatsapp-circle:hover { transform: scale(1.12); }
 
   </style>
 </head>
@@ -508,8 +495,6 @@
      class="whatsapp-circle"
      target="_blank"
      rel="noopener"></a>
-
-
 
 
 
