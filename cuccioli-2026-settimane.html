@@ -4,9 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Cuccioli Bobtail 2026 – Settimana per settimana</title>
+  <title data-it="Cuccioli Bobtail 2026 – Settimana per settimana"
+         data-en="Bobtail Puppies 2026 – Week by week">
+         Cuccioli Bobtail 2026 – Settimana per settimana
+  </title>
 
-  <meta name="description" content="Crescita dei cuccioli Bobtail 2026 settimana per settimana: foto, sviluppo, carattere e aggiornamenti.">
+  <meta name="description"
+        data-it="Crescita dei cuccioli Bobtail 2026 settimana per settimana: foto, sviluppo, carattere e aggiornamenti."
+        data-en="Growth of Bobtail puppies 2026 week by week: photos, development, temperament and updates."
+        content="Crescita dei cuccioli Bobtail 2026 settimana per settimana: foto, sviluppo, carattere e aggiornamenti.">
+
   <meta name="robots" content="index, follow">
 
   <style>
@@ -51,6 +58,17 @@
     header p {
       font-size: 1.2em;
       opacity: 0.9;
+    }
+
+    /* SELECT LINGUA */
+    #lang-select {
+      margin-top: 15px;
+      padding: 6px 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #1a1a1a;
+      color: #eee;
     }
 
     /* MENU LATERALE */
@@ -155,6 +173,32 @@
       border: 1px solid #333;
     }
 
+    /* PULSANTE FISSO TORNA ALL'INDEX */
+    .back-to-index {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      width: 55px;
+      height: 55px;
+      background: #010E80;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8em;
+      text-decoration: none;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, background 0.25s ease;
+      z-index: 9999;
+    }
+
+    .back-to-index:hover {
+      transform: scale(1.12);
+      background: #A39261;
+      color: #000;
+    }
+
     footer {
       text-align: center;
       padding: 25px;
@@ -168,6 +212,14 @@
       #side-menu { display: none; }
       section { width: 94%; padding: 24px 16px; }
       header h1 { font-size: 1.8em; }
+
+      .back-to-index {
+        width: 48px;
+        height: 48px;
+        bottom: 16px;
+        left: 16px;
+        font-size: 1.5em;
+      }
     }
 
   </style>
@@ -178,36 +230,53 @@
 
 <!-- MENU LATERALE -->
 <div id="side-menu">
-  <a href="#week1">Settimana 1</a>
-  <a href="#week2">Settimana 2</a>
-  <a href="#week3">Settimana 3</a>
-  <a href="#week4">Settimana 4</a>
-  <a href="#week5">Settimana 5</a>
-  <a href="#week6">Settimana 6</a>
-  <a href="#week7">Settimana 7</a>
-  <a href="#week8">Settimana 8</a>
-  <a href="#week9">Settimana 9</a>
-  <a href="#week10">Settimana 10</a>
-  <a href="#week11">Settimana 11</a>
-  <a href="#week12">Settimana 12</a>
+  <a href="#week1" data-it="Settimana 1" data-en="Week 1">Settimana 1</a>
+  <a href="#week2" data-it="Settimana 2" data-en="Week 2">Settimana 2</a>
+  <a href="#week3" data-it="Settimana 3" data-en="Week 3">Settimana 3</a>
+  <a href="#week4" data-it="Settimana 4" data-en="Week 4">Settimana 4</a>
+  <a href="#week5" data-it="Settimana 5" data-en="Week 5">Settimana 5</a>
+  <a href="#week6" data-it="Settimana 6" data-en="Week 6">Settimana 6</a>
+  <a href="#week7" data-it="Settimana 7" data-en="Week 7">Settimana 7</a>
+  <a href="#week8" data-it="Settimana 8" data-en="Week 8">Settimana 8</a>
+  <a href="#week9" data-it="Settimana 9" data-en="Week 9">Settimana 9</a>
+  <a href="#week10" data-it="Settimana 10" data-en="Week 10">Settimana 10</a>
+  <a href="#week11" data-it="Settimana 11" data-en="Week 11">Settimana 11</a>
+  <a href="#week12" data-it="Settimana 12" data-en="Week 12">Settimana 12</a>
 </div>
 
 <header>
-  <h1>Cuccioli 2026 – Settimana per settimana</h1>
-  <p>La crescita dei cuccioli raccontata passo dopo passo</p>
+  <h1 data-it="Cuccioli 2026 – Settimana per settimana"
+      data-en="Puppies 2026 – Week by week">
+      Cuccioli 2026 – Settimana per settimana
+  </h1>
+
+  <p data-it="La crescita dei cuccioli raccontata passo dopo passo"
+     data-en="The puppies’ growth told step by step">
+     La crescita dei cuccioli raccontata passo dopo passo
+  </p>
+
+  <select id="lang-select">
+    <option value="it">Italiano</option>
+    <option value="en">English</option>
+  </select>
 </header>
 
 <section>
-  <h2>Diario di crescita</h2>
-
-  <!-- TEMPLATE SETTIMANE -->
-  <!-- Ogni settimana ha: titolo, testo, carosello -->
+  <h2 data-it="Diario di crescita" data-en="Growth diary">Diario di crescita</h2>
 
   <!-- ===========================
        SETTIMANA 1
   ============================ -->
   <div class="week-block" id="week1">
+    <h3 data-it="Settimana 1 – I primi giorni"
+        data-en="Week 1 – First days">
+        Settimana 1 – I primi giorni
+    </h3>
 
+    <p data-it="I cuccioli dormono quasi tutto il giorno..."
+       data-en="The puppies sleep almost all day...">
+       I cuccioli dormono quasi tutto il giorno...
+    </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
@@ -223,8 +292,15 @@
        SETTIMANA 2
   ============================ -->
   <div class="week-block" id="week2">
-    <h3>Settimana 2 – Occhi aperti</h3>
-    <p>I cuccioli aprono gli occhi...</p>
+    <h3 data-it="Settimana 2 – Occhi aperti"
+        data-en="Week 2 – Eyes open">
+        Settimana 2 – Occhi aperti
+    </h3>
+
+    <p data-it="I cuccioli aprono gli occhi..."
+       data-en="The puppies open their eyes...">
+       I cuccioli aprono gli occhi...
+    </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
@@ -240,8 +316,15 @@
        SETTIMANA 3
   ============================ -->
   <div class="week-block" id="week3">
-    <h3>Settimana 3 – Prime esplorazioni</h3>
-    <p>Iniziano a camminare con più sicurezza...</p>
+    <h3 data-it="Settimana 3 – Prime esplorazioni"
+        data-en="Week 3 – First explorations">
+        Settimana 3 – Prime esplorazioni
+    </h3>
+
+    <p data-it="Iniziano a camminare con più sicurezza..."
+       data-en="They begin to walk more confidently...">
+       Iniziano a camminare con più sicurezza...
+    </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
@@ -254,85 +337,141 @@
   </div>
 
   <!-- ===========================
-       SETTIMANE 4 → 12
+       SETTIMANE 4 → 12 (placeholder)
   ============================ -->
-  <!-- Creo la struttura già pronta -->
-  <!-- Puoi aggiungere le foto quando vuoi -->
 
-  <div class="week-block" id="week4"><h3>Settimana 4 – Carattere e giochi</h3></div>
-  <div class="week-block" id="week5"><h3>Settimana 5 – Prime corse</h3></div>
-  <div class="week-block" id="week6"><h3>Settimana 6 – Socializzazione</h3></div>
-  <div class="week-block" id="week7"><h3>Settimana 7 – Piccoli esploratori</h3></div>
-  <div class="week-block" id="week8"><h3>Settimana 8 – Prime uscite</h3></div>
-  <div class="week-block" id="week9"><h3>Settimana 9 – Carattere definito</h3></div>
-  <div class="week-block" id="week10"><h3>Settimana 10 – Giochi e interazioni</h3></div>
-  <div class="week-block" id="week11"><h3>Settimana 11 – Preparazione alla famiglia</h3></div>
-  <div class="week-block" id="week12"><h3>Settimana 12 – Pronti per la nuova casa</h3></div>
+  <!-- WEEK TEMPLATE -->
+  <!-- Ogni settimana ha: titolo, testo, carosello -->
 
-  <!-- ===========================
-       GRAFICO CRESCITA
-  ============================ -->
-  <div class="chart-container">
-    <h3>Grafico crescita (peso)</h3>
-    <canvas id="growthChart" width="400" height="200"></canvas>
+  <!-- WEEK 4 -->
+  <div class="week-block" id="week4">
+    <h3 data-it="Settimana 4 – Carattere e giochi"
+        data-en="Week 4 – Personality and play">
+        Settimana 4 – Carattere e giochi
+    </h3>
+
+    <p data-it="..."
+       data-en="...">...</p>
+
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-4-1.jpeg">
+        <img src="img/placeholder-4-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
   </div>
 
-</section>
+  <!-- WEEK 5 -->
+  <div class="week-block" id="week5">
+    <h3 data-it="Settimana 5 – Prime corse"
+        data-en="Week 5 – First runs">
+        Settimana 5 – Prime corse
+    </h3>
 
-<footer>
-  © 2026 Cuccioli Bobtail Isotta – Tutti i diritti riservati
-</footer>
+    <p data-it="..."
+       data-en="...">...</p>
 
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-5-1.jpeg">
+        <img src="img/placeholder-5-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
 
-<script>
+  <!-- WEEK 6 -->
+  <div class="week-block" id="week6">
+    <h3 data-it="Settimana 6 – Socializzazione"
+        data-en="Week 6 – Socialization">
+        Settimana 6 – Socializzazione
+    </h3>
 
-  /* ===========================
-       CAROSELLO
-  ============================ */
-  document.querySelectorAll(".carousel").forEach(carousel => {
-    const track = carousel.querySelector(".carousel-track");
-    const left = carousel.querySelector(".left");
-    const right = carousel.querySelector(".right");
+    <p data-it="..."
+       data-en="...">...</p>
 
-    let index = 0;
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-6-1.jpeg">
+        <img src="img/placeholder-6-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
 
-    right.addEventListener("click", () => {
-      index = (index + 1) % track.children.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
+  <!-- WEEK 7 -->
+  <div class="week-block" id="week7">
+    <h3 data-it="Settimana 7 – Piccoli esploratori"
+        data-en="Week 7 – Little explorers">
+        Settimana 7 – Piccoli esploratori
+    </h3>
 
-    left.addEventListener("click", () => {
-      index = (index - 1 + track.children.length) % track.children.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
-  });
+    <p data-it="..."
+       data-en="...">...</p>
 
-  /* ===========================
-       GRAFICO CRESCITA
-  ============================ */
-  const ctx = document.getElementById('growthChart').getContext('2d');
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-7-1.jpeg">
+        <img src="img/placeholder-7-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
 
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Settimana 1","2","3","4","5","6","7","8","9","10","11","12"],
-      datasets: [{
-        label: "Peso (kg)",
-        data: [0.4,0.7,1.1,1.6,2.2,2.8,3.4,4.0,4.6,5.2,5.8,6.4],
-        borderColor: "#A39261",
-        backgroundColor: "rgba(163,146,97,0.25)",
-        borderWidth: 3,
-        tension: 0.3
-      }]
-    },
-    options: {
-      scales: {
-        y: { beginAtZero: true }
-      }
-    }
-  });
+  <!-- WEEK 8 -->
+  <div class="week-block" id="week8">
+    <h3 data-it="Settimana 8 – Prime uscite"
+        data-en="Week 8 – First outings">
+        Settimana 8 – Prime uscite
+    </h3>
 
-</script>
+    <p data-it="..."
+       data-en="...">...</p>
 
-</body>
-</html>
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-8-1.jpeg">
+        <img src="img/placeholder-8-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
+
+  <!-- WEEK 9 -->
+  <div class="week-block" id="week9">
+    <h3 data-it="Settimana 9 – Carattere definito"
+        data-en="Week 9 – Defined personality">
+        Settimana 9 – Carattere definito
+    </h3>
+
+    <p data-it="..."
+       data-en="...">...</p>
+
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-9-1.jpeg">
+        <img src="img/placeholder-9-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
+
+  <!-- WEEK 10 -->
+  <div class="week-block" id="week10">
+    <h3 data-it="Settimana 10 – Giochi e interazioni"
+        data-en="Week 10 – Play and interactions">
+        Settimana 10 – Giochi e interazioni
+    </h3>
+
+    <p data-it="..."
+       data-en="...">...</p>
+
+    <div class="carousel">
+      <button class="carousel-btn left
