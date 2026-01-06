@@ -6,20 +6,14 @@
 
   <title>Cuccioli Bobtail Isotta – Old English Sheepdog</title>
 
-  <!-- ===========================
-       SEO
-  ============================ -->
+  <!-- SEO -->
   <meta name="description" content="Cuccioli di Bobtail (Old English Sheepdog) da genitori sani, testati e di alta genealogia. Cresciuti in casa con amore, socializzati e certificati ENCI. Disponibili vicino a Pavia.">
   <meta name="keywords" content="cuccioli bobtail, old english sheepdog, cuccioli enci, bobtail allevamento, cuccioli pavia, cuccioli lombardia, isotta bobtail, cuccioli old english sheepdog">
   <meta name="author" content="Cuccioli Bobtail Isotta">
   <meta name="robots" content="index, follow">
-
-  <!-- CANONICAL -->
   <link rel="canonical" href="https://www.cuccioli-bobtail-isotta.it/">
 
-  <!-- ===========================
-       OPEN GRAPH
-  ============================ -->
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="Cuccioli Bobtail Isotta – Old English Sheepdog">
   <meta property="og:description" content="Cuccioli di Bobtail da genitori sani e testati, cresciuti in casa con amore.">
   <meta property="og:image" content="https://www.cuccioli-bobtail-isotta.it/social/og-image-it.jpg">
@@ -30,25 +24,19 @@
   <meta property="og:locale" content="it_IT">
   <meta property="og:locale:alternate" content="en_US">
 
-  <!-- ===========================
-       TWITTER CARD
-  ============================ -->
+  <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cuccioli Bobtail Isotta – Old English Sheepdog">
   <meta name="twitter:description" content="Cuccioli di Bobtail da genitori sani e testati, cresciuti in casa con amore.">
   <meta name="twitter:image" content="https://www.cuccioli-bobtail-isotta.it/social/og-image-it.jpg">
 
-  <!-- ===========================
-       MOBILE & UI
-  ============================ -->
+  <!-- MOBILE -->
   <meta name="theme-color" content="#0f0f0f">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="color-scheme" content="dark light">
 
-  <!-- ===========================
-       JSON-LD
-  ============================ -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -73,13 +61,14 @@
   </script>
 
   <!-- ===========================
-       CSS (ORIGINALE + OTTIMIZZAZIONI)
+       CSS COMPLETO
   ============================ -->
   <style>
 
     :root {
       --accent-blue: #010E80;
       --accent-yellow: #A39261;
+      --focus-blue: #0A2CFF;
     }
 
     body {
@@ -158,6 +147,12 @@
       border-radius: 18px;
       box-shadow: 0 0 25px rgba(0,0,0,0.4);
       border: 1px solid #222;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
@@ -242,21 +237,39 @@
     /* FORM */
     #informazioni form {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 22px;
       max-width: 700px;
       margin: 0 auto;
     }
 
-    @media (min-width: 768px) {
-      #informazioni form {
-        grid-template-columns: 1fr 1fr;
-      }
-      #informazioni .full {
-        grid-column: span 2;
-      }
+    #informazioni .full {
+      grid-column: span 2;
     }
 
+    /* CAMPI CON ICONE SVG */
+    .input-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon .icon {
+      position: absolute;
+      left: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .input-icon input,
+    .input-icon textarea {
+      padding-left: 50px !important;
+    }
+
+    /* CAMPI */
     #informazioni label {
       font-size: 1.1em;
       color: #ddd;
@@ -274,6 +287,15 @@
       color: #e6e6e6;
       font-size: 1em;
       box-sizing: border-box;
+      transition: border 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    /* EFFETTO FOCUS BLU INTER */
+    #informazioni input:focus,
+    #informazioni textarea:focus {
+      border: 1px solid var(--focus-blue);
+      box-shadow: 0 0 8px rgba(10, 44, 255, 0.6);
+      outline: none;
     }
 
     #informazioni textarea {
@@ -335,99 +357,107 @@
     }
 
     /* ===========================
-   OTTIMIZZAZIONE MOBILE
-   (schermi fino a 480px)
-=========================== */
-@media (max-width: 480px) {
+       MOBILE
+    ============================ */
+    @media (max-width: 480px) {
 
-  /* Evita tagli laterali */
-  html, body {
-    overflow-x: hidden;
-    width: 100%;
-  }
+      html, body {
+        overflow-x: hidden;
+        width: 100%;
+      }
 
-  /* Header più compatto e centrato */
-  body {
-    margin-top: 160px;
-  }
+      body { margin-top: 160px; }
 
-  header.header-bg {
-    padding: 38px 18px 22px;
-    background-position: center;
-  }
+      header.header-bg {
+        padding: 38px 18px 22px;
+        background-position: center;
+      }
 
-  header.header-bg h1 {
-    font-size: 1.35em;
-    line-height: 1.2em;
-    text-align: center;
-    word-break: break-word;
-  }
+      header.header-bg h1 {
+        font-size: 1.35em;
+        line-height: 1.2em;
+        text-align: center;
+        word-break: break-word;
+      }
 
-  header.header-bg nav a {
-    margin: 6px 8px;
-    font-size: 0.95em;
-  }
+      header.header-bg nav a {
+        margin: 6px 8px;
+        font-size: 0.95em;
+      }
 
-  #lang-select {
-    margin-top: 8px;
-    font-size: 0.95em;
-    padding: 5px;
-  }
+      #lang-select {
+        margin-top: 8px;
+        font-size: 0.95em;
+        padding: 5px;
+      }
 
-  /* Sezioni più strette e fluide */
-  section {
-    width: 94%;
-    padding: 24px 16px;
-    margin: 22px auto;
-  }
+      section {
+        width: 94%;
+        padding: 24px 16px;
+        margin: 22px auto;
+      }
 
-  h2 {
-    font-size: 1.55em;
-  }
+      h2 { font-size: 1.55em; }
 
-  /* Galleria più armoniosa */
-  .gallery {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
 
-  .caption {
-    font-size: 0.9em;
-    padding: 6px 10px;
-  }
+      .caption {
+        font-size: 0.9em;
+        padding: 6px 10px;
+      }
 
-  /* Form più comodo */
-  #informazioni input,
-  #informazioni textarea {
-    font-size: 1.05em;
-    padding: 15px;
-  }
+      /* FORM MOBILE */
+      #informazioni form {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding: 4px;
+      }
 
-  #informazioni button {
-    font-size: 1.15em;
-    padding: 15px;
-  }
+      #informazioni input,
+      #informazioni textarea {
+        font-size: 1.15em;
+        padding: 18px 16px;
+        border-radius: 10px;
+      }
 
-  /* Pulsante WhatsApp più discreto */
-  .whatsapp-circle {
-    width: 50px;
-    height: 50px;
-    bottom: 16px;
-    right: 16px;
-  }
+      .input-icon .icon svg {
+        width: 22px;
+        height: 22px;
+      }
 
-  /* Blocchi genitori più compatti */
-  .parent-block {
-    padding: 20px 16px;
-  }
+      .input-icon input,
+      .input-icon textarea {
+        padding-left: 48px !important;
+      }
 
-  .parent-block h3 {
-    font-size: 1.25em;
-  }
-}
+      #informazioni button {
+        font-size: 1.25em;
+        padding: 18px;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+
+      .whatsapp-circle {
+        width: 50px;
+        height: 50px;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .parent-block {
+        padding: 20px 16px;
+      }
+
+      .parent-block h3 {
+        font-size: 1.25em;
+      }
+    }
 
     /* ===========================
-       OTTIMIZZAZIONE TABLET
+       TABLET
     ============================ */
     @media (max-width: 768px) {
       body { margin-top: 200px; }
@@ -438,7 +468,7 @@
     }
 
     /* ===========================
-       OTTIMIZZAZIONE DESKTOP
+       DESKTOP
     ============================ */
     @media (max-width: 1200px) {
       header.header-bg { padding: 55px 30px 35px; }
@@ -449,6 +479,7 @@
 
   </style>
 </head>
+
 
 
 
@@ -487,12 +518,11 @@
 
     <p data-it="Siamo Daniela e Devis, non siamo allevatori professionisti, ma condividiamo da sempre la passione per i cani. Viviamo vicino a Pavia con i nostri tre cani di razze diverse. Nel 2021 abbiamo scoperto i Bobtail (Old English Sheepdog) accogliendo in famiglia Isotta – Etichetta Nera Ponyo sulla Scogliera – e ci siamo innamorati del carattere dolce, affettuoso e un po’ buffo di questa splendida razza."
        data-en="We are Daniela and Devis. We are not professional breeders, but we have always shared a deep passion for dogs. We live near Pavia with our three dogs of different breeds. In 2021 we discovered Old English Sheepdogs when we welcomed Isotta – Black Label Ponyo sulla Scogliera – into our family, and we fell in love with the sweet, affectionate, and slightly funny nature of this wonderful breed.">
-      Siamo Daniela e Devis, non siamo allevatori professionisti, ma condividiamo da sempre la passione per i cani...
+      Siamo Daniela e Devis, non siamo allevatori professionisti...
     </p>
 
     <a href="https://www.oesdatabase.eu/breeder/isotta#general"
-       target="_blank"
-       rel="noopener">
+       target="_blank" rel="noopener">
        Chi siamo
     </a>
   </section>
@@ -505,7 +535,7 @@
 
     <p data-it="La cucciolata nasce in casa, in un ambiente sereno e familiare..."
        data-en="The litter is born in our home, in a peaceful and familiar environment...">
-      La cucciolata nasce in casa, in un ambiente sereno e familiare...
+      La cucciolata nasce in casa...
     </p>
 
     <p data-it="<strong> - Nascita prevista metà gennaio 2026 - </strong>"
@@ -514,8 +544,7 @@
     </p>
 
     <a href="https://www.oesdatabase.eu/litter/balou-aus-dem-rotmaintal-x-etichetta-nera-ponyo-sulla-scogliera#pedigree"
-       target="_blank"
-       rel="noopener">
+       target="_blank" rel="noopener">
        La Cucciolata
     </a>
 
@@ -587,8 +616,7 @@
 
       <a class="link-block"
          href="https://www.oesdatabase.eu/dog/etichetta-nera-ponyo-sulla-scogliera#general"
-         target="_blank"
-         rel="noopener">
+         target="_blank" rel="noopener">
          Scheda OES Database
       </a>
     </div>
@@ -629,8 +657,7 @@
 
       <a class="link-block"
          href="https://www.oesdatabase.eu/dog/balou-aus-dem-rotmaintal#general"
-         target="_blank"
-         rel="noopener">
+         target="_blank" rel="noopener">
          Scheda OES Database
       </a>
     </div>
@@ -647,27 +674,44 @@
 
       <input type="hidden" name="_redirect" id="redirect-field" value="">
 
-      <div>
-        <label data-it="Nome:" data-en="Name:">Nome:</label>
-        <input type="text" name="nome" required>
+      <!-- NOME -->
+      <div class="input-icon">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#A39261">
+            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+          </svg>
+        </span>
+        <input type="text" name="nome" placeholder="Nome" required>
       </div>
 
-      <div>
-        <label data-it="Email:" data-en="Email:">Email:</label>
-        <input type="email" name="email" required>
+      <!-- EMAIL -->
+      <div class="input-icon">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#A39261">
+            <path d="M12 13L2 6.76V18h20V6.76L12 13zm0-2.2L22 4H2l10 6.8z"/>
+          </svg>
+        </span>
+        <input type="email" name="email" placeholder="Email" required>
       </div>
 
-      <div>
-        <label data-it="Telefono:" data-en="Phone:">Telefono:</label>
-        <input type="tel" name="telefono" required>
+      <!-- TELEFONO -->
+      <div class="input-icon">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#A39261">
+            <path d="M6.6 10.8c1.2 2.4 3.2 4.4 5.6 5.6l1.9-1.9c.2-.2.5-.3.8-.2 1 .3 2 .5 3.1.5.4 0 .7.3.7.7V21c0 .4-.3.7-.7.7C9.4 21.7 2.3 14.6 2.3 6.7c0-.4.3-.7.7-.7h3.5c.4 0 .7.3.7.7 0 1.1.2 2.1.5 3.1.1.3 0 .6-.2.8l-1.9 1.9z"/>
+          </svg>
+        </span>
+        <input type="tel" name="telefono" placeholder="Telefono" required>
       </div>
 
-      <div class="full">
-        <label data-it="Messaggio:" data-en="Message:">Messaggio:</label>
-        <textarea name="messaggio"
-                  data-it="Scrivi qui eventuali preferenze o domande"
-                  data-en="Write here any preferences or questions"
-                  placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
+      <!-- MESSAGGIO -->
+      <div class="input-icon full">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#A39261">
+            <path d="M4 4h16v12H5.17L4 17.17V4zm0-2c-1.1 0-2 .9-2 2v20l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4z"/>
+          </svg>
+        </span>
+        <textarea name="messaggio" placeholder="Scrivi qui il tuo messaggio"></textarea>
       </div>
 
       <button type="submit" class="full" data-it="Invia" data-en="Send">Invia</button>
@@ -703,8 +747,7 @@
 
 
 
-
-    <script>
+<script>
 
   const selector = document.getElementById("lang-select");
   const body = document.body;
@@ -795,4 +838,4 @@
 
 </body>
 </html>
-
+    
