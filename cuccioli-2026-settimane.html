@@ -171,19 +171,24 @@
       transition: transform 0.4s ease;
     }
 
-    .carousel img {
-      width: 100%;
-      border-radius: 14px;
-      cursor: pointer;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      max-height: 150px;
-      object-fit: cover;
-    }
+/* ANTEPRIME CAROSELLO — VERSIONE PREMIUM */
+.carousel img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+  max-height: 120px; /* ANTEPRIMA RIDOTTA */
+  object-fit: cover;
+  border: 1px solid rgba(163,146,97,0.35); /* BORDO DORATO LEGGERO */
+}
 
-    .carousel img:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
+/* EFFETTO HOVER ELEGANTE */
+.carousel img:hover {
+  transform: scale(1.06);
+  opacity: 0.95;
+  box-shadow: 0 0 12px rgba(163,146,97,0.45); /* GLOW DORATO */
+}
+
 
     .carousel-btn {
       position: absolute;
