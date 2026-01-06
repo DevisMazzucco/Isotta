@@ -225,8 +225,7 @@
   </style>
 </head>
 
-
-<body>
+  <body>
 
 <!-- MENU LATERALE -->
 <div id="side-menu">
@@ -340,10 +339,6 @@
        SETTIMANE 4 → 12 (placeholder)
   ============================ -->
 
-  <!-- WEEK TEMPLATE -->
-  <!-- Ogni settimana ha: titolo, testo, carosello -->
-
-  <!-- WEEK 4 -->
   <div class="week-block" id="week4">
     <h3 data-it="Settimana 4 – Carattere e giochi"
         data-en="Week 4 – Personality and play">
@@ -363,7 +358,6 @@
     </div>
   </div>
 
-  <!-- WEEK 5 -->
   <div class="week-block" id="week5">
     <h3 data-it="Settimana 5 – Prime corse"
         data-en="Week 5 – First runs">
@@ -383,7 +377,6 @@
     </div>
   </div>
 
-  <!-- WEEK 6 -->
   <div class="week-block" id="week6">
     <h3 data-it="Settimana 6 – Socializzazione"
         data-en="Week 6 – Socialization">
@@ -403,7 +396,6 @@
     </div>
   </div>
 
-  <!-- WEEK 7 -->
   <div class="week-block" id="week7">
     <h3 data-it="Settimana 7 – Piccoli esploratori"
         data-en="Week 7 – Little explorers">
@@ -423,7 +415,6 @@
     </div>
   </div>
 
-  <!-- WEEK 8 -->
   <div class="week-block" id="week8">
     <h3 data-it="Settimana 8 – Prime uscite"
         data-en="Week 8 – First outings">
@@ -443,7 +434,6 @@
     </div>
   </div>
 
-  <!-- WEEK 9 -->
   <div class="week-block" id="week9">
     <h3 data-it="Settimana 9 – Carattere definito"
         data-en="Week 9 – Defined personality">
@@ -463,7 +453,6 @@
     </div>
   </div>
 
-  <!-- WEEK 10 -->
   <div class="week-block" id="week10">
     <h3 data-it="Settimana 10 – Giochi e interazioni"
         data-en="Week 10 – Play and interactions">
@@ -474,4 +463,145 @@
        data-en="...">...</p>
 
     <div class="carousel">
-      <button class="carousel-btn left
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-10-1.jpeg">
+        <img src="img/placeholder-10-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
+
+  <div class="week-block" id="week11">
+    <h3 data-it="Settimana 11 – Preparazione alla famiglia"
+        data-en="Week 11 – Getting ready for the family">
+        Settimana 11 – Preparazione alla famiglia
+    </h3>
+
+    <p data-it="..."
+       data-en="...">...</p>
+
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-11-1.jpeg">
+        <img src="img/placeholder-11-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
+
+  <div class="week-block" id="week12">
+    <h3 data-it="Settimana 12 – Pronti per la nuova casa"
+        data-en="Week 12 – Ready for their new home">
+        Settimana 12 – Pronti per la nuova casa
+    </h3>
+
+    <p data-it="..."
+       data-en="...">...</p>
+
+    <div class="carousel">
+      <button class="carousel-btn left">❮</button>
+      <div class="carousel-track">
+        <img src="img/placeholder-12-1.jpeg">
+        <img src="img/placeholder-12-2.jpeg">
+      </div>
+      <button class="carousel-btn right">❯</button>
+    </div>
+  </div>
+
+  <!-- ===========================
+       GRAFICO CRESCITA
+  ============================ -->
+  <div class="chart-container">
+    <h3 data-it="Grafico crescita (peso)" data-en="Growth chart (weight)">
+      Grafico crescita (peso)
+    </h3>
+    <canvas id="growthChart" width="400" height="200"></canvas>
+  </div>
+
+</section>
+
+<footer>
+  <span data-it="© 2026 Cuccioli Bobtail Isotta – Tutti i diritti riservati"
+        data-en="© 2026 Bobtail Puppies Isotta – All rights reserved">
+        © 2026 Cuccioli Bobtail Isotta – Tutti i diritti riservati
+  </span>
+</footer>
+
+<!-- PULSANTE FISSO TORNA ALL'INDEX -->
+<a href="index.html"
+   class="back-to-index"
+   aria-label="Torna all'homepage">
+   ←
+</a>
+
+<!-- CHART.JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  /* ===========================
+       CAMBIO LINGUA
+  ============================ */
+  const selector = document.getElementById("lang-select");
+
+  selector.addEventListener("change", () => {
+    const lang = selector.value;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-it]").forEach(el => {
+      const newText = el.getAttribute(`data-${lang}`);
+      if (!newText) return;
+      el.innerHTML = newText;
+    });
+  });
+
+  /* ===========================
+       CAROSELLO
+  ============================ */
+  document.querySelectorAll(".carousel").forEach(carousel => {
+    const track = carousel.querySelector(".carousel-track");
+    const left = carousel.querySelector(".left");
+    const right = carousel.querySelector(".right");
+
+    let index = 0;
+
+    right.addEventListener("click", () => {
+      index = (index + 1) % track.children.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    left.addEventListener("click", () => {
+      index = (index - 1 + track.children.length) % track.children.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    });
+  });
+
+  /* ===========================
+       GRAFICO CRESCITA
+  ============================ */
+  const ctx = document.getElementById('growthChart').getContext('2d');
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Settimana 1","2","3","4","5","6","7","8","9","10","11","12"],
+      datasets: [{
+        label: "Peso (kg)",
+        data: [0.4,0.7,1.1,1.6,2.2,2.8,3.4,4.0,4.6,5.2,5.8,6.4],
+        borderColor: "#A39261",
+        backgroundColor: "rgba(163,146,97,0.25)",
+        borderWidth: 3,
+        tension: 0.3
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
