@@ -205,51 +205,36 @@
       margin-top: 30px;
     }
 
-    .photo {
-      position: relative;
-      border-radius: 14px;
-      border: 1px solid #333;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
-      transition: box-shadow 0.3s ease;
-      height: auto;
-      overflow: visible;
-    }
+.photo {
+  position: relative;
+  border-radius: 14px;
+  border: 1px solid #333;
+  box-shadow: 0 0 18px rgba(0,0,0,0.4);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
-    .photo img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      cursor: pointer;
-      transition: transform .5s ease, filter .5s ease;
-    }
+.photo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform .5s ease, filter .5s ease;
+}
 
-      /* Effetto hover */
-    .photo:hover img {
-      transform: scale(1.08);
-      filter: brightness(1.18);
-    }
-
-    /* Effetto click */
-    .photo.clicked img {
-      transform: scale(1.15) !important;
-      filter: brightness(1.25);
-    }
-
-    .photo.clicked {
-      box-shadow: 0 0 25px rgba(163,146,97,0.6), 0 0 10px rgba(255,255,255,0.2);
-      border-color: var(--accent-yellow);
-    }
-
-    .caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      padding: 10px 14px;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(163,146,97,0.15));
-      color: #e6e6e6;
-      font-size: 1em;
-      text-shadow: 0 0 6px black;
-    }
+.caption {
+  position: relative;
+  width: 100%;
+  padding: 10px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(163,146,97,0.15));
+  color: #e6e6e6;
+  font-size: 1em;
+  text-shadow: 0 0 6px black;
+  margin-top: -40px;
+  border-radius: 0 0 14px 14px;
+}
 
     /* ===========================
        WHATSAPP BUTTON TONDO
@@ -647,6 +632,7 @@
 </script>
 </body>
 </html>
+
 
 
 
