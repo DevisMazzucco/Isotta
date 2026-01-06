@@ -11,10 +11,7 @@
 
   <meta name="description"
         data-it="Crescita dei cuccioli Bobtail 2026 settimana per settimana: foto, sviluppo, carattere e aggiornamenti."
-        data-en="Growth of Bobtail puppies 2026 week by week: photos, development, temperament and updates."
-        content="Crescita dei cuccioli Bobtail 2026 settimana per settimana: foto, sviluppo, carattere e aggiornamenti.">
-
-  <meta name="robots" content="index, follow">
+        data-en="Growth of Bobtail puppies 2026 week by week: photos, development, temperament and updates.">
 
   <style>
 
@@ -122,7 +119,6 @@
       border-radius: 20px;
       border: 1px solid #222;
       box-shadow: 0 0 25px rgba(0,0,0,0.4);
-      animation: fadeIn 0.6s ease;
     }
 
     h2 {
@@ -171,24 +167,22 @@
       transition: transform 0.4s ease;
     }
 
-/* ANTEPRIME CAROSELLO — VERSIONE PREMIUM */
-.carousel img {
-  height: 140px;              /* ALTEZZA FISSA RIDOTTA */
-  width: auto;                /* NON SI ALLARGA PIÙ A 100% */
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-  object-fit: cover;          /* Ritaglia in modo elegante */
-  border: 1px solid rgba(163,146,97,0.35);
-}
+    /* ANTEPRIME RIDOTTE + BORDO DORATO */
+    .carousel img {
+      height: 120px;
+      width: auto;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+      object-fit: cover;
+      border: 1px solid rgba(163,146,97,0.35);
+    }
 
-/* EFFETTO HOVER ELEGANTE */
-.carousel img:hover {
-  transform: scale(1.06);
-  opacity: 0.95;
-  box-shadow: 0 0 12px rgba(163,146,97,0.45); /* GLOW DORATO */
-}
-
+    .carousel img:hover {
+      transform: scale(1.06);
+      opacity: 0.95;
+      box-shadow: 0 0 12px rgba(163,146,97,0.45);
+    }
 
     .carousel-btn {
       position: absolute;
@@ -210,6 +204,27 @@
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
 
+    /* INDICATORI ● ● ● */
+    .carousel-indicators {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .carousel-indicators span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      background: #555;
+      border-radius: 50%;
+      transition: 0.25s ease;
+    }
+
+    .carousel-indicators .active {
+      background: #A39261;
+      transform: scale(1.3);
+    }
+
     /* ===========================
        LIGHTBOX PREMIUM
     ============================ */
@@ -222,8 +237,8 @@
       justify-content: center;
       flex-direction: column;
       z-index: 99999;
-      animation: fadeIn 0.3s ease;
       backdrop-filter: blur(4px);
+      transition: opacity 0.25s ease;
     }
 
     #lightbox img {
@@ -375,7 +390,9 @@
 <section>
   <h2 data-it="Diario di crescita" data-en="Growth diary">Diario di crescita</h2>
 
-  <!-- ===========================
+
+
+    <!-- ===========================
        SETTIMANA 1
   ============================ -->
   <div class="week-block" id="week1">
@@ -384,26 +401,27 @@
         Settimana 1 – I primi giorni
     </h3>
 
-    <p data-it="I cuccioli dormono quasi tutto il giorno..."
-       data-en="The puppies sleep almost all day...">
-       I cuccioli dormono quasi tutto il giorno...
+    <p data-it="I cuccioli dormono quasi tutto il giorno. Il loro mondo è fatto di latte, calore e il respiro della mamma."
+       data-en="The puppies sleep almost all day. Their world is made of milk, warmth and their mom’s breathing.">
+       I cuccioli dormono quasi tutto il giorno. Il loro mondo è fatto di latte, calore e il respiro della mamma.
     </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/settimana1-1.jpeg" alt="Settimana 1 - Foto 1">
-        <img src="img/settimana1-2.jpeg" alt="Settimana 1 - Foto 2">
-        <img src="img/settimana1-3.jpeg" alt="Settimana 1 - Foto 3">
-        <img src="img/settimana1-4.jpeg" alt="Settimana 1 - Foto 4">
-        <img src="img/settimana1-5.jpeg" alt="Settimana 1 - Foto 5">
-        <img src="img/settimana1-6.jpeg" alt="Settimana 1 - Foto 6">
-        <img src="img/settimana1-7.jpeg" alt="Settimana 1 - Foto 7">
-        <img src="img/settimana1-8.jpeg" alt="Settimana 1 - Foto 8">
-        <img src="img/settimana1-9.jpeg" alt="Settimana 1 - Foto 9">
-        <img src="img/settimana1-10.jpeg" alt="Settimana 1 - Foto 10">
+        <img src="img/settimana1-1.jpeg" loading="lazy">
+        <img src="img/settimana1-2.jpeg" loading="lazy">
+        <img src="img/settimana1-3.jpeg" loading="lazy">
+        <img src="img/settimana1-4.jpeg" loading="lazy">
+        <img src="img/settimana1-5.jpeg" loading="lazy">
+        <img src="img/settimana1-6.jpeg" loading="lazy">
+        <img src="img/settimana1-7.jpeg" loading="lazy">
+        <img src="img/settimana1-8.jpeg" loading="lazy">
+        <img src="img/settimana1-9.jpeg" loading="lazy">
+        <img src="img/settimana1-10.jpeg" loading="lazy">
       </div>
       <button class="carousel-btn right">❯</button>
+      <div class="carousel-indicators"></div>
     </div>
   </div>
 
@@ -411,23 +429,32 @@
        SETTIMANA 2
   ============================ -->
   <div class="week-block" id="week2">
-    <h3 data-it="Settimana 2 – Occhi aperti"
-        data-en="Week 2 – Eyes open">
-        Settimana 2 – Occhi aperti
+    <h3 data-it="Settimana 2 – Occhi che si aprono"
+        data-en="Week 2 – Eyes opening">
+        Settimana 2 – Occhi che si aprono
     </h3>
 
-    <p data-it="I cuccioli aprono gli occhi..."
-       data-en="The puppies open their eyes...">
-       I cuccioli aprono gli occhi...
+    <p data-it="Gli occhi iniziano ad aprirsi e i cuccioli scoprono la luce. I movimenti sono lenti, ma pieni di promesse."
+       data-en="Their eyes start to open and they discover the light. Movements are slow but full of promise.">
+       Gli occhi iniziano ad aprirsi e i cuccioli scoprono la luce. I movimenti sono lenti, ma pieni di promesse.
     </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/settimana2-1.jpeg" alt="Settimana 2 - Foto 1">
-        <img src="img/settimana2-2.jpeg" alt="Settimana 2 - Foto 2">
+        <img src="img/settimana2-1.jpeg" loading="lazy">
+        <img src="img/settimana2-2.jpeg" loading="lazy">
+        <img src="img/settimana2-3.jpeg" loading="lazy">
+        <img src="img/settimana2-4.jpeg" loading="lazy">
+        <img src="img/settimana2-5.jpeg" loading="lazy">
+        <img src="img/settimana2-6.jpeg" loading="lazy">
+        <img src="img/settimana2-7.jpeg" loading="lazy">
+        <img src="img/settimana2-8.jpeg" loading="lazy">
+        <img src="img/settimana2-9.jpeg" loading="lazy">
+        <img src="img/settimana2-10.jpeg" loading="lazy">
       </div>
       <button class="carousel-btn right">❯</button>
+      <div class="carousel-indicators"></div>
     </div>
   </div>
 
@@ -440,212 +467,81 @@
         Settimana 3 – Prime esplorazioni
     </h3>
 
-    <p data-it="Iniziano a camminare con più sicurezza..."
-       data-en="They begin to walk more confidently...">
-       Iniziano a camminare con più sicurezza...
+    <p data-it="Iniziano a tentare i primi passi incerti, si cercano tra loro e la coda accenna i primi timidi scodinzolii."
+       data-en="They attempt their first unsteady steps, look for each other and their tails start tiny wagging.">
+       Iniziano a tentare i primi passi incerti, si cercano tra loro e la coda accenna i primi timidi scodinzolii.
     </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/settimana3-1.jpeg" alt="Settimana 3 - Foto 1">
-        <img src="img/settimana3-2.jpeg" alt="Settimana 3 - Foto 2">
+        <img src="img/settimana3-1.jpeg" loading="lazy">
+        <img src="img/settimana3-2.jpeg" loading="lazy">
+        <img src="img/settimana3-3.jpeg" loading="lazy">
+        <img src="img/settimana3-4.jpeg" loading="lazy">
+        <img src="img/settimana3-5.jpeg" loading="lazy">
+        <img src="img/settimana3-6.jpeg" loading="lazy">
+        <img src="img/settimana3-7.jpeg" loading="lazy">
+        <img src="img/settimana3-8.jpeg" loading="lazy">
+        <img src="img/settimana3-9.jpeg" loading="lazy">
+        <img src="img/settimana3-10.jpeg" loading="lazy">
       </div>
       <button class="carousel-btn right">❯</button>
+      <div class="carousel-indicators"></div>
     </div>
   </div>
 
-  <!-- WEEK 4 -->
+  <!-- ===========================
+       SETTIMANA 4
+  ============================ -->
   <div class="week-block" id="week4">
     <h3 data-it="Settimana 4 – Carattere e giochi"
         data-en="Week 4 – Personality and play">
         Settimana 4 – Carattere e giochi
     </h3>
 
-    <p data-it="..."
-       data-en="...">...</p>
+    <p data-it="Ogni cucciolo inizia a mostrare un carattere unico: chi è più curioso, chi più riflessivo, chi sempre pronto al gioco."
+       data-en="Each puppy starts to show a unique personality: some more curious, some calmer, some always ready to play.">
+       Ogni cucciolo inizia a mostrare un carattere unico: chi è più curioso, chi più riflessivo, chi sempre pronto al gioco.
+    </p>
 
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-4-1.jpeg" alt="Settimana 4 - Foto 1">
-        <img src="img/placeholder-4-2.jpeg" alt="Settimana 4 - Foto 2">
+        <img src="img/settimana4-1.jpeg" loading="lazy">
+        <img src="img/settimana4-2.jpeg" loading="lazy">
+        <img src="img/settimana4-3.jpeg" loading="lazy">
+        <img src="img/settimana4-4.jpeg" loading="lazy">
+        <img src="img/settimana4-5.jpeg" loading="lazy">
+        <img src="img/settimana4-6.jpeg" loading="lazy">
+        <img src="img/settimana4-7.jpeg" loading="lazy">
+        <img src="img/settimana4-8.jpeg" loading="lazy">
+        <img src="img/settimana4-9.jpeg" loading="lazy">
+        <img src="img/settimana4-10.jpeg" loading="lazy">
       </div>
       <button class="carousel-btn right">❯</button>
+      <div class="carousel-indicators"></div>
     </div>
   </div>
 
-  <!-- WEEK 5 -->
-  <div class="week-block" id="week5">
-    <h3 data-it="Settimana 5 – Prime corse"
-        data-en="Week 5 – First runs">
-        Settimana 5 – Prime corse
-    </h3>
 
-    <p data-it="..."
-       data-en="...">...</p>
+    <!-- ===========================
+       ALTRE SETTIMANE DA AGGIUNGERE
+  ============================ -->
 
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-5-1.jpeg" alt="Settimana 5 - Foto 1">
-        <img src="img/placeholder-5-2.jpeg" alt="Settimana 5 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
 
-  <!-- WEEK 6 -->
-  <div class="week-block" id="week6">
-    <h3 data-it="Settimana 6 – Socializzazione"
-        data-en="Week 6 – Socialization">
-        Settimana 6 – Socializzazione
-    </h3>
 
-    <p data-it="..."
-       data-en="...">...</p>
 
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-6-1.jpeg" alt="Settimana 6 - Foto 1">
-        <img src="img/placeholder-6-2.jpeg" alt="Settimana 6 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  <!-- WEEK 7 -->
-  <div class="week-block" id="week7">
-    <h3 data-it="Settimana 7 – Piccoli esploratori"
-        data-en="Week 7 – Little explorers">
-        Settimana 7 – Piccoli esploratori
-    </h3>
-
-    <p data-it="..."
-       data-en="...">...</p>
-
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-7-1.jpeg" alt="Settimana 7 - Foto 1">
-        <img src="img/placeholder-7-2.jpeg" alt="Settimana 7 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  <!-- WEEK 8 -->
-  <div class="week-block" id="week8">
-    <h3 data-it="Settimana 8 – Prime uscite"
-        data-en="Week 8 – First outings">
-        Settimana 8 – Prime uscite
-    </h3>
-
-    <p data-it="..."
-       data-en="...">...</p>
-
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-8-1.jpeg" alt="Settimana 8 - Foto 1">
-        <img src="img/placeholder-8-2.jpeg" alt="Settimana 8 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  <!-- WEEK 9 -->
-  <div class="week-block" id="week9">
-    <h3 data-it="Settimana 9 – Carattere definito"
-        data-en="Week 9 – Defined personality">
-        Settimana 9 – Carattere definito
-    </h3>
-
-    <p data-it="..."
-       data-en="...">...</p>
-
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-9-1.jpeg" alt="Settimana 9 - Foto 1">
-        <img src="img/placeholder-9-2.jpeg" alt="Settimana 9 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  <!-- WEEK 10 -->
-  <div class="week-block" id="week10">
-    <h3 data-it="Settimana 10 – Giochi e interazioni"
-        data-en="Week 10 – Play and interactions">
-        Settimana 10 – Giochi e interazioni
-    </h3>
-
-    <p data-it="..."
-       data-en="...">...</p>
-
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-10-1.jpeg" alt="Settimana 10 - Foto 1">
-        <img src="img/placeholder-10-2.jpeg" alt="Settimana 10 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  <!-- WEEK 11 -->
-  <div class="week-block" id="week11">
-    <h3 data-it="Settimana 11 – Preparazione alla famiglia"
-        data-en="Week 11 – Getting ready for the family">
-        Settimana 11 – Preparazione alla famiglia
-    </h3>
-
-    <p data-it="..."
-       data-en="...">...</p>
-
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-11-1.jpeg" alt="Settimana 11 - Foto 1">
-        <img src="img/placeholder-11-2.jpeg" alt="Settimana 11 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  <!-- WEEK 12 -->
-  <div class="week-block" id="week12">
-    <h3 data-it="Settimana 12 – Pronti per la nuova casa"
-        data-en="Week 12 – Ready for their new home">
-        Settimana 12 – Pronti per la nuova casa
-    </h3>
-
-    <p data-it="..."
-       data-en="...">...</p>
-
-    <div class="carousel">
-      <button class="carousel-btn left">❮</button>
-      <div class="carousel-track">
-        <img src="img/placeholder-12-1.jpeg" alt="Settimana 12 - Foto 1">
-        <img src="img/placeholder-12-2.jpeg" alt="Settimana 12 - Foto 2">
-      </div>
-      <button class="carousel-btn right">❯</button>
-    </div>
-  </div>
-
-  
-  <!-- ===========================
+    <!-- ===========================
        GRAFICO CRESCITA
   ============================ -->
   <div class="chart-container">
-    <h3 data-it="Grafico crescita (peso)" data-en="Growth chart (weight)">
-      Grafico crescita (peso)
+    <h3 data-it="Grafico crescita (peso)"
+        data-en="Growth chart (weight)">
+        Grafico crescita (peso)
     </h3>
     <canvas id="growthChart" width="400" height="200"></canvas>
   </div>
-
 
 </section>
 
@@ -671,20 +567,15 @@
    ←
 </a>
 
-
-
-
-
 <!-- CHART.JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-/* ===========================
+/* ============================================================
    CAMBIO LINGUA
-=========================== */
-const selector = document.getElementById("lang-select");
-selector.addEventListener("change", () => {
-  const lang = selector.value;
+============================================================ */
+document.getElementById("lang-select").addEventListener("change", e => {
+  const lang = e.target.value;
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-it]").forEach(el => {
     const t = el.getAttribute(`data-${lang}`);
@@ -692,107 +583,229 @@ selector.addEventListener("change", () => {
   });
 });
 
-/* ===========================
-   CAROSELLO
-=========================== */
+/* ============================================================
+   CAROSELLO + SWIPE + INDICATORI + ELASTICO
+============================================================ */
 document.querySelectorAll(".carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
-  const left = carousel.querySelector(".left");
-  const right = carousel.querySelector(".right");
-  let index = 0;
+  const imgs = [...track.children];
+  const left = carousel.querySelector(".carousel-btn.left");
+  const right = carousel.querySelector(".carousel-btn.right");
+  const indicators = carousel.querySelector(".carousel-indicators");
 
-  right.addEventListener("click", () => {
-    index = (index + 1) % track.children.length;
+  let index = 0, startX = 0, currentX = 0, dragging = false;
+
+  /* Indicatori ● ● ● */
+  indicators.innerHTML = imgs.map((_, i) =>
+    `<span class="${i === 0 ? 'active' : ''}"></span>`
+  ).join("");
+
+  const updateIndicators = () => {
+    indicators.querySelectorAll("span").forEach((dot, i) =>
+      dot.classList.toggle("active", i === index)
+    );
+  };
+
+  const goTo = i => {
+    index = (i + imgs.length) % imgs.length;
+    track.style.transition = "transform 0.35s ease";
     track.style.transform = `translateX(-${index * 100}%)`;
+    updateIndicators();
+  };
+
+  if (right) right.addEventListener("click", () => goTo(index + 1));
+  if (left) left.addEventListener("click", () => goTo(index - 1));
+
+  /* Swipe con effetto elastico */
+  carousel.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+    dragging = true;
+    track.style.transition = "none";
   });
 
-  left.addEventListener("click", () => {
-    index = (index - 1 + track.children.length) % track.children.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
+  carousel.addEventListener("touchmove", e => {
+    if (!dragging) return;
+    currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    const elastic = -index * 100 + diff / 5;
+    track.style.transform = `translateX(${elastic}%)`;
+  });
+
+  carousel.addEventListener("touchend", () => {
+    dragging = false;
+    const diff = currentX - startX;
+    if (Math.abs(diff) > 50) goTo(index + (diff < 0 ? 1 : -1));
+    else goTo(index);
   });
 });
 
-/* ===========================
-   LIGHTBOX PREMIUM
-=========================== */
+/* ============================================================
+   LIGHTBOX PREMIUM (swipe, pinch, doppio tap, drag, chiusura)
+============================================================ */
 const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxCaption = document.getElementById("lightbox-caption");
-const prevBtn = document.getElementById("lightbox-prev");
-const nextBtn = document.getElementById("lightbox-next");
+const lbImg = document.getElementById("lightbox-img");
+const lbCap = document.getElementById("lightbox-caption");
+const prev = document.getElementById("lightbox-prev");
+const next = document.getElementById("lightbox-next");
 
-let currentImages = [];
-let currentIndex = 0;
-let zoomLevel = 1;
+let currentImages = [], currentIndex = 0;
+let zoom = 1, startX = 0, startY = 0, offsetX = 0, offsetY = 0;
+let pinchStart = 0, lastTap = 0;
 
-/* Apri lightbox */
+/* Colleziona tutte le immagini cliccabili */
 document.querySelectorAll(".carousel").forEach(carousel => {
-  const imgs = [...carousel.querySelectorAll("img")];
+  const imgs = [...carousel.querySelectorAll(".carousel-track img")];
   imgs.forEach((img, i) => {
     img.addEventListener("click", () => {
       currentImages = imgs;
       currentIndex = i;
-      openLightbox();
+      openLB();
     });
   });
 });
 
-function openLightbox() {
+function openLB() {
   const img = currentImages[currentIndex];
-  lightboxImg.src = img.src;
-  lightboxCaption.textContent = img.alt || "";
-  zoomLevel = 1;
-  lightboxImg.style.transform = "scale(1)";
+  lbImg.src = img.src;
+  lbCap.textContent = img.alt || "";
+  zoom = 1; offsetX = 0; offsetY = 0;
+  lbImg.style.transform = "scale(1)";
   lightbox.style.display = "flex";
+  lightbox.style.opacity = "1";
 }
 
-/* Frecce */
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-  openLightbox();
-});
+/* Navigazione */
+function show(i) {
+  currentIndex = (i + currentImages.length) % currentImages.length;
+  openLB();
+}
 
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % currentImages.length;
-  openLightbox();
-});
+if (prev) prev.addEventListener("click", () => show(currentIndex - 1));
+if (next) next.addEventListener("click", () => show(currentIndex + 1));
 
-/* Chiudi cliccando fuori */
+/* Chiusura con fade-out */
+function closeLB() {
+  lightbox.style.transition = "opacity 0.25s ease";
+  lightbox.style.opacity = "0";
+  setTimeout(() => {
+    lightbox.style.display = "none";
+    lightbox.style.opacity = "1";
+  }, 250);
+}
+
+/* Chiudi cliccando fuori dall'immagine */
 lightbox.addEventListener("click", e => {
-  if (e.target === lightbox) lightbox.style.display = "none";
+  if (e.target === lightbox) closeLB();
 });
 
-/* Zoom con rotellina */
-lightboxImg.addEventListener("wheel", e => {
-  e.preventDefault();
-  zoomLevel += e.deltaY * -0.001;
-  zoomLevel = Math.min(Math.max(zoomLevel, 1), 3);
-  lightboxImg.style.transform = `scale(${zoomLevel})`;
+/* Swipe sinistra/destra + swipe giù per chiudere */
+lbImg.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
 });
 
-/* ===========================
-   GRAFICO CRESCITA
-=========================== */
-const ctx = document.getElementById('growthChart').getContext('2d');
+lbImg.addEventListener("touchend", e => {
+  const dx = e.changedTouches[0].clientX - startX;
+  const dy = e.changedTouches[0].clientY - startY;
 
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["Settimana 1","2","3","4","5","6","7","8","9","10","11","12"],
-    datasets: [{
-      label: "Peso (kg)",
-      data: [0.4,0.7,1.1,1.6,2.2,2.8,3.4,4.0,4.6,5.2,5.8,6.4],
-      borderColor: "#A39261",
-      backgroundColor: "rgba(163,146,97,0.25)",
-      borderWidth: 3,
-      tension: 0.3
-    }]
-  },
-  options: {
-    scales: { y: { beginAtZero: true } }
+  if (zoom === 1 && Math.abs(dx) > 60) {
+    show(currentIndex + (dx < 0 ? 1 : -1));
+  }
+  if (zoom === 1 && dy > 80) {
+    closeLB();
   }
 });
-</script>
 
+/* Doppio tap per zoom 1x ↔ 2x */
+lbImg.addEventListener("touchend", e => {
+  const now = Date.now();
+  if (now - lastTap < 300) {
+    zoom = zoom === 1 ? 2 : 1;
+    offsetX = 0;
+    offsetY = 0;
+    lbImg.style.transform = `scale(${zoom})`;
+  }
+  lastTap = now;
+});
+
+/* Pinch-to-zoom + pinch-in per chiudere */
+lbImg.addEventListener("touchmove", e => {
+  if (e.touches.length === 2) {
+    e.preventDefault();
+    const [t1, t2] = e.touches;
+    const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+
+    if (!pinchStart) pinchStart = dist;
+
+    const scale = dist / pinchStart;
+    zoom = Math.min(Math.max(scale, 1), 4);
+    lbImg.style.transform =
+      `scale(${zoom}) translate(${offsetX/zoom}px, ${offsetY/zoom}px)`;
+
+    if (dist < pinchStart * 0.6) closeLB();
+  }
+});
+
+lbImg.addEventListener("touchend", () => {
+  pinchStart = 0;
+});
+
+/* Drag immagine quando zoom > 1 */
+lbImg.addEventListener("touchstart", e => {
+  if (zoom > 1 && e.touches.length === 1) {
+    startX = e.touches[0].clientX - offsetX;
+    startY = e.touches[0].clientY - offsetY;
+  }
+});
+
+lbImg.addEventListener("touchmove", e => {
+  if (zoom > 1 && e.touches.length === 1) {
+    offsetX = e.touches[0].clientX - startX;
+    offsetY = e.touches[0].clientY - startY;
+    lbImg.style.transform =
+      `scale(${zoom}) translate(${offsetX/zoom}px, ${offsetY/zoom}px)`;
+  }
+});
+
+/* Zoom con rotellina su desktop */
+lbImg.addEventListener("wheel", e => {
+  e.preventDefault();
+  zoom += e.deltaY * -0.001;
+  zoom = Math.min(Math.max(zoom, 1), 4);
+  lbImg.style.transform = `scale(${zoom})`;
+});
+
+/* ============================================================
+   GRAFICO CRESCITA (Chart.js)
+============================================================ */
+const ctx = document.getElementById('growthChart');
+if (ctx) {
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["1","2","3","4","5","6","7","8","9","10","11","12"],
+      datasets: [{
+        label: "Peso (kg)",
+        data: [0.4,0.7,1.1,1.6,2.2,2.8,3.4,4.0,4.6,5.2,5.8,6.4],
+        borderColor: "#A39261",
+        backgroundColor: "rgba(163,146,97,0.25)",
+        borderWidth: 3,
+        tension: 0.3,
+        pointRadius: 3,
+        pointBackgroundColor: "#A39261"
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { labels: { color: "#e6e6e6" } }
+      },
+      scales: {
+        x: { ticks: { color: "#ccc" }, grid: { color: "#333" } },
+        y: { beginAtZero: true, ticks: { color: "#ccc" }, grid: { color: "#333" } }
+      }
+    }
+  });
+}
+</script>
 </body>
-</html>    
+</html>
