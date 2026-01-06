@@ -173,13 +173,13 @@
 
 /* ANTEPRIME CAROSELLO — VERSIONE PREMIUM */
 .carousel img {
-  width: 100%;
+  height: 100px;              /* ALTEZZA FISSA RIDOTTA */
+  width: auto;                /* NON SI ALLARGA PIÙ A 100% */
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-  max-height: 120px; /* ANTEPRIMA RIDOTTA */
-  object-fit: cover;
-  border: 1px solid rgba(163,146,97,0.35); /* BORDO DORATO LEGGERO */
+  object-fit: cover;          /* Ritaglia in modo elegante */
+  border: 1px solid rgba(163,146,97,0.35);
 }
 
 /* EFFETTO HOVER ELEGANTE */
