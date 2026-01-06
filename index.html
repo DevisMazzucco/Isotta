@@ -161,42 +161,7 @@
     }
 
     /* ===========================
-       FORM MIGLIORATO
-    ============================ */
-    #informazioni form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    #informazioni label {
-      font-size: 1.1em;
-      color: #ddd;
-      margin-bottom: 4px;
-    }
-
-    #informazioni input,
-    #informazioni textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #444;
-      background: #1f1f1f;
-      color: #e6e6e6;
-      font-size: 1em;
-    }
-
-    #informazioni textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    #informazioni button {
-      margin-top: 10px;
-    }
-
-    /* ===========================
-       GALLERIA
+       GALLERIA — VERSIONE PERFETTA
     ============================ */
     .gallery {
       display: grid;
@@ -205,36 +170,51 @@
       margin-top: 30px;
     }
 
-.photo {
-  position: relative;
-  border-radius: 14px;
-  border: 1px solid #333;
-  box-shadow: 0 0 18px rgba(0,0,0,0.4);
-  transition: box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
+    .photo {
+      position: relative;
+      border-radius: 14px;
+      border: 1px solid #333;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
 
-.photo img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  cursor: pointer;
-  transition: transform .5s ease, filter .5s ease;
-}
+    .photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      cursor: pointer;
+      transition: transform .5s ease, filter .5s ease;
+    }
 
-.caption {
-  position: relative;
-  width: 100%;
-  padding: 10px 14px;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(163,146,97,0.15));
-  color: #e6e6e6;
-  font-size: 1em;
-  text-shadow: 0 0 6px black;
-  margin-top: -40px;
-  border-radius: 0 0 14px 14px;
-}
+    .photo:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.18);
+    }
+
+    .photo.clicked img {
+      transform: scale(1.15) !important;
+      filter: brightness(1.25);
+    }
+
+    .photo.clicked {
+      box-shadow: 0 0 25px rgba(163,146,97,0.6), 0 0 10px rgba(255,255,255,0.2);
+      border-color: var(--accent-yellow);
+    }
+
+    .caption {
+      position: relative;
+      width: 100%;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(163,146,97,0.15));
+      color: #e6e6e6;
+      font-size: 1em;
+      text-shadow: 0 0 6px black;
+      margin-top: -40px;
+      border-radius: 0 0 14px 14px;
+    }
 
     /* ===========================
        WHATSAPP BUTTON TONDO
@@ -264,9 +244,6 @@
       box-shadow: 0 0 25px rgba(37,211,102,0.6);
     }
 
-    /* ===========================
-       FOOTER
-    ============================ */
     footer {
       text-align: center;
       padding: 25px;
@@ -282,7 +259,7 @@
 
 
 
-  <body class="fade-in">
+<body class="fade-in">
 
   <!-- ===========================
        HEADER
@@ -294,8 +271,6 @@
     <h1 data-it="Old English Sheepdog" data-en="Old English Sheepdog">
       Old English Sheepdog
     </h1>
-
-    
 
     <nav>
       <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
@@ -317,14 +292,12 @@
   <section id="chi-siamo">
     <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
 
-  <p data-it="Siamo Daniela e Devis, non siamo allevatori professionisti, ma condividiamo da sempre la passione per i cani. Viviamo vicino a Pavia con i nostri tre cani di razze diverse.    
-      Nel 2021 abbiamo scoperto i Bobtail (Old English Sheepdog) accogliendo in famiglia Isotta – Etichetta Nera Ponyo sulla Scogliera – e ci siamo innamorati del carattere dolce, affettuoso e un po’ buffo di questa splendida razza."
-      data-en="We're Daniela and Devis. We're not professional breeders, but we've always shared a passion for dogs. We live near Pavia with our three dogs of different breeds.
-      In 2021, we discovered Old English Sheepdogs when we welcomed Isotta – Black Label Ponyo sulla Scogliera – into our family and fell in love with the sweet, affectionate, and slightly funny nature of this wonderful breed.">
-      Siamo Daniela e Devis, non siamo allevatori professionisti, ma condividiamo da sempre la passione per i cani. Viviamo vicino a Pavia con i nostri tre cani di razze diverse. 
-      Nel 2021 abbiamo scoperto i Bobtail (Old English Sheepdog) accogliendo in famiglia Isotta – Etichetta Nera Ponyo sulla Scogliera – e ci siamo innamorati del carattere dolce, affettuoso e un po’ buffo di questa splendida razza.
-  </p>
-     <a href="https://www.oesdatabase.eu/breeder/isotta#general"
+    <p data-it="Siamo Daniela e Devis, non siamo allevatori professionisti, ma condividiamo da sempre la passione per i cani. Viviamo vicino a Pavia con i nostri tre cani di razze diverse. Nel 2021 abbiamo scoperto i Bobtail (Old English Sheepdog) accogliendo in famiglia Isotta – Etichetta Nera Ponyo sulla Scogliera – e ci siamo innamorati del carattere dolce, affettuoso e un po’ buffo di questa splendida razza."
+       data-en="We're Daniela and Devis. We're not professional breeders, but we've always shared a passion for dogs. We live near Pavia with our three dogs of different breeds. In 2021, we discovered Old English Sheepdogs when we welcomed Isotta – Black Label Ponyo sulla Scogliera – into our family and fell in love with the sweet, affectionate, and slightly funny nature of this wonderful breed.">
+      Siamo Daniela e Devis, non siamo allevatori professionisti, ma condividiamo da sempre la passione per i cani. Viviamo vicino a Pavia con i nostri tre cani di razze diverse. Nel 2021 abbiamo scoperto i Bobtail (Old English Sheepdog) accogliendo in famiglia Isotta – Etichetta Nera Ponyo sulla Scogliera – e ci siamo innamorati del carattere dolce, affettuoso e un po’ buffo di questa splendida razza.
+    </p>
+
+    <a href="https://www.oesdatabase.eu/breeder/isotta#general"
        target="_blank"
        rel="noopener"
        data-it="Chi siamo"
@@ -333,27 +306,23 @@
     </a>
   </section>
 
-  
-    
-    
-    
-    
-    <!-- ===========================
+  <!-- ===========================
        CUCCIOLATA
   ============================ -->
   <section id="cucciolata">
     <h2 data-it="La cucciolata" data-en="The litter">La cucciolata</h2>
+
     <p data-it="La cucciolata nasce in casa, in un ambiente sereno e familiare, da genitori sani e dal carattere equilibrato. I cuccioli vengono seguiti con amore e attenzione, crescono a contatto con noi e i nostri cani, rumori e situazioni della vita di tutti i giorni, per favorire una corretta socializzazione. Verranno consegnati sverminati, vaccinati, con microchip e certificato ENCI."
        data-en="The litter is born in our home, in a peaceful and familiar environment, to healthy, well-balanced parents. The puppies are cared for with love and attention, growing up in close contact with us and our dogs, and surrounded by everyday noises and situations, to promote proper socialization. They will be delivered dewormed, vaccinated, microchipped, and ENCI certified.">
       La cucciolata nasce in casa, in un ambiente sereno e familiare, da genitori sani e dal carattere equilibrato. I cuccioli vengono seguiti con amore e attenzione, crescono a contatto con noi e i nostri cani, rumori e situazioni della vita di tutti i giorni, per favorire una corretta socializzazione. Verranno consegnati sverminati, vaccinati, con microchip e certificato ENCI.
     </p>
-    
+
     <p data-it="<strong> - Nascita prevista metà gennaio 2026 - </strong>"
        data-en="<strong> - Expected birth mid-January 2026 - </strong>">
       <strong> - Nascita prevista metà gennaio 2026 - </strong>
     </p>
-    
-      <a href="https://www.oesdatabase.eu/litter/balou-aus-dem-rotmaintal-x-etichetta-nera-ponyo-sulla-scogliera#pedigree"
+
+    <a href="https://www.oesdatabase.eu/litter/balou-aus-dem-rotmaintal-x-etichetta-nera-ponyo-sulla-scogliera#pedigree"
        target="_blank"
        rel="noopener"
        data-it="La Cucciolata"
@@ -364,61 +333,62 @@
     <div class="gallery">
       <div class="photo">
         <img src="img/cuccioli-1.jpeg"
-             alt="img/cuccioli-1.jpeg"
-             data-label-it="Cuccioli-1" 
+             alt="Cuccioli-1"
+             data-label-it="Cuccioli-1"
              data-label-en="Puppies-1">
-        <span class="caption">cuccioli-1</span>
+        <span class="caption">Cuccioli-1</span>
       </div>
 
       <div class="photo">
         <img src="img/cuccioli-2.jpeg"
-             alt="img/cuccioli-2.jpeg"
-             data-label-it="Cuccioli-2" 
+             alt="Cuccioli-2"
+             data-label-it="Cuccioli-2"
              data-label-en="Puppies-2">
-        <span class="caption">cuccioli-2</span>
+        <span class="caption">Cuccioli-2</span>
       </div>
     </div>
   </section>
 
-<section id="genitori">
-  <h2 data-it="I genitori" data-en="The parents">I Genitori</h2>
-
-  <p data-it="I Genitori sono di alta genealogia, esenti da displasia anche e gomiti, testati per patologie genetiche ereditarie, oculopatie ereditarie e gonioscopia e test udito. Hanno un carattere dolce, equilibrato e affettuoso, tipico dell’Old English Sheepdog, ideale per una vita in famiglia a contatto con bambini e altri animali."
-     data-en="The parents are of high pedigree, free of hip and elbow dysplasia, and tested for hereditary genetic diseases, hereditary eye diseases, and gonioscopy and hearing tests. They have a sweet, balanced, and affectionate personality, typical of the Old English Sheepdog, ideal for a family life with children and other animals.">
-     I Genitori sono di alta genealogia, esenti da displasia anche e gomiti, testati per patologie genetiche ereditarie, oculopatie ereditarie e gonioscopia e test udito. Hanno un carattere dolce, equilibrato e affettuoso, tipico dell’Old English Sheepdog, ideale per una vita in famiglia a contatto con bambini e altri animali.
-
   <!-- ===========================
-       MAMMA
+       GENITORI
   ============================ -->
-  <p data-it="<strong>Mamma:</strong> Isotta - Etichetta Nera Ponyo Sulla Scogliera"
-     data-en="<strong>Mom:</strong> Isotta - Etichetta Nera Ponyo Sulla Scogliera">
-     <strong>Mamma:</strong> Isotta - Etichetta Nera Ponyo Sulla Scogliera
-  </p>
+  <section id="genitori">
+    <h2 data-it="I genitori" data-en="The parents">I Genitori</h2>
 
-  <div class="gallery">
-    <div class="photo">
-      <img src="img/mamma-1.jpeg"
-           alt="Isotta - Etichetta Nera Ponyo Sulla Scogliera"
-           data-label-it="Isotta - Etichetta Nera Ponyo Sulla Scogliera"
-           data-label-en="Isotta - Etichetta Nera Ponyo Sulla Scogliera">
-      <span class="caption">Isotta - Etichetta Nera Ponyo Sulla Scogliera</span>
+    <p data-it="I Genitori sono di alta genealogia, esenti da displasia anche e gomiti, testati per patologie genetiche ereditarie, oculopatie ereditarie e gonioscopia e test udito. Hanno un carattere dolce, equilibrato e affettuoso, tipico dell’Old English Sheepdog, ideale per una vita in famiglia a contatto con bambini e altri animali."
+       data-en="The parents are of high pedigree, free of hip and elbow dysplasia, and tested for hereditary genetic diseases, hereditary eye diseases, and gonioscopy and hearing tests. They have a sweet, balanced, and affectionate personality, typical of the Old English Sheepdog, ideal for a family life with children and other animals.">
+      I Genitori sono di alta genealogia, esenti da displasia anche e gomiti, testati per patologie genetiche ereditarie, oculopatie ereditarie e gonioscopia e test udito. Hanno un carattere dolce, equilibrato e affettuoso, tipico dell’Old English Sheepdog, ideale per una vita in famiglia a contatto con bambini e altri animali.
+    </p>
+
+    <!-- MAMMA -->
+    <p data-it="<strong>Mamma:</strong> Isotta - Etichetta Nera Ponyo Sulla Scogliera"
+       data-en="<strong>Mom:</strong> Isotta - Etichetta Nera Ponyo Sulla Scogliera">
+       <strong>Mamma:</strong> Isotta - Etichetta Nera Ponyo Sulla Scogliera
+    </p>
+
+    <div class="gallery">
+      <div class="photo">
+        <img src="img/mamma-1.jpeg"
+             alt="Isotta"
+             data-label-it="Isotta - Etichetta Nera Ponyo Sulla Scogliera"
+             data-label-en="Isotta - Etichetta Nera Ponyo Sulla Scogliera">
+        <span class="caption">Isotta - Etichetta Nera Ponyo Sulla Scogliera</span>
+      </div>
+
+      <div class="photo">
+        <img src="img/mamma-2.jpeg"
+             alt="Isotta"
+             data-label-it="Isotta - Etichetta Nera Ponyo Sulla Scogliera"
+             data-label-en="Isotta - Etichetta Nera Ponyo Sulla Scogliera">
+        <span class="caption">Isotta - Etichetta Nera Ponyo Sulla Scogliera</span>
+      </div>
     </div>
 
-    <div class="photo">
-      <img src="img/mamma-2.jpeg"
-           alt="Isotta - Etichetta Nera Ponyo Sulla Scogliera"
-           data-label-it="Isotta - Etichetta Nera Ponyo Sulla Scogliera"
-           data-label-en="Isotta - Etichetta Nera Ponyo Sulla Scogliera">
-      <span class="caption">Isotta - Etichetta Nera Ponyo Sulla Scogliera</span>
-    </div>
-  </div>
+    <p data-it="Analisi Mediche: HD A • Eyes: Cataract & PRA free, ICAA-free (2024) • ED 0 • BAER +/+ • PCD +/- • EIC, MDR1, CA/HA, DM free"
+       data-en="Health Results: HD A • Eyes: Cataract & PRA free, ICAA-free (2024) • ED 0 • BAER +/+ • PCD +/- • EIC, MDR1, CA/HA, DM free">
+      Analisi Mediche: HD A • Eyes: Cataract & PRA free, ICAA-free (2024) • ED 0 • BAER +/+ • PCD +/- • EIC, MDR1, CA/HA, DM free
+    </p>
 
-  <p data-it="Analisi Mediche: HD A • Eyes: Cataract & PRA free, ICAA-free (2024) • ED 0 • BAER +/+ • PCD +/- • EIC, MDR1, CA/HA, DM free"
-     data-en="Health Results: HD A • Eyes: Cataract & PRA free, ICAA-free (2024) • ED 0 • BAER +/+ • PCD +/- • EIC, MDR1, CA/HA, DM free">
-     Analisi Mediche: HD A • Eyes: Cataract & PRA free, ICAA-free (2024) • ED 0 • BAER +/+ • PCD +/- • EIC, MDR1, CA/HA, DM free
-  </p>
-
-  <p>
     <a href="https://www.oesdatabase.eu/dog/etichetta-nera-ponyo-sulla-scogliera#general"
        target="_blank"
        rel="noopener"
@@ -426,38 +396,36 @@
        data-en="OES Database profile">
        Scheda OES Database
     </a>
-  </p>
 
-  <!-- ===========================
-       PAPÀ
-  ============================ -->
-  <p data-it="<strong>Papà:</strong> Schorschi - Balou aus dem Rotmaintal"
-     data-en="<strong>Dad:</strong> Schorschi - Balou aus dem Rotmaintal">
-     <strong>Papà:</strong> Schorschi - Balou aus dem Rotmaintal
-  </p>
+    <!-- PAPÀ -->
+    <p data-it="<strong>Papà:</strong> Schorschi - Balou aus dem Rotmaintal"
+       data-en="<strong>Dad:</strong> Schorschi - Balou aus dem Rotmaintal">
+       <strong>Papà:</strong> Schorschi - Balou aus dem Rotmaintal
+    </p>
 
-  <div class="gallery">
-    <div class="photo">
-      <img src="img/papa-1.jpeg"
-           alt="Schorschi - Balou aus dem Rotmaintal"
-           data-label-it="Schorschi - Balou aus dem Rotmaintal"
-           data-label-en="Schorschi - Balou aus dem Rotmaintal">
-      <span class="caption">Schorschi - Balou aus dem Rotmaintal</span>
+    <div class="gallery">
+      <div class="photo">
+        <img src="img/papa-1.jpeg"
+             alt="Schorschi"
+             data-label-it="Schorschi - Balou aus dem Rotmaintal"
+             data-label-en="Schorschi - Balou aus dem Rotmaintal">
+        <span class="caption">Schorschi - Balou aus dem Rotmaintal</span>
+      </div>
+
+      <div class="photo">
+        <img src="img/papa-2.jpeg"
+             alt="Schorschi"
+             data-label-it="Schorschi - Balou aus dem Rotmaintal"
+             data-label-en="Schorschi - Balou aus dem Rotmaintal">
+        <span class="caption">Schorschi - Balou aus dem Rotmaintal</span>
+      </div>
     </div>
 
-    <div class="photo">
-      <img src="img/papa-2.jpeg"
-           alt="Schorschi - Balou aus dem Rotmaintal"
-           data-label-it="Schorschi - Balou aus dem Rotmaintal"
-           data-label-en="Schorschi - Balou aus dem Rotmaintal">
-      <span class="caption">Schorschi - Balou aus dem Rotmaintal</span>
-    </div>
-  </div>
+    <p data-it="Analisi Mediche: HD A • Eyes: Cataract & PRA free, MOD-free, ICAA-free (2024/2025) • ED 0 • OCD free • BAER +/+ • PCD, EIC, MDR1, CA/HA, DM, SD free"
+       data-en="Health Results: HD A • Eyes: Cataract & PRA free, MOD-free, ICAA-free (2024/2025) • ED 0 • OCD free • BAER +/+ • PCD, EIC, MDR1, CA/HA, DM, SD free">
+      Analisi Mediche: HD A • Eyes: Cataract & PRA free, MOD-free, ICAA-free (2024/2025) • ED 0 • OCD free • BAER +/+ • PCD, EIC, MDR1, CA/HA, DM, SD free
+    </p>
 
-  <p data-it="Analisi Mediche: HD A • Eyes: Cataract & PRA free, MOD-free, ICAA-free (2024/2025) • ED 0 • OCD free • BAER +/+ • PCD, EIC, MDR1, CA/HA, DM, SD free"
-     data-en="Health Results: HD A • Eyes: Cataract & PRA free, MOD-free, ICAA-free (2024/2025) • ED 0 • OCD free • BAER +/+ • PCD, EIC, MDR1, CA/HA, DM, SD free">
-     Analisi Mediche: HD A • Eyes: Cataract & PRA free, MOD-free, ICAA-free (2024/2025) • ED 0 • OCD free • BAER +/+ • PCD, EIC, MDR1, CA/HA, DM, SD free
-  <p>
     <a href="https://www.oesdatabase.eu/dog/balou-aus-dem-rotmaintal#general"
        target="_blank"
        rel="noopener"
@@ -465,7 +433,7 @@
        data-en="OES Database profile">
        Scheda OES Database
     </a>
-   <p>
+
     <a href="http://520143887.swh.strato-hosting.eu/Balou/1/"
        target="_blank"
        rel="noopener"
@@ -473,9 +441,8 @@
        data-en="Bobtailzwinger 'aus dem Rotmaintal'">
        Bobtailzwinger 'aus dem Rotmaintal'
     </a>
-  </p>
 
-</section>
+  </section>
 
   <!-- ===========================
        INFORMAZIONI
@@ -520,6 +487,7 @@
        data-en="Phone: +39 3391650393 (Daniela)">
        Telefono: +39 3391650393 (Daniela)
     </p>
+
     <p data-it="Telefono: +39 3335067861 (Devis)"
        data-en="Phone: +39 3335067861 (Devis)">
        Telefono: +39 3335067861 (Devis)
@@ -540,6 +508,7 @@
      class="whatsapp-circle"
      target="_blank"
      rel="noopener"></a>
+
 
 
 
@@ -569,7 +538,6 @@
           el.placeholder = newText;
         } else {
           el.innerHTML = newText;
-
         }
       });
 
@@ -612,8 +580,8 @@
     const lang = selector.value;
     redirectField.value =
       lang === "it"
-        ? "https://devismazzucco.github.io/Isotta/grazie.html"
-        : "https://devismazzucco.github.io/Isotta/thanks.html";
+        ? "https://www.cuccioli-bobtail-isotta.it/grazie.html"
+        : "https://www.cuccioli-bobtail-isotta.it/thanks.html";
   });
 
   /* ===========================
@@ -632,9 +600,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
