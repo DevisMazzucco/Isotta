@@ -169,7 +169,7 @@
       border-radius: 2px;
     }
 
-    /* GALLERIA PERFETTA */
+    /* GALLERIA */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -208,6 +208,69 @@
       text-shadow: 0 0 6px black;
       margin-top: -40px;
       border-radius: 0 0 14px 14px;
+    }
+
+    /* ===========================
+       FORM 2 COLONNE DESKTOP
+=========================== */
+    #informazioni form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Desktop: 2 colonne */
+    @media (min-width: 768px) {
+      #informazioni form {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #informazioni .full {
+        grid-column: span 2;
+      }
+    }
+
+    #informazioni label {
+      font-size: 1.1em;
+      color: #ddd;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    #informazioni input,
+    #informazioni textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #1f1f1f;
+      color: #e6e6e6;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    #informazioni textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    #informazioni button {
+      grid-column: span 2;
+      padding: 14px;
+      font-size: 1.1em;
+      background: var(--accent-blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    #informazioni button:hover {
+      background: var(--accent-yellow);
+      color: #000;
     }
 
     /* FOOTER */
@@ -432,30 +495,39 @@
   </section>
 
   <!-- ===========================
-       INFORMAZIONI
+       INFORMAZIONI — FORM 2 COLONNE
   ============================ -->
   <section id="informazioni">
     <h2 data-it="Informazioni" data-en="Information">Informazioni</h2>
 
     <form id="contact-form" action="https://formspree.io/f/mgoezdgl" method="POST">
+
       <input type="hidden" name="_redirect" id="redirect-field" value="">
 
-      <label data-it="Nome:" data-en="Name:">Nome:</label>
-      <input type="text" name="nome" required>
+      <div>
+        <label data-it="Nome:" data-en="Name:">Nome:</label>
+        <input type="text" name="nome" required>
+      </div>
 
-      <label data-it="Email:" data-en="Email:">Email:</label>
-      <input type="email" name="email" required>
+      <div>
+        <label data-it="Email:" data-en="Email:">Email:</label>
+        <input type="email" name="email" required>
+      </div>
 
-      <label data-it="Telefono:" data-en="Phone:">Telefono:</label>
-      <input type="tel" name="telefono" required>
+      <div>
+        <label data-it="Telefono:" data-en="Phone:">Telefono:</label>
+        <input type="tel" name="telefono" required>
+      </div>
 
-      <label data-it="Messaggio:" data-en="Message:">Messaggio:</label>
-      <textarea name="messaggio"
-                data-it="Scrivi qui eventuali preferenze o domande"
-                data-en="Write here any preferences or questions"
-                placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
+      <div class="full">
+        <label data-it="Messaggio:" data-en="Message:">Messaggio:</label>
+        <textarea name="messaggio"
+                  data-it="Scrivi qui eventuali preferenze o domande"
+                  data-en="Write here any preferences or questions"
+                  placeholder="Scrivi qui eventuali preferenze o domande"></textarea>
+      </div>
 
-      <button type="submit" data-it="Invia" data-en="Send">Invia</button>
+      <button type="submit" class="full" data-it="Invia" data-en="Send">Invia</button>
     </form>
   </section>
 
@@ -495,6 +567,8 @@
      class="whatsapp-circle"
      target="_blank"
      rel="noopener"></a>
+
+
 
 
 
