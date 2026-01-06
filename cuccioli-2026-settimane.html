@@ -60,7 +60,6 @@
       opacity: 0.9;
     }
 
-    /* SELECT LINGUA */
     #lang-select {
       margin-top: 15px;
       padding: 6px 10px;
@@ -147,6 +146,15 @@
     .carousel img {
       width: 100%;
       border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      max-height: 140px;
+      object-fit: cover;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.03);
+      opacity: 0.9;
     }
 
     .carousel-btn {
@@ -164,6 +172,55 @@
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
 
+    /* LIGHTBOX */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 99999;
+      animation: fadeIn 0.3s ease;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      transition: transform 0.25s ease;
+    }
+
+    #lightbox-caption {
+      margin-top: 15px;
+      color: #e6e6e6;
+      font-size: 1.1em;
+      text-align: center;
+      max-width: 90%;
+      opacity: 0.9;
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3em;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      transition: 0.2s;
+    }
+
+    .lightbox-arrow:hover {
+      color: #A39261;
+    }
+
+    #lightbox-prev { left: 30px; }
+    #lightbox-next { right: 30px; }
+
     /* GRAFICO */
     .chart-container {
       margin-top: 30px;
@@ -173,7 +230,7 @@
       border: 1px solid #333;
     }
 
-    /* PULSANTE FISSO TORNA ALL'INDEX */
+    /* PULSANTE INDEX */
     .back-to-index {
       position: fixed;
       bottom: 25px;
@@ -224,6 +281,9 @@
 
   </style>
 </head>
+
+
+
 
   <body>
 
@@ -280,8 +340,8 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/settimana1-1.jpeg">
-        <img src="img/settimana1-2.jpeg">
+        <img src="img/settimana1-1.jpeg" alt="Settimana 1 - Foto 1">
+        <img src="img/settimana1-2.jpeg" alt="Settimana 1 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
@@ -304,8 +364,8 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/settimana2-1.jpeg">
-        <img src="img/settimana2-2.jpeg">
+        <img src="img/settimana2-1.jpeg" alt="Settimana 2 - Foto 1">
+        <img src="img/settimana2-2.jpeg" alt="Settimana 2 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
@@ -328,17 +388,18 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/settimana3-1.jpeg">
-        <img src="img/settimana3-2.jpeg">
+        <img src="img/settimana3-1.jpeg" alt="Settimana 3 - Foto 1">
+        <img src="img/settimana3-2.jpeg" alt="Settimana 3 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
   <!-- ===========================
-       SETTIMANE 4 → 12 (placeholder)
+       SETTIMANE 4 → 12
   ============================ -->
 
+  <!-- WEEK 4 -->
   <div class="week-block" id="week4">
     <h3 data-it="Settimana 4 – Carattere e giochi"
         data-en="Week 4 – Personality and play">
@@ -351,13 +412,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-4-1.jpeg">
-        <img src="img/placeholder-4-2.jpeg">
+        <img src="img/placeholder-4-1.jpeg" alt="Settimana 4 - Foto 1">
+        <img src="img/placeholder-4-2.jpeg" alt="Settimana 4 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 5 -->
   <div class="week-block" id="week5">
     <h3 data-it="Settimana 5 – Prime corse"
         data-en="Week 5 – First runs">
@@ -370,13 +432,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-5-1.jpeg">
-        <img src="img/placeholder-5-2.jpeg">
+        <img src="img/placeholder-5-1.jpeg" alt="Settimana 5 - Foto 1">
+        <img src="img/placeholder-5-2.jpeg" alt="Settimana 5 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 6 -->
   <div class="week-block" id="week6">
     <h3 data-it="Settimana 6 – Socializzazione"
         data-en="Week 6 – Socialization">
@@ -389,13 +452,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-6-1.jpeg">
-        <img src="img/placeholder-6-2.jpeg">
+        <img src="img/placeholder-6-1.jpeg" alt="Settimana 6 - Foto 1">
+        <img src="img/placeholder-6-2.jpeg" alt="Settimana 6 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 7 -->
   <div class="week-block" id="week7">
     <h3 data-it="Settimana 7 – Piccoli esploratori"
         data-en="Week 7 – Little explorers">
@@ -408,13 +472,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-7-1.jpeg">
-        <img src="img/placeholder-7-2.jpeg">
+        <img src="img/placeholder-7-1.jpeg" alt="Settimana 7 - Foto 1">
+        <img src="img/placeholder-7-2.jpeg" alt="Settimana 7 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 8 -->
   <div class="week-block" id="week8">
     <h3 data-it="Settimana 8 – Prime uscite"
         data-en="Week 8 – First outings">
@@ -427,13 +492,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-8-1.jpeg">
-        <img src="img/placeholder-8-2.jpeg">
+        <img src="img/placeholder-8-1.jpeg" alt="Settimana 8 - Foto 1">
+        <img src="img/placeholder-8-2.jpeg" alt="Settimana 8 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 9 -->
   <div class="week-block" id="week9">
     <h3 data-it="Settimana 9 – Carattere definito"
         data-en="Week 9 – Defined personality">
@@ -446,13 +512,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-9-1.jpeg">
-        <img src="img/placeholder-9-2.jpeg">
+        <img src="img/placeholder-9-1.jpeg" alt="Settimana 9 - Foto 1">
+        <img src="img/placeholder-9-2.jpeg" alt="Settimana 9 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 10 -->
   <div class="week-block" id="week10">
     <h3 data-it="Settimana 10 – Giochi e interazioni"
         data-en="Week 10 – Play and interactions">
@@ -465,13 +532,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-10-1.jpeg">
-        <img src="img/placeholder-10-2.jpeg">
+        <img src="img/placeholder-10-1.jpeg" alt="Settimana 10 - Foto 1">
+        <img src="img/placeholder-10-2.jpeg" alt="Settimana 10 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 11 -->
   <div class="week-block" id="week11">
     <h3 data-it="Settimana 11 – Preparazione alla famiglia"
         data-en="Week 11 – Getting ready for the family">
@@ -484,13 +552,14 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-11-1.jpeg">
-        <img src="img/placeholder-11-2.jpeg">
+        <img src="img/placeholder-11-1.jpeg" alt="Settimana 11 - Foto 1">
+        <img src="img/placeholder-11-2.jpeg" alt="Settimana 11 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
   </div>
 
+  <!-- WEEK 12 -->
   <div class="week-block" id="week12">
     <h3 data-it="Settimana 12 – Pronti per la nuova casa"
         data-en="Week 12 – Ready for their new home">
@@ -503,8 +572,8 @@
     <div class="carousel">
       <button class="carousel-btn left">❮</button>
       <div class="carousel-track">
-        <img src="img/placeholder-12-1.jpeg">
-        <img src="img/placeholder-12-2.jpeg">
+        <img src="img/placeholder-12-1.jpeg" alt="Settimana 12 - Foto 1">
+        <img src="img/placeholder-12-2.jpeg" alt="Settimana 12 - Foto 2">
       </div>
       <button class="carousel-btn right">❯</button>
     </div>
@@ -529,7 +598,15 @@
   </span>
 </footer>
 
-<!-- PULSANTE FISSO TORNA ALL'INDEX -->
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="lightbox-prev" class="lightbox-arrow">❮</span>
+  <img id="lightbox-img" src="" alt="">
+  <span id="lightbox-next" class="lightbox-arrow">❯</span>
+  <div id="lightbox-caption"></div>
+</div>
+
+<!-- PULSANTE INDEX -->
 <a href="index.html"
    class="back-to-index"
    aria-label="Torna all'homepage">
@@ -540,68 +617,103 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-  /* ===========================
-       CAMBIO LINGUA
-  ============================ */
-  const selector = document.getElementById("lang-select");
+/* ===========================
+   CAMBIO LINGUA
+=========================== */
+const selector = document.getElementById("lang-select");
 
-  selector.addEventListener("change", () => {
-    const lang = selector.value;
-    document.documentElement.lang = lang;
+selector.addEventListener("change", () => {
+  const lang = selector.value;
+  document.documentElement.lang = lang;
 
-    document.querySelectorAll("[data-it]").forEach(el => {
-      const newText = el.getAttribute(`data-${lang}`);
-      if (!newText) return;
-      el.innerHTML = newText;
-    });
+  document.querySelectorAll("[data-it]").forEach(el => {
+    const newText = el.getAttribute(`data-${lang}`);
+    if (newText) el.innerHTML = newText;
+  });
+});
+
+/* ===========================
+   CAROSELLO
+=========================== */
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const track = carousel.querySelector(".carousel-track");
+  const left = carousel.querySelector(".left");
+  const right = carousel.querySelector(".right");
+
+  let index = 0;
+
+  right.addEventListener("click", () => {
+    index = (index + 1) % track.children.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
   });
 
-  /* ===========================
-       CAROSELLO
-  ============================ */
-  document.querySelectorAll(".carousel").forEach(carousel => {
-    const track = carousel.querySelector(".carousel-track");
-    const left = carousel.querySelector(".left");
-    const right = carousel.querySelector(".right");
+  left.addEventListener("click", () => {
+    index = (index - 1 + track.children.length) % track.children.length;
+    track.style.transform = `translateX(-${index * 100}%)`;
+  });
+});
 
-    let index = 0;
+/* ===========================
+   LIGHTBOX AVANZATO
+=========================== */
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxCaption = document.getElementById("lightbox-caption");
+const prevBtn = document.getElementById("lightbox-prev");
+const nextBtn = document.getElementById("lightbox-next");
 
-    right.addEventListener("click", () => {
-      index = (index + 1) % track.children.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    });
+let currentImages = [];
+let currentIndex = 0;
 
-    left.addEventListener("click", () => {
-      index = (index - 1 + track.children.length) % track.children.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
+/* APRI LIGHTBOX */
+document.querySelectorAll(".carousel").forEach(carousel => {
+  const imgs = Array.from(carousel.querySelectorAll("img"));
+
+  imgs.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      currentImages = imgs;
+      currentIndex = index;
+      openLightbox();
     });
   });
+});
 
-  /* ===========================
-       GRAFICO CRESCITA
-  ============================ */
-  const ctx = document.getElementById('growthChart').getContext('2d');
+function openLightbox() {
+  const img = currentImages[currentIndex];
+  lightboxImg.src = img.src;
+  lightboxCaption.textContent = img.alt || "";
+  lightbox.style.display = "flex";
+}
 
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Settimana 1","2","3","4","5","6","7","8","9","10","11","12"],
-      datasets: [{
-        label: "Peso (kg)",
-        data: [0.4,0.7,1.1,1.6,2.2,2.8,3.4,4.0,4.6,5.2,5.8,6.4],
-        borderColor: "#A39261",
-        backgroundColor: "rgba(163,146,97,0.25)",
-        borderWidth: 3,
-        tension: 0.3
-      }]
-    },
-    options: {
-      scales: {
-        y: { beginAtZero: true }
-      }
-    }
-  });
-</script>
+/* FRECCE */
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  resetZoom();
+  openLightbox();
+});
 
-</body>
-</html>
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  resetZoom();
+  openLightbox();
+});
+
+/* CHIUDI CLICCANDO FUORI */
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+
+/* ZOOM CON ROTELLINA */
+let zoomLevel = 1;
+
+lightboxImg.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  zoomLevel += e.deltaY * -0.001;
+  zoomLevel = Math.min(Math.max(zoomLevel, 1), 3);
+  lightboxImg.style.transform = `scale(${zoomLevel})`;
+});
+
+function resetZoom() {
+  zoomLevel =
