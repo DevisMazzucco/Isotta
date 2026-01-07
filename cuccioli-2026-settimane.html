@@ -344,6 +344,15 @@
         left: 16px;
         font-size: 1.5em;
       }
+
+      a[target="_blank"]:link,
+      a[target="_blank"]:visited {
+      color: #A39261;
+      }
+
+a[target="_blank"]:hover {
+  color: #C8B98A;
+}
     }
 
   </style>
@@ -584,7 +593,7 @@ document.getElementById("lang-select").addEventListener("change", e => {
 });
 
 /* ============================================================
-   CAROSELLO + SWIPE + INDICATORI + ELASTICO
+   CAROSELLO CORRETTO (1 immagine alla volta + 3 indicatori)
 ============================================================ */
 document.querySelectorAll(".carousel").forEach(carousel => {
   const track = carousel.querySelector(".carousel-track");
@@ -593,30 +602,38 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   const right = carousel.querySelector(".carousel-btn.right");
   const indicators = carousel.querySelector(".carousel-indicators");
 
-  let index = 0, startX = 0, currentX = 0, dragging = false;
+  let index = 0;
+  let startX = 0;
+  let currentX = 0;
+  let dragging = false;
 
-  /* Indicatori ● ● ● */
-  indicators.innerHTML = imgs.map((_, i) =>
-    `<span class="${i === 0 ? 'active' : ''}"></span>`
-  ).join("");
+  /* Indicatori fissi: sempre 3 */
+  indicators.innerHTML = `
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+  `;
 
   const updateIndicators = () => {
-    indicators.querySelectorAll("span").forEach((dot, i) =>
-      dot.classList.toggle("active", i === index)
-    );
+    const dots = indicators.querySelectorAll("span");
+    const pos = index % 3; // cicla tra 0,1,2
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === pos));
   };
 
+  /* Funzione di scorrimento corretta */
   const goTo = i => {
     index = (i + imgs.length) % imgs.length;
+    const imgWidth = imgs[0].clientWidth; // larghezza reale
     track.style.transition = "transform 0.35s ease";
-    track.style.transform = `translateX(-${index * 100}%)`;
+    track.style.transform = `translateX(-${index * imgWidth}px)`;
     updateIndicators();
   };
 
+  /* Pulsanti */
   if (right) right.addEventListener("click", () => goTo(index + 1));
   if (left) left.addEventListener("click", () => goTo(index - 1));
 
-  /* Swipe con effetto elastico */
+  /* Swipe */
   carousel.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
     dragging = true;
@@ -627,8 +644,8 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     if (!dragging) return;
     currentX = e.touches[0].clientX;
     const diff = currentX - startX;
-    const elastic = -index * 100 + diff / 5;
-    track.style.transform = `translateX(${elastic}%)`;
+    const imgWidth = imgs[0].clientWidth;
+    track.style.transform = `translateX(${-(index * imgWidth) + diff}px)`;
   });
 
   carousel.addEventListener("touchend", () => {
@@ -636,6 +653,12 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     const diff = currentX - startX;
     if (Math.abs(diff) > 50) goTo(index + (diff < 0 ? 1 : -1));
     else goTo(index);
+  });
+
+  /* Ricalcolo su resize */
+  window.addEventListener("resize", () => {
+    const imgWidth = imgs[0].clientWidth;
+    track.style.transform = `translateX(-${index * imgWidth}px)`;
   });
 });
 
