@@ -337,20 +337,23 @@
 =========================== */
 .fixed-btn {
   position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
-      background-size: 60%;
-      background-repeat: no-repeat;
-      background-position: center;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease;
-      z-index: 9999;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.8em;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(0,0,0,0.45);
+  transition: 0.25s ease;
+  z-index: 9999;
+  animation: pulse 2.4s infinite ease-in-out;
 }
+
+
 
 /* Hover */
 .fixed-btn:hover {
