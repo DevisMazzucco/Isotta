@@ -332,62 +332,70 @@
       border: 1px solid #333;
     }
 
-    /* ===========================
-       PULSANTE INDEX
-    ============================ */
-    .back-to-index {
-      position: fixed;
-      bottom: 25px;
-      left: 25px;
-      width: 55px;
-      height: 55px;
-      background: #010E80;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.8em;
-      text-decoration: none;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
-      transition: 0.25s ease;
-      z-index: 9999;
-    }
-
-    .back-to-index:hover {
-      transform: scale(1.12);
-      background: #A39261;
-      color: #000;
-    }
-
 /* ===========================
-   PULSANTE WHATSAPP FISSO
+   STILE UNIFICATO PULSANTI FISSI
 =========================== */
-.whatsapp-btn {
+.fixed-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
   width: 58px;
   height: 58px;
-  background: #25D366; /* verde WhatsApp */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 2em;
+  font-size: 1.8em;
   text-decoration: none;
-  box-shadow: 0 0 18px rgba(0,0,0,0.4);
+  background: #010E80; /* blu Inter */
+  box-shadow: 0 0 18px rgba(0,0,0,0.45);
   transition: 0.25s ease;
   z-index: 9999;
+  animation: pulse 2.4s infinite ease-in-out;
 }
 
-.whatsapp-btn:hover {
+/* Hover */
+.fixed-btn:hover {
   transform: scale(1.12);
-  background: #A39261; /* oro premium */
+  background: #A39261; /* oro */
   color: #000;
 }
 
+/* Posizioni */
+.back-to-index {
+  bottom: 25px;
+  left: 25px;
+}
+
+.whatsapp-btn {
+  bottom: 25px;
+  right: 25px;
+}
+
+/* Effetto pulse leggero */
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .fixed-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+  }
+
+  .back-to-index {
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .whatsapp-btn {
+    bottom: 16px;
+    right: 16px;
+  }
+}
 /* MOBILE */
 @media (max-width: 480px) {
   .whatsapp-btn {
@@ -678,17 +686,18 @@ a[target="_blank"]:hover {
 <!-- PULSANTE INDEX -->
 
 <a href="index.html"
-   class="back-to-index"
+   class="fixed-btn back-to-index"
    aria-label="Torna all'homepage">
    ←
 </a>
 
 <a href="https://wa.me/393391650393"
-   class="whatsapp-btn"
+   class="fixed-btn whatsapp-btn"
    target="_blank"
    aria-label="Contatta su WhatsApp">
    💬
-</a>    
+</a>
+  
  
 
 <!-- CHART.JS -->
