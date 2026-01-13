@@ -183,6 +183,19 @@
   box-shadow: 0 0 12px rgba(163,146,97,0.45);
 }
 
+.week-video {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.week-video video {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  border: 1px solid rgba(163,146,97,0.35);
+  box-shadow: 0 0 18px rgba(0,0,0,0.45);
+}
+
 /* ===========================
    FRECCE SOTTO
 =========================== */
@@ -564,6 +577,7 @@ a[target="_blank"]:hover {
         <img src="img/settimana1-10.jpeg" loading="lazy">-->
   
       </div>
+     
 <!-- FRECCE SOTTO -->
       <div class="carousel-controls">
         <button class="carousel-btn left">❮</button>
@@ -572,7 +586,18 @@ a[target="_blank"]:hover {
 
 <!-- INDICATORI -->
       <div class="carousel-indicators"></div>
-  </div>
+        <div class="week-video">
+          <h4 class="video-title">
+              data-it="🎥 Video della settimana"
+              data-en="🎥 Video of the week">
+              🎥 Video della settimana
+          </h4>
+          <video controls preload="metadata">
+          <source src="img/settimana1-video.mp4" type="video/mp4">
+          Il tuo browser non supporta i video HTML5.
+        </video>
+</div>
+    </div>
   </div>
 
 <!-- ===========================
