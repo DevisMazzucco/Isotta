@@ -343,6 +343,23 @@
   #lightbox-prev { left: 30px; }
   #lightbox-next { right: 30px; }
 
+.lightbox-close {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+  font-size: 2.4em;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  z-index: 100000;
+  transition: 0.25s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--oro);
+  transform: scale(1.15);
+}
+
   /* ===========================
      PULSANTI FISSI
   ============================ */
@@ -431,6 +448,8 @@
       right: 16px;
     }
   }
+
+    
 
   </style>
 </head>
@@ -578,6 +597,7 @@
 <!-- LIGHTBOX -->
 <div id="lightbox">
   <span id="lightbox-prev" class="lightbox-arrow">❮</span>
+  <span id="lightbox-close" class="lightbox-close">✕</span>
   <img id="lightbox-img" src="" alt="">
   <span id="lightbox-next" class="lightbox-arrow">❯</span>
   <div id="lightbox-caption"></div>
@@ -809,6 +829,17 @@ lightbox.addEventListener("click", e => {
     closeLB();
   }
 });
+    
+/* Chiudi con la X */
+const closeBtn = document.getElementById("lightbox-close");
+if (closeBtn) {
+  closeBtn.addEventListener("click", () => {
+    const v = document.getElementById("lb-video");
+    if (v) v.remove();
+    lbImg.style.display = "block";
+    closeLB();
+  });
+}
 
 
 /* ============================================================
