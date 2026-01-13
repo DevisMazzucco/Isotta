@@ -15,525 +15,451 @@
 
   <style>
 
-    /* ===========================
-       BASE
-    ============================ */
-    body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0f0f0f;
-      color: #e6e6e6;
-      animation: fadeIn 0.6s ease;
-    }
+  /* ===========================
+     PALETTE & VARIABILI
+  ============================ */
+  :root {
+    --blu: #010E80;
+    --oro: #A39261;
+    --bg-dark: #0f0f0f;
+    --bg-card: #141414;
+    --bg-soft: #1a1a1a;
+    --text-light: #e6e6e6;
+    --border-soft: rgba(163,146,97,0.35);
+    --shadow-soft: 0 0 18px rgba(0,0,0,0.45);
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  /* ===========================
+     BASE
+  ============================ */
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    animation: fadeIn 0.6s ease;
+  }
 
-    /* ===========================
-       HEADER
-    ============================ */
-    header {
-      text-align: center;
-      padding: 50px 20px 40px;
-      background: url('img/header-dog.jpeg') center/cover no-repeat;
-      color: white;
-      position: relative;
-      box-shadow: 0 0 25px rgba(0,0,0,0.5);
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-    }
+  /* ===========================
+     HEADER
+  ============================ */
+  header {
+    text-align: center;
+    padding: 50px 20px 40px;
+    background: url('img/header-dog.jpeg') center/cover no-repeat;
+    color: white;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  }
 
-    header * { position: relative; z-index: 1; }
+  header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.6em;
-      text-shadow: 0 0 12px black;
-      letter-spacing: 1px;
-    }
+  header * { position: relative; z-index: 1; }
 
-    header p {
-      font-size: 1.25em;
-      opacity: 0.9;
-      margin-top: 10px;
-    }
+  header h1 {
+    margin: 0;
+    font-size: 2.6em;
+    text-shadow: 0 0 12px black;
+    letter-spacing: 1px;
+  }
 
-    #lang-select {
-      margin-top: 18px;
-      padding: 6px 12px;
-      font-size: 1em;
-      border-radius: 6px;
-      border: 1px solid #444;
-      background: #1a1a1a;
-      color: #eee;
-      cursor: pointer;
-    }
+  header p {
+    font-size: 1.25em;
+    opacity: 0.9;
+    margin-top: 10px;
+  }
 
-    /* ===========================
-       MENU LATERALE
-    ============================ */
-    #side-menu {
-      position: fixed;
-      top: 140px;
-      left: 20px;
-      background: #1a1a1a;
-      padding: 22px;
-      border-radius: 14px;
-      border: 1px solid #333;
-      box-shadow: 0 0 18px rgba(0,0,0,0.4);
-      z-index: 999;
-      backdrop-filter: blur(4px);
-    }
+  #lang-select {
+    margin-top: 18px;
+    padding: 6px 12px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: var(--bg-soft);
+    color: var(--text-light);
+    cursor: pointer;
+  }
 
-    #side-menu a {
-      display: block;
-      color: #e6e6e6;
-      text-decoration: none;
-      margin-bottom: 12px;
-      font-size: 1em;
-      transition: 0.25s ease;
-    }
+  /* ===========================
+     MENU LATERALE
+  ============================ */
+  #side-menu {
+    position: fixed;
+    top: 140px;
+    left: 20px;
+    background: var(--bg-soft);
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid #333;
+    box-shadow: var(--shadow-soft);
+    z-index: 999;
+    backdrop-filter: blur(4px);
+  }
 
-    #side-menu a:hover {
-      color: #A39261;
-      transform: translateX(4px);
-    }
+  #side-menu a {
+    display: block;
+    color: var(--text-light);
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 1em;
+    transition: 0.25s ease;
+  }
 
-    /* ===========================
-       SEZIONI
-    ============================ */
-    section {
-      width: 85%;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 45px;
-      background: #141414;
-      border-radius: 20px;
-      border: 1px solid #222;
-      box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    }
+  #side-menu a:hover {
+    color: var(--oro);
+    transform: translateX(4px);
+  }
 
-    h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-      border-left: 4px solid #010E80;
-      padding-left: 12px;
-      letter-spacing: 0.5px;
-    }
+  /* ===========================
+     SEZIONI
+  ============================ */
+  section {
+    width: 85%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 45px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid #222;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  }
 
-    .week-block {
-      margin-top: 40px;
-      padding: 28px;
-      background: #1a1a1a;
-      border-radius: 18px;
-      border: 1px solid #333;
-      box-shadow: 0 0 18px rgba(0,0,0,0.35);
-      transition: 0.3s ease;
-    }
+  h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--blu);
+    padding-left: 12px;
+    letter-spacing: 0.5px;
+  }
 
-    .week-block:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(0,0,0,0.5);
-    }
+  .week-block {
+    margin-top: 40px;
+    padding: 28px;
+    background: var(--bg-soft);
+    border-radius: 18px;
+    border: 1px solid #333;
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s ease;
+  }
 
-    .week-block h3 {
-      margin-top: 0;
-      font-size: 1.55em;
-      border-left: 4px solid #A39261;
-      padding-left: 10px;
-      letter-spacing: 0.3px;
-    }
+  .week-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  }
 
-/* ===========================
-   CAROSELLO — STRUTTURA
-=========================== */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  margin-top: 20px;
-}
+  .week-block h3 {
+    margin-top: 0;
+    font-size: 1.55em;
+    border-left: 4px solid var(--oro);
+    padding-left: 10px;
+    letter-spacing: 0.3px;
+  }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.35s ease;
-}
+  /* ===========================
+     CAROSELLO
+  ============================ */
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    margin-top: 20px;
+  }
 
-.carousel img {
-  height: 120px;
-  width: auto;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-  object-fit: cover;
-  border: 1px solid rgba(163,146,97,0.35);
-}
+  .carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+  }
 
-.carousel img:hover {
-  transform: scale(1.06);
-  opacity: 0.95;
-  box-shadow: 0 0 12px rgba(163,146,97,0.45);
-}
+  .carousel img {
+    height: 120px;
+    width: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+    object-fit: cover;
+    border: 1px solid var(--border-soft);
+  }
 
-.week-video {
-  margin-top: 25px;
-  text-align: center;
-}
+  .carousel img:hover {
+    transform: scale(1.06);
+    opacity: 0.95;
+    box-shadow: 0 0 12px rgba(163,146,97,0.45);
+  }
 
-.week-video video {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 14px;
-  border: 1px solid rgba(163,146,97,0.35);
-  box-shadow: 0 0 18px rgba(0,0,0,0.45);
-}
-
-.video-title {
-  text-align: center;
-  margin-bottom: 10px;
-  color: #A39261;
-  font-size: 1.2em;
-  letter-spacing: 0.5px;
-}
-/* ===========================
-   FRECCE SOTTO
-=========================== */
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 22px;
-  margin-top: 14px;
-}
-
-.carousel-btn {
-  background: rgba(0,0,0,0.55);
-  border: none;
-  color: white;
-  padding: 10px 14px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: 0.25s ease;
-  font-size: 1.4em;
-}
-
-.carousel-btn:hover {
-  background: rgba(163,146,97,0.8);
-}
-
-/* ===========================
-   INDICATORI ● ● ●
-=========================== */
-.carousel-indicators {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.carousel-indicators span {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin: 0 4px;
-  background: #444;
-  border-radius: 50%;
-  transition: 0.25s ease;
-}
-
-.carousel-indicators .active {
-  background: #010E80 !important;
-  transform: scale(1.3);
-}
-
-    .btn-contact {
-  display: inline-block;
-  padding: 14px 26px;
-  background: #010E80; /* blu Inter */
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-size: 1.15em;
-  font-weight: 500;
-  box-shadow: 0 0 14px rgba(0,0,0,0.35);
-  transition: 0.25s ease;
-  margin-top: 25px;
-}
-
-.btn-contact:hover {
-  background: #A39261; /* oro */
-  color: #000;
-  transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(0,0,0,0.45);
-}
-
-/* ===========================
-   MOBILE
-=========================== */
-@media (max-width: 480px) {
+  /* FRECCE */
   .carousel-controls {
-    gap: 18px;
-    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-top: 14px;
   }
 
   .carousel-btn {
-    padding: 8px 12px;
+    background: rgba(0,0,0,0.55);
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.25s ease;
+    font-size: 1.4em;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(163,146,97,0.8);
+  }
+
+  /* INDICATORI */
+  .carousel-indicators {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .carousel-indicators span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background: #444;
+    border-radius: 50%;
+    transition: 0.25s ease;
+  }
+
+  .carousel-indicators .active {
+    background: var(--blu) !important;
+    transform: scale(1.3);
+  }
+
+  /* ===========================
+     MINIATURA VIDEO
+  ============================ */
+  .week-video {
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  .video-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--oro);
     font-size: 1.2em;
+    letter-spacing: 0.5px;
   }
-}
 
-    /* ===========================
-       LIGHTBOX PREMIUM
-    ============================ */
-    #lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.88);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 99999;
-      backdrop-filter: blur(4px);
-      transition: opacity 0.25s ease;
-    }
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
 
-    #lightbox img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 14px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.6);
-      transition: transform 0.25s ease;
-    }
+  .video-thumb img {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+  }
 
-    #lightbox-caption {
-      margin-top: 18px;
-      color: #e6e6e6;
-      font-size: 1.15em;
-      text-align: center;
-      max-width: 90%;
-      opacity: 0.9;
-    }
+  .video-thumb:hover {
+    transform: scale(1.03);
+  }
 
-    .lightbox-arrow {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 3.2em;
-      color: white;
-      cursor: pointer;
-      user-select: none;
-      padding: 10px;
-      transition: 0.25s ease;
-    }
+  .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 12px black;
+    pointer-events: none;
+  }
 
-    .lightbox-arrow:hover {
-      color: #A39261;
-      transform: translateY(-50%) scale(1.15);
-    }
+  /* ===========================
+     LIGHTBOX
+  ============================ */
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 99999;
+    backdrop-filter: blur(4px);
+    transition: opacity 0.25s ease;
+  }
 
-    #lightbox-prev { left: 30px; }
-    #lightbox-next { right: 30px; }
+  #lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    transition: transform 0.25s ease;
+  }
 
-    /* ===========================
-       GRAFICO
-    ============================ */
-    .chart-container {
-      margin-top: 40px;
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 16px;
-      border: 1px solid #333;
-    }
+  #lightbox-caption {
+    margin-top: 18px;
+    color: var(--text-light);
+    font-size: 1.15em;
+    text-align: center;
+    max-width: 90%;
+    opacity: 0.9;
+  }
 
-/* ===========================
-   STILE UNIFICATO PULSANTI FISSI
-=========================== */
-.fixed-btn {
-  position: fixed;
-  position: fixed;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.8em;
-  text-decoration: none;
-  box-shadow: 0 0 18px rgba(0,0,0,0.45);
-  transition: 0.25s ease;
-  z-index: 9999;
-  animation: pulse 2.4s infinite ease-in-out;
-}
+  .lightbox-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3.2em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    transition: 0.25s ease;
+  }
 
+  .lightbox-arrow:hover {
+    color: var(--oro);
+    transform: translateY(-50%) scale(1.15);
+  }
 
+  #lightbox-prev { left: 30px; }
+  #lightbox-next { right: 30px; }
 
-/* Hover */
-.fixed-btn:hover {
-  transform: scale(1.12);
-  background: #A39261; /* oro */
-  color: #000;
-}
-
-/* Pulsante Index (blu Inter) */
-.back-to-index {
-  bottom: 25px;
-  left: 25px;
-  background: #010E80;
-}
-
-/* Pulsante WhatsApp (verde ufficiale) */
-.whatsapp-btn {
-  bottom: 25px;
-  right: 25px;
-  background: #25D366; /* verde ufficiale WhatsApp */
-}
-
-/* Effetto pulse leggero */
-@keyframes pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
+  /* ===========================
+     PULSANTI FISSI
+  ============================ */
   .fixed-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
+    position: fixed;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8em;
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    transition: 0.25s ease;
+    z-index: 9999;
+    animation: pulse 2.4s infinite ease-in-out;
+  }
+
+  @keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  .fixed-btn:hover {
+    transform: scale(1.12);
+    background: var(--oro);
+    color: #000;
   }
 
   .back-to-index {
-    bottom: 16px;
-    left: 16px;
+    bottom: 25px;
+    left: 25px;
+    background: var(--blu);
   }
 
   .whatsapp-btn {
-    bottom: 16px;
-    right: 16px;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
-  .fixed-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
   }
 
-  .back-to-index {
-    bottom: 16px;
-    left: 16px;
+  /* ===========================
+     FOOTER
+  ============================ */
+  footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--bg-soft);
+    color: #888;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-soft);
   }
 
-  .whatsapp-btn {
-    bottom: 16px;
-    right: 16px;
-  }
-}
+  /* ===========================
+     RESPONSIVE
+  ============================ */
+  @media (max-width: 480px) {
 
-/* MOBILE */
-@media (max-width: 480px) {
-  .fixed-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
-  }
+    #side-menu { display: none; }
 
-  .back-to-index {
-    bottom: 16px;
-    left: 16px;
-  }
-
-  .whatsapp-btn {
-    bottom: 16px;
-    right: 16px;
-  }
-}
-/* MOBILE */
-@media (max-width: 480px) {
-  .whatsapp-btn {
-    width: 50px;
-    height: 50px;
-    bottom: 16px;
-    right: 16px;
-    font-size: 1.7em;
-  }
-}
-    
-    /* ===========================
-       FOOTER
-    ============================ */
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #1a1a1a;
-      color: #888;
-      margin-top: 40px;
-      border-top: 1px solid rgba(163,146,97,0.35);
+    section {
+      width: 94%;
+      padding: 24px 16px;
     }
 
-    /* ===========================
-       MOBILE
-    ============================ */
-    @media (max-width: 480px) {
-      #side-menu { display: none; }
-      section { width: 94%; padding: 24px 16px; }
-      header h1 { font-size: 1.8em; }
-
-      .back-to-index {
-        width: 48px;
-        height: 48px;
-        bottom: 16px;
-        left: 16px;
-        font-size: 1.5em;
-      }
-
-      a[target="_blank"]:link,
-      a[target="_blank"]:visited {
-      color: #A39261;
-      }
-
-a[target="_blank"]:hover {
-  color: #C8B98A;
-}
+    header h1 {
+      font-size: 1.8em;
     }
+
+    .fixed-btn {
+      width: 48px;
+      height: 48px;
+      font-size: 1.5em;
+    }
+
+    .back-to-index {
+      bottom: 16px;
+      left: 16px;
+    }
+
+    .whatsapp-btn {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
 
   </style>
 </head>
-  <body>
+
+
+
+
+
+
+
+
+
+
+<body>
 
 <!-- MENU LATERALE -->
 <div id="side-menu">
   <a href="#week1" data-it="Settimana 1" data-en="Week 1">Settimana 1</a>
   <a href="#week2" data-it="Settimana 2" data-en="Week 2">Settimana 2</a>
-  <!--  <a href="#week3" data-it="Settimana 3" data-en="Week 3">Settimana 3</a>
-  <a href="#week4" data-it="Settimana 4" data-en="Week 4">Settimana 4</a>
-  <a href="#week5" data-it="Settimana 5" data-en="Week 5">Settimana 5</a>
-  <a href="#week6" data-it="Settimana 6" data-en="Week 6">Settimana 6</a>
-  <a href="#week7" data-it="Settimana 7" data-en="Week 7">Settimana 7</a>
-  <a href="#week8" data-it="Settimana 8" data-en="Week 8">Settimana 8</a>
-  <a href="#week9" data-it="Settimana 9" data-en="Week 9">Settimana 9</a>
-  <a href="#week10" data-it="Settimana 10" data-en="Week 10">Settimana 10</a>
-  <a href="#week11" data-it="Settimana 11" data-en="Week 11">Settimana 11</a>
-  <a href="#week12" data-it="Settimana 12" data-en="Week 12">Settimana 12</a>-->
-<a href="index.html#contatti"
-   class="btn-contact"
-   data-it="Contattaci →"
-   data-en="Contact us →">
-   Contattaci →
-</a> 
+
+  <a href="index.html#contatti"
+     class="btn-contact"
+     data-it="Contattaci →"
+     data-en="Contact us →">
+     Contattaci →
+  </a>
 </div>
 
+<!-- HEADER -->
 <header>
   <h1 data-it="Cuccioli 2026 – Settimana per settimana"
       data-en="Puppies 2026 – Week by week">
@@ -551,12 +477,11 @@ a[target="_blank"]:hover {
   </select>
 </header>
 
+<!-- CONTENUTO PRINCIPALE -->
 <section>
   <h2 data-it="Diario di crescita" data-en="Growth diary">Diario di crescita</h2>
 
-
-
-    <!-- ===========================
+  <!-- ===========================
        SETTIMANA 1
   ============================ -->
   <div class="week-block" id="week1">
@@ -570,6 +495,7 @@ a[target="_blank"]:hover {
        I cuccioli dormono quasi tutto il giorno. Il loro mondo è fatto di latte, calore e il respiro della mamma.
     </p>
 
+    <!-- CAROSELLO FOTO -->
     <div class="carousel">
       <div class="carousel-track">
         <img src="img/settimana1-1.jpeg" loading="lazy">
@@ -579,49 +505,34 @@ a[target="_blank"]:hover {
         <img src="img/settimana1-5.jpeg" loading="lazy">
         <img src="img/settimana1-6.jpeg" loading="lazy">
         <img src="img/settimana1-7.jpeg" loading="lazy">
-        <!-- <img src="img/settimana1-8.jpeg" loading="lazy">
-        <img src="img/settimana1-9.jpeg" loading="lazy">
-        <img src="img/settimana1-10.jpeg" loading="lazy">-->
-  
       </div>
-     
-<!-- FRECCE SOTTO -->
+
+      <!-- FRECCE -->
       <div class="carousel-controls">
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
 
-<!-- INDICATORI -->
-<div class="week-video">
-  <h4 class="video-title"
-      data-it="🎥 Video della settimana"
-      data-en="🎥 Video of the week">
-      🎥 Video della settimana
-  </h4>
-  <video controls preload="metadata">
-    <source src="img/settimana1-video.mp4" type="video/mp4">
-    Il tuo browser non supporta i video HTML5.
-  </video>
-</div>
+      <!-- INDICATORI -->
+      <div class="carousel-indicators"></div>
+    </div>
 
+    <!-- VIDEO MINIATURA -->
+    <div class="week-video">
+      <h4 class="video-title"
+          data-it="🎥 Video della settimana"
+          data-en="🎥 Video of the week">
+          🎥 Video della settimana
+      </h4>
 
-      
-   <!--    <div class="carousel-indicators"></div>
-        <div class="week-video">
-          <h4 class="video-title">
-              data-it="🎥 Video della settimana"
-              data-en="🎥 Video of the week">
-              🎥 Video della settimana
-          </h4>
-          <video controls preload="metadata">
-          <source src="img/settimana1-video.mp4" type="video/mp4">
-          Il tuo browser non supporta i video HTML5.
-        </video>
-</div>-->
+      <div class="video-thumb" data-video="img/settimana1-video.mp4">
+        <img src="img/settimana1-video-thumb.jpg" alt="Video settimana 1">
+        <span class="play-icon">▶</span>
+      </div>
     </div>
   </div>
 
-<!-- ===========================
+  <!-- ===========================
        SETTIMANA 2
   ============================ -->
   <div class="week-block" id="week2">
@@ -635,133 +546,33 @@ a[target="_blank"]:hover {
        Gli occhi iniziano ad aprirsi e i cuccioli scoprono la luce. I movimenti sono lenti, ma pieni di promesse.
     </p>
 
-  <div class="carousel">
+    <!-- CAROSELLO FOTO -->
+    <div class="carousel">
       <div class="carousel-track">
         <img src="img/settimana2-1.jpeg" loading="lazy">
         <img src="img/settimana2-2.jpeg" loading="lazy">
         <img src="img/settimana2-3.jpeg" loading="lazy">
-        <!-- <img src="img/settimana2-4.jpeg" loading="lazy">
-        <img src="img/settimana2-5.jpeg" loading="lazy">
-        <img src="img/settimana2-6.jpeg" loading="lazy">
-        <img src="img/settimana2-7.jpeg" loading="lazy">
-        <img src="img/settimana2-8.jpeg" loading="lazy">
-        <img src="img/settimana2-9.jpeg" loading="lazy">
-        <img src="img/settimana2-10.jpeg" loading="lazy">-->
-      </div> 
-      
-<!-- FRECCE SOTTO-->
+      </div>
+
+      <!-- FRECCE -->
       <div class="carousel-controls">
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
 
-<!-- INDICATORI-->
+      <!-- INDICATORI -->
       <div class="carousel-indicators"></div>
+    </div>
   </div>
 
-  <!-- ===========================
-       SETTIMANA 3
-  ============================ -->
-  <!-- <div class="week-block" id="week3">
-    <h3 data-it="Settimana 3 – Prime esplorazioni"
-        data-en="Week 3 – First explorations">
-        Settimana 3 – Prime esplorazioni
-    </h3>
-
-    <p data-it="Iniziano a tentare i primi passi incerti, si cercano tra loro e la coda accenna i primi timidi scodinzolii."
-       data-en="They attempt their first unsteady steps, look for each other and their tails start tiny wagging.">
-       Iniziano a tentare i primi passi incerti, si cercano tra loro e la coda accenna i primi timidi scodinzolii.
-    </p>
-
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="img/settimana3-1.jpeg" loading="lazy">
-        <img src="img/settimana3-2.jpeg" loading="lazy">
-        <img src="img/settimana3-3.jpeg" loading="lazy">
-        <img src="img/settimana3-4.jpeg" loading="lazy">
-        <img src="img/settimana3-5.jpeg" loading="lazy">
-        <img src="img/settimana3-6.jpeg" loading="lazy">
-        <img src="img/settimana3-7.jpeg" loading="lazy">
-        <img src="img/settimana3-8.jpeg" loading="lazy">
-        <img src="img/settimana3-9.jpeg" loading="lazy">
-        <img src="img/settimana3-10.jpeg" loading="lazy">
-      </div>
-      
- <!-- FRECCE SOTTO
-      <div class="carousel-controls">
-        <button class="carousel-btn left">❮</button>
-        <button class="carousel-btn right">❯</button>
-      </div>
-
-<!-- INDICATORI
-      <div class="carousel-indicators"></div>
-  </div>
-
-  <!-- ===========================
-       SETTIMANA 4
-  ============================ -->
-  <!-- <div class="week-block" id="week4">
-    <h3 data-it="Settimana 4 – Carattere e giochi"
-        data-en="Week 4 – Personality and play">
-        Settimana 4 – Carattere e giochi
-    </h3>
-
-    <p data-it="Ogni cucciolo inizia a mostrare un carattere unico: chi è più curioso, chi più riflessivo, chi sempre pronto al gioco."
-       data-en="Each puppy starts to show a unique personality: some more curious, some calmer, some always ready to play.">
-       Ogni cucciolo inizia a mostrare un carattere unico: chi è più curioso, chi più riflessivo, chi sempre pronto al gioco.
-    </p>
-
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="img/settimana4-1.jpeg" loading="lazy">
-        <img src="img/settimana4-2.jpeg" loading="lazy">
-        <img src="img/settimana4-3.jpeg" loading="lazy">
-        <img src="img/settimana4-4.jpeg" loading="lazy">
-        <img src="img/settimana4-5.jpeg" loading="lazy">
-        <img src="img/settimana4-6.jpeg" loading="lazy">
-        <img src="img/settimana4-7.jpeg" loading="lazy">
-        <img src="img/settimana4-8.jpeg" loading="lazy">
-        <img src="img/settimana4-9.jpeg" loading="lazy">
-        <img src="img/settimana4-10.jpeg" loading="lazy">
-      </div>
-      
-<!-- FRECCE SOTTO
-      <div class="carousel-controls">
-        <button class="carousel-btn left">❮</button>
-        <button class="carousel-btn right">❯</button>
-      </div>
-
-<!-- INDICATORI
-      <div class="carousel-indicators"></div>
-  </div>
-
-
-    <!-- ===========================
-       ALTRE SETTIMANE DA AGGIUNGERE
-  ============================ -->
-
-
-
-
-    <!-- ===========================
-       GRAFICO CRESCITA
-  ============================
-  <div class="chart-container">
-    <h3 data-it="Grafico crescita (peso)"
-        data-en="Growth chart (weight)">
-        Grafico crescita (peso)
-    </h3>
-    <canvas id="growthChart" width="400" height="200"></canvas>
-  </div>
--->
 </section>
 
+<!-- FOOTER -->
 <footer>
   <span data-it="© 2026 Cuccioli Bobtail Isotta – Tutti i diritti riservati"
         data-en="© 2026 Bobtail Puppies Isotta – All rights reserved">
         © 2026 Cuccioli Bobtail Isotta – Tutti i diritti riservati
   </span>
-
 </footer>
 
 <!-- LIGHTBOX -->
@@ -773,46 +584,53 @@ a[target="_blank"]:hover {
 </div>
 
 <!-- PULSANTE INDEX -->
-
 <a href="index.html"
    class="fixed-btn back-to-index"
    aria-label="Torna all'homepage">
    ←
 </a>
 
+<!-- PULSANTE WHATSAPP -->
 <a href="https://wa.me/393391650393"
-  class="fixed-btn whatsapp-btn"
+   class="fixed-btn whatsapp-btn"
    target="_blank"
    aria-label="Contatta su WhatsApp">
    <svg viewBox="0 0 32 32" width="28" height="28" fill="white">
-   <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.256.592 4.448 1.728 6.4L3.2 28.8l6.592-1.696c1.856.992 3.936 1.504 6.208 1.504 7.064 0 12.8-5.736 12.8-12.8s-5.736-12.8-12.8-12.8zm0 23.2c-1.92 0-3.776-.48-5.44-1.408l-.384-.224-3.904 1.008 1.04-3.808-.256-.4c-1.056-1.68-1.616-3.6-1.616-5.568 0-5.92 4.8-10.72 10.72-10.72s10.72 4.8 10.72 10.72-4.8 10.72-10.72 10.72zm6.112-7.84c-.336-.176-1.984-.992-2.288-1.104-.304-.112-.528-.176-.752.176-.224.352-.864 1.104-1.056 1.328-.192.224-.384.256-.72.08-.336-.176-1.424-.528-2.712-1.68-1-.896-1.68-2.016-1.872-2.352-.192-.336-.02-.52.144-.696.148-.148.336-.384.504-.576.168-.192.224-.336.336-.56.112-.224.056-.416-.028-.592-.08-.176-.752-1.808-1.032-2.48-.272-.656-.552-.568-.752-.568-.192 0-.416-.024-.64-.024s-.592.08-.896.416c-.304.336-1.168 1.136-1.168 2.768s1.2 3.2 1.368 3.424c.168.224 2.352 3.6 5.712 5.056.8.344 1.424.552 1.912.704.804.256 1.536.224 2.112.136.648-.096 1.984-.808 2.272-1.592.288-.784.288-1.456.2-1.592-.088-.136-.304-.224-.64-.4z"/>
+     <path d="M16.001 3.2c-7.064 0-12.8 5.736-12.8 12.8 0 2.256.592 4.448 1.728 6.4L3.2 28.8l6.592-1.696c1.856.992 3.936 1.504 6.208 1.504 7.064 0 12.8-5.736 12.8-12.8s-5.736-12.8-12.8-12.8zm0 23.2c-1.92 0-3.776-.48-5.44-1.408l-.384-.224-3.904 1.008 1.04-3.808-.256-.4c-1.056-1.68-1.616-3.6-1.616-5.568 0-5.92 4.8-10.72 10.72-10.72s10.72 4.8 10.72 10.72-4.8 10.72-10.72 10.72zm6.112-7.84c-.336-.176-1.984-.992-2.288-1.104-.304-.112-.528-.176-.752.176-.224.352-.864 1.104-1.056 1.328-.192.224-.384.256-.72.08-.336-.176-1.424-.528-2.712-1.68-1-.896-1.68-2.016-1.872-2.352-.192-.336-.02-.52.144-.696.148-.148.336-.384.504-.576.168-.192.224-.336.336-.56.112-.224.056-.416-.028-.592-.08-.176-.752-1.808-1.032-2.48-.272-.656-.552-.568-.752-.568-.192 0-.416-.024-.64-.024s-.592.08-.896.416c-.304.336-1.168 1.136-1.168 2.768s1.2 3.2 1.368 3.424c.168.224 2.352 3.6 5.712 5.056.8.344 1.424.552 1.912.704.804.256 1.536.224 2.112.136.648-.096 1.984-.808 2.272-1.592.288-.784.288-1.456.2-1.592-.088-.136-.304-.224-.64-.4z"/>
    </svg>
-
 </a>
-  
- 
 
 <!-- CHART.JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
+
+
+
+
+
+
+
+
+  <script>
 /* ============================================================
    CAMBIO LINGUA
 ============================================================ */
 document.getElementById("lang-select").addEventListener("change", e => {
   const lang = e.target.value;
   document.documentElement.lang = lang;
+
   document.querySelectorAll("[data-it]").forEach(el => {
     const t = el.getAttribute(`data-${lang}`);
     if (t) el.innerHTML = t;
   });
 });
 
+
 /* ============================================================
-   CAROSELLO — VERSIONE DEFINITIVA
-   (1 immagine alla volta + frecce sotto + indicatori fissi)
+   CAROSELLO PREMIUM
 ============================================================ */
 document.querySelectorAll(".carousel").forEach(carousel => {
+
   const track = carousel.querySelector(".carousel-track");
   const imgs = [...track.children];
   const left = carousel.querySelector(".carousel-btn.left");
@@ -824,7 +642,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   let currentX = 0;
   let dragging = false;
 
-  /* Indicatori fissi: sempre 3 */
+  /* Indicatori fissi (3 puntini) */
   indicators.innerHTML = `
     <span class="active"></span>
     <span></span>
@@ -833,20 +651,19 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 
   const updateIndicators = () => {
     const dots = indicators.querySelectorAll("span");
-    const pos = index % 3; // cicla tra 0,1,2
+    const pos = index % 3;
     dots.forEach((dot, i) => dot.classList.toggle("active", i === pos));
   };
 
-  /* Funzione di scorrimento corretta */
   const goTo = i => {
     index = (i + imgs.length) % imgs.length;
-    const imgWidth = imgs[0].clientWidth; // larghezza reale
+    const imgWidth = imgs[0].clientWidth;
     track.style.transition = "transform 0.35s ease";
     track.style.transform = `translateX(-${index * imgWidth}px)`;
     updateIndicators();
   };
 
-  /* Pulsanti */
+  /* Frecce */
   if (right) {
     right.addEventListener("click", e => {
       e.stopPropagation();
@@ -861,7 +678,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     });
   }
 
-  /* Swipe */
+  /* Swipe mobile */
   carousel.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
     dragging = true;
@@ -890,8 +707,9 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   });
 });
 
+
 /* ============================================================
-   LIGHTBOX PREMIUM (swipe, pinch, doppio tap, drag, chiusura)
+   LIGHTBOX IMMAGINI
 ============================================================ */
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lightbox-img");
@@ -899,19 +717,16 @@ const lbCap = document.getElementById("lightbox-caption");
 const prev = document.getElementById("lightbox-prev");
 const next = document.getElementById("lightbox-next");
 
-let currentImages = [], currentIndex = 0;
-let zoom = 1, startX = 0, startY = 0, offsetX = 0, offsetY = 0;
-let pinchStart = 0, lastTap = 0;
+let currentImages = [];
+let currentIndex = 0;
 
 /* Colleziona tutte le immagini cliccabili */
-document.querySelectorAll(".carousel").forEach(carousel => {
-  const imgs = [...carousel.querySelectorAll(".carousel-track img")];
-  imgs.forEach((img, i) => {
-    img.addEventListener("click", () => {
-      currentImages = imgs;
-      currentIndex = i;
-      openLB();
-    });
+document.querySelectorAll(".carousel-track img").forEach(img => {
+  img.addEventListener("click", () => {
+    const carousel = img.closest(".carousel-track");
+    currentImages = [...carousel.querySelectorAll("img")];
+    currentIndex = currentImages.indexOf(img);
+    openLB();
   });
 });
 
@@ -919,13 +734,16 @@ function openLB() {
   const img = currentImages[currentIndex];
   lbImg.src = img.src;
   lbCap.textContent = img.alt || "";
-  zoom = 1; offsetX = 0; offsetY = 0;
-  lbImg.style.transform = "scale(1)";
+  lbImg.style.display = "block";
+
+  /* Rimuove eventuale video precedente */
+  const oldVideo = document.getElementById("lb-video");
+  if (oldVideo) oldVideo.remove();
+
   lightbox.style.display = "flex";
   lightbox.style.opacity = "1";
 }
 
-/* Navigazione */
 function show(i) {
   currentIndex = (i + currentImages.length) % currentImages.length;
   openLB();
@@ -934,7 +752,6 @@ function show(i) {
 if (prev) prev.addEventListener("click", () => show(currentIndex - 1));
 if (next) next.addEventListener("click", () => show(currentIndex + 1));
 
-/* Chiusura con fade-out */
 function closeLB() {
   lightbox.style.transition = "opacity 0.25s ease";
   lightbox.style.opacity = "0";
@@ -944,87 +761,55 @@ function closeLB() {
   }, 250);
 }
 
-/* Chiudi cliccando fuori dall'immagine */
 lightbox.addEventListener("click", e => {
   if (e.target === lightbox) closeLB();
 });
 
-/* Swipe sinistra/destra + swipe giù per chiudere */
-lbImg.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-  startY = e.touches[0].clientY;
+
+/* ============================================================
+   LIGHTBOX VIDEO (miniatura → video grande)
+============================================================ */
+document.querySelectorAll(".video-thumb").forEach(thumb => {
+  thumb.addEventListener("click", () => {
+
+    const videoSrc = thumb.getAttribute("data-video");
+
+    /* Nasconde immagine lightbox */
+    lbImg.style.display = "none";
+    lbCap.textContent = "";
+
+    /* Rimuove eventuale video precedente */
+    const oldVideo = document.getElementById("lb-video");
+    if (oldVideo) oldVideo.remove();
+
+    /* Crea nuovo video */
+    const video = document.createElement("video");
+    video.src = videoSrc;
+    video.controls = true;
+    video.autoplay = true;
+    video.id = "lb-video";
+    video.style.maxWidth = "90%";
+    video.style.maxHeight = "80%";
+    video.style.borderRadius = "14px";
+    video.style.boxShadow = "0 0 30px rgba(0,0,0,0.6)";
+
+    lightbox.insertBefore(video, lbCap);
+
+    lightbox.style.display = "flex";
+    lightbox.style.opacity = "1";
+  });
 });
 
-lbImg.addEventListener("touchend", e => {
-  const dx = e.changedTouches[0].clientX - startX;
-  const dy = e.changedTouches[0].clientY - startY;
-
-  if (zoom === 1 && Math.abs(dx) > 60) {
-    show(currentIndex + (dx < 0 ? 1 : -1));
-  }
-  if (zoom === 1 && dy > 80) {
+/* Chiudi lightbox video */
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) {
+    const v = document.getElementById("lb-video");
+    if (v) v.remove();
+    lbImg.style.display = "block";
     closeLB();
   }
 });
 
-/* Doppio tap per zoom 1x ↔ 2x */
-lbImg.addEventListener("touchend", e => {
-  const now = Date.now();
-  if (now - lastTap < 300) {
-    zoom = zoom === 1 ? 2 : 1;
-    offsetX = 0;
-    offsetY = 0;
-    lbImg.style.transform = `scale(${zoom})`;
-  }
-  lastTap = now;
-});
-
-/* Pinch-to-zoom + pinch-in per chiudere */
-lbImg.addEventListener("touchmove", e => {
-  if (e.touches.length === 2) {
-    e.preventDefault();
-    const [t1, t2] = e.touches;
-    const dist = Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
-
-    if (!pinchStart) pinchStart = dist;
-
-    const scale = dist / pinchStart;
-    zoom = Math.min(Math.max(scale, 1), 4);
-    lbImg.style.transform =
-      `scale(${zoom}) translate(${offsetX/zoom}px, ${offsetY/zoom}px)`;
-
-    if (dist < pinchStart * 0.6) closeLB();
-  }
-});
-
-lbImg.addEventListener("touchend", () => {
-  pinchStart = 0;
-});
-
-/* Drag immagine quando zoom > 1 */
-lbImg.addEventListener("touchstart", e => {
-  if (zoom > 1 && e.touches.length === 1) {
-    startX = e.touches[0].clientX - offsetX;
-    startY = e.touches[0].clientY - offsetY;
-  }
-});
-
-lbImg.addEventListener("touchmove", e => {
-  if (zoom > 1 && e.touches.length === 1) {
-    offsetX = e.touches[0].clientX - startX;
-    offsetY = e.touches[0].clientY - startY;
-    lbImg.style.transform =
-      `scale(${zoom}) translate(${offsetX/zoom}px, ${offsetY/zoom}px)`;
-  }
-});
-
-/* Zoom con rotellina su desktop */
-lbImg.addEventListener("wheel", e => {
-  e.preventDefault();
-  zoom += e.deltaY * -0.001;
-  zoom = Math.min(Math.max(zoom, 1), 4);
-  lbImg.style.transform = `scale(${zoom})`;
-});
 
 /* ============================================================
    GRAFICO CRESCITA (Chart.js)
@@ -1060,3 +845,4 @@ if (ctx) {
 </script>
 </body>
 </html>
+  
