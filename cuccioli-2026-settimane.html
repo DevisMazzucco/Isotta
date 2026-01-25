@@ -856,24 +856,69 @@ lightbox.addEventListener("click", e => {
 
 
 /* ============================================================
-   LIGHTBOX VIDEO
+   LIGHTBOX VIDEO — VERSIONE B (video dentro la galleria)
 ============================================================ */
-document.querySelectorAll(".video-thumb").forEach(thumb => {
-  thumb.addEventListener("click", () => {
+document.querySelectorAll(".week-block").forEach(week => {
 
-    const videoSrc = thumb.getAttribute("data-video");
+  const images = [...week.querySelectorAll(".carousel-track img")];
+  const videos = [...week.querySelectorAll(".video-thumb")];
 
-    /* Nasconde immagine lightbox */
+  const gallery = [];
+
+  // Aggiunge immagini
+  images.forEach(img => {
+    gallery.push({
+      type: "image",
+      src: img.src,
+      alt: img.alt || ""
+    });
+
+    img.addEventListener("click", () => {
+      currentImages = gallery;
+      currentIndex = gallery.findIndex(i => i.src === img.src);
+      openMixedLB();
+    });
+  });
+
+  // Aggiunge video
+  videos.forEach(v => {
+    const src = v.getAttribute("data-video");
+
+    gallery.push({
+      type: "video",
+      src: src
+    });
+
+    v.addEventListener("click", () => {
+      currentImages = gallery;
+      currentIndex = gallery.findIndex(i => i.src === src);
+      openMixedLB();
+    });
+  });
+});
+
+
+/* Apertura lightbox misto (immagini + video) */
+function openMixedLB() {
+
+  const item = currentImages[currentIndex];
+
+  // Rimuove eventuale video precedente
+  const oldVideo = document.getElementById("lb-video");
+  if (oldVideo) oldVideo.remove();
+
+  if (item.type === "image") {
+    lbImg.src = item.src;
+    lbImg.style.display = "block";
+    lbCap.textContent = item.alt || "";
+  }
+
+  if (item.type === "video") {
     lbImg.style.display = "none";
     lbCap.textContent = "";
 
-    /* Rimuove eventuale video precedente */
-    const oldVideo = document.getElementById("lb-video");
-    if (oldVideo) oldVideo.remove();
-
-    /* Crea nuovo video */
     const video = document.createElement("video");
-    video.src = videoSrc;
+    video.src = item.src;
     video.controls = true;
     video.autoplay = true;
     video.id = "lb-video";
@@ -883,11 +928,21 @@ document.querySelectorAll(".video-thumb").forEach(thumb => {
     video.style.boxShadow = "0 0 30px rgba(0,0,0,0.6)";
 
     lightbox.insertBefore(video, lbCap);
+  }
 
-    lightbox.style.display = "flex";
-    lightbox.style.opacity = "1";
-  });
-});
+  lightbox.style.display = "flex";
+  lightbox.style.opacity = "1";
+}
+
+
+/* Navigazione avanti/indietro */
+function showMixed(i) {
+  currentIndex = (i + currentImages.length) % currentImages.length;
+  openMixedLB();
+}
+
+prev.addEventListener("click", () => showMixed(currentIndex - 1));
+next.addEventListener("click", () => showMixed(currentIndex + 1));
 
 /* Chiudi lightbox video */
 lightbox.addEventListener("click", e => {
