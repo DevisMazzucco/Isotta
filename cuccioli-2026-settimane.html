@@ -272,12 +272,14 @@
     transition: 0.25s ease;
   }
 
-  .video-thumb img {
-    width: 100%;
-    border-radius: 14px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-  }
+.video-thumb img {
+  height: 120px;          /* altezza uniforme */
+  width: auto;            /* larghezza variabile */
+  object-fit: cover;      /* ritaglio elegante */
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
 
   .video-thumb:hover {
     transform: scale(1.03);
