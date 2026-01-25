@@ -243,7 +243,7 @@
   }
 
   /* ===========================
-     MINIATURA VIDEO
+     MINIATURE VIDEO
   ============================ */
   .week-video {
     margin-top: 25px;
@@ -258,11 +258,18 @@
     letter-spacing: 0.5px;
   }
 
+  .video-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+
   .video-thumb {
     position: relative;
     width: 100%;
     max-width: 180px;
-    margin: 0 auto;
     cursor: pointer;
     transition: 0.25s ease;
   }
@@ -311,7 +318,6 @@
     max-height: 80%;
     border-radius: 14px;
     box-shadow: 0 0 30px rgba(0,0,0,0.6);
-    transition: transform 0.25s ease;
   }
 
   #lightbox-caption {
@@ -343,22 +349,22 @@
   #lightbox-prev { left: 30px; }
   #lightbox-next { right: 30px; }
 
-.lightbox-close {
-  position: fixed;
-  top: 25px;
-  right: 30px;
-  font-size: 2.4em;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  z-index: 100000;
-  transition: 0.25s ease;
-}
+  .lightbox-close {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    font-size: 2.4em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    z-index: 100000;
+    transition: 0.25s ease;
+  }
 
-.lightbox-close:hover {
-  color: var(--oro);
-  transform: scale(1.15);
-}
+  .lightbox-close:hover {
+    color: var(--oro);
+    transform: scale(1.15);
+  }
 
   /* ===========================
      PULSANTI FISSI
@@ -449,8 +455,6 @@
     }
   }
 
-    
-
   </style>
 </head>
 
@@ -462,13 +466,13 @@
 
 
 
-
-<body>
+  <body>
 
 <!-- MENU LATERALE -->
 <div id="side-menu">
   <a href="#week1" data-it="Settimana 1" data-en="Week 1">Settimana 1</a>
   <a href="#week2" data-it="Settimana 2" data-en="Week 2">Settimana 2</a>
+  <a href="#week3" data-it="Settimana 3" data-en="Week 3">Settimana 3</a>
 
   <a href="index.html#contatti"
      class="btn-contact"
@@ -530,53 +534,46 @@
         <img src="img/settimana1-11.jpeg" loading="lazy">
       </div>
 
-      <!-- FRECCE -->
       <div class="carousel-controls">
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
 
-      <!-- INDICATORI -->
       <div class="carousel-indicators"></div>
     </div>
 
-    <!-- VIDEO MINIATURA -->
+    <!-- VIDEO DELLA SETTIMANA -->
     <div class="week-video">
       <h4 class="video-title"
-          data-it="🎥 Primo video della settimana"
-          data-en="🎥 First video of the week">
-          🎥 Primo video della settimana
+          data-it="🎥 Video della settimana"
+          data-en="🎥 Video of the week">
+          🎥 Video della settimana
       </h4>
 
-      <div class="video-thumb" data-video="img/settimana1-video1.mp4">
-        <img src="img/settimana1-video1-thumb.jpg" alt="Video 1 settimana 1">
-        <span class="play-icon">▶</span>
+      <div class="video-gallery">
+
+        <div class="video-thumb" data-video="img/settimana1-video1.mp4">
+          <img src="img/settimana1-video1-thumb.jpg" alt="Video 1 settimana 1">
+          <span class="play-icon">▶</span>
+        </div>
+
+        <div class="video-thumb" data-video="img/settimana1-video2.mp4">
+          <img src="img/settimana1-video2-thumb.jpg" alt="Video 2 settimana 1">
+          <span class="play-icon">▶</span>
+        </div>
+
       </div>
     </div>
-
-    <!-- SECONDO VIDEO MINIATURA -->
-<div class="week-video">
-  <h5 class="video-title"
-      data-it="🎥 Secondo video della settimana"
-      data-en="🎥 Second video of the week">
-      🎥 Secondo video della settimana
-  </h5>
-
-  <div class="video-thumb" data-video="img/settimana1-video2.mp4">
-    <img src="img/settimana1-video2-thumb.jpg" alt="Video 2 settimana 1">
-    <span class="play-icon">▶</span>
   </div>
-</div>
-</div>
 
   <!-- ===========================
        SETTIMANA 2
   ============================ -->
   <div class="week-block" id="week2">
-    <h6 data-it="Settimana 2 – Occhi che si aprono"
+    <h3 data-it="Settimana 2 – Occhi che si aprono"
         data-en="Week 2 – Eyes opening">
         Settimana 2 – Occhi che si aprono
-    </h6>
+    </h3>
 
     <p data-it="Gli occhi iniziano ad aprirsi e i cuccioli scoprono la luce. I movimenti sono lenti, ma pieni di promesse."
        data-en="Their eyes start to open and they discover the light. Movements are slow but full of promise.">
@@ -599,65 +596,49 @@
         <img src="img/settimana2-11.jpeg" loading="lazy">
         <img src="img/settimana2-12.jpeg" loading="lazy">
         <img src="img/settimana2-13.jpeg" loading="lazy">
-        <img src="img/settimana2-14.jpeg" loading="lazy">       
+        <img src="img/settimana2-14.jpeg" loading="lazy">
       </div>
 
-      <!-- FRECCE -->
       <div class="carousel-controls">
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
 
-      <!-- INDICATORI -->
       <div class="carousel-indicators"></div>
     </div>
 
-    <!-- VIDEO MINIATURA -->
+    <!-- VIDEO DELLA SETTIMANA -->
     <div class="week-video">
-      <h7 class="video-title"
-          data-it="🎥 Primo ideo della settimana"
-          data-en="🎥 First video of the week">
-          🎥 Primo video della settimana
-      </h7>
+      <h4 class="video-title"
+          data-it="🎥 Video della settimana"
+          data-en="🎥 Video of the week">
+          🎥 Video della settimana
+      </h4>
 
-      <div class="video-thumb" data-video="img/settimana2-video1.mp4">
-        <img src="img/settimana2-video1-thumb.jpg" alt="Video 1 settimana 2">
-        <span class="play-icon">▶</span>
+      <div class="video-gallery">
+
+        <div class="video-thumb" data-video="img/settimana2-video1.mp4">
+          <img src="img/settimana2-video1-thumb.jpg" alt="Video 1 settimana 2">
+          <span class="play-icon">▶</span>
+        </div>
+
+        <div class="video-thumb" data-video="img/settimana2-video2.mp4">
+          <img src="img/settimana2-video2-thumb.jpg" alt="Video 2 settimana 2">
+          <span class="play-icon">▶</span>
+        </div>
+
+        <div class="video-thumb" data-video="img/settimana2-video3.mp4">
+          <img src="img/settimana2-video3-thumb.jpg" alt="Video 3 settimana 2">
+          <span class="play-icon">▶</span>
+        </div>
+
       </div>
-    </div>  
-   
-  
-   <!-- SECONDO VIDEO MINIATURA -->
-<div class="week-video">
-  <h8 class="video-title"
-      data-it="🎥 Secondo video della settimana"
-      data-en="🎥 Second video of the week">
-      🎥 Secondo video della settimana
-  </h8>
-
-  <div class="video-thumb" data-video="img/settimana2-video2.mp4">
-    <img src="img/settimana2-video2-thumb.jpg" alt="Video 2 settimana 2">
-    <span class="play-icon">▶</span>
-  </div>
+    </div>
   </div>
 
-   <!-- SECONDO VIDEO MINIATURA -->
-<div class="week-video">
-  <h9 class="video-title"
-      data-it="🎥 Terzo video della settimana"
-      data-en="🎥 Third video of the week">
-      🎥 Terzo video della settimana
-  </h9>
-
-  <div class="video-thumb" data-video="img/settimana2-video3.mp4">
-    <img src="img/settimana2-video3-thumb.jpg" alt="Video 3 settimana 2">
-    <span class="play-icon">▶</span>
-  </div>
-  </div>
-    
-<!-- ===========================
+  <!-- ===========================
        SETTIMANA 3
-    ============================ -->
+  ============================ -->
   <div class="week-block" id="week3">
     <h3 data-it="Settimana 3 – Prime esplorazioni"
         data-en="Week 3 – First explorations">
@@ -669,60 +650,7 @@
        Iniziano a tentare i primi passi incerti, si cercano tra loro e la coda accenna i primi timidi scodinzolii.
     </p>
 
-    <!-- CAROSELLO FOTO 
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="img/settimana3-1.jpeg" loading="lazy">
-        <img src="img/settimana3-2.jpeg" loading="lazy">
-        <img src="img/settimana3-3.jpeg" loading="lazy">
-        <img src="img/settimana3-4.jpeg" loading="lazy">
-        <img src="img/settimana3-5.jpeg" loading="lazy">
-        <img src="img/settimana3-6.jpeg" loading="lazy">
-        <img src="img/settimana3-7.jpeg" loading="lazy">
-        <img src="img/settimana3-8.jpeg" loading="lazy">
-        <img src="img/settimana3-9.jpeg" loading="lazy">
-        <img src="img/settimana3-10.jpeg" loading="lazy">
-        <img src="img/settimana3-11.jpeg" loading="lazy">
-      </div>
-
-      <!-- FRECCE 
-      <div class="carousel-controls">
-        <button class="carousel-btn left">❮</button>
-        <button class="carousel-btn right">❯</button>
-      </div>
-
-      <!-- INDICATORI 
-      <div class="carousel-indicators"></div>
-    </div>
-
-    <!-- VIDEO MINIATURA 
-    <div class="week-video">
-      <h4 class="video-title"
-          data-it="🎥 Primo video della settimana"
-          data-en="🎥 First video of the week">
-          🎥 Primo video della settimana
-      </h4>
-
-      <div class="video-thumb" data-video="img/settimana3-video1.mp4">
-        <img src="img/settimana3-video1-thumb.jpg" alt="Video 2 settimana 3">
-        <span class="play-icon">▶</span>
-      </div>
-    </div>
-
-    <!-- SECONDO VIDEO MINIATURA 
-<div class="week-video">
-  <h5 class="video-title"
-      data-it="🎥 Secondo video della settimana"
-      data-en="🎥 Second video of the week">
-      🎥 Secondo video della settimana
-  </h5>
-
-  <div class="video-thumb" data-video="img/settimana3-video2.mp4">
-    <img src="img/settimana3-video2-thumb.jpg" alt="Video 2 settimana 3">
-    <span class="play-icon">▶</span>
-  </div>
-</div>-->
-  
+    <!-- (Settimana 3: carosello e video sono commentati nel tuo file originale) -->
   </div>
 
 </section>
@@ -772,7 +700,7 @@
 
 
 
-  <script>
+    <script>
 /* ============================================================
    CAMBIO LINGUA
 ============================================================ */
@@ -928,7 +856,7 @@ lightbox.addEventListener("click", e => {
 
 
 /* ============================================================
-   LIGHTBOX VIDEO (miniatura → video grande)
+   LIGHTBOX VIDEO
 ============================================================ */
 document.querySelectorAll(".video-thumb").forEach(thumb => {
   thumb.addEventListener("click", () => {
@@ -970,8 +898,11 @@ lightbox.addEventListener("click", e => {
     closeLB();
   }
 });
-    
-/* Chiudi con la X */
+
+
+/* ============================================================
+   CHIUSURA CON LA X
+============================================================ */
 const closeBtn = document.getElementById("lightbox-close");
 if (closeBtn) {
   closeBtn.addEventListener("click", () => {
@@ -1017,4 +948,3 @@ if (ctx) {
 </script>
 </body>
 </html>
-  
