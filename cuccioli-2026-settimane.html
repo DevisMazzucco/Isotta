@@ -846,7 +846,7 @@
 
 
 
-  <script>
+ <script>
 /* ============================================================
    CAMBIO LINGUA
 ============================================================ */
@@ -862,7 +862,7 @@ document.getElementById("lang-select").addEventListener("change", e => {
 
 
 /* ============================================================
-   CAROSELLO PREMIUM
+   CAROSELLO PREMIUM — VERSIONE CORRETTA
 ============================================================ */
 document.querySelectorAll(".carousel").forEach(carousel => {
 
@@ -877,16 +877,17 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   let currentX = 0;
   let dragging = false;
 
-  indicators.innerHTML = `
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-  `;
+  /* Indicatori dinamici */
+  indicators.innerHTML = "";
+  imgs.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    indicators.appendChild(dot);
+  });
 
   const updateIndicators = () => {
     const dots = indicators.querySelectorAll("span");
-    const pos = index % 3;
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === pos));
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
   };
 
   const goTo = i => {
@@ -1171,6 +1172,4 @@ if (ctx) {
   });
 }
 </script>
-</body>
-</html>
 
