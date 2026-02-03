@@ -986,6 +986,28 @@ lightbox.addEventListener("click", e => {
 });
 
 
+      /* ============================================================
+   VIDEO GALLERY — MINIATURE + LIGHTBOX
+============================================================ */
+const videoThumbs = document.querySelectorAll(".video-thumb");
+const videoLightbox = document.querySelector(".video-lightbox");
+const videoPlayer = videoLightbox.querySelector("video");
+
+videoThumbs.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    const src = thumb.dataset.video;
+    videoPlayer.src = src;
+    videoLightbox.classList.remove("hidden");
+    videoPlayer.play();
+  });
+});
+
+videoLightbox.addEventListener("click", () => {
+  videoPlayer.pause();
+  videoPlayer.src = "";
+  videoLightbox.classList.add("hidden");
+});
+
 /* ============================================================
    LIGHTBOX VIDEO — VERSIONE B (video dentro la galleria)
 ============================================================ */
