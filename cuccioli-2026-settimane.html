@@ -246,13 +246,14 @@
   }
 
 .video-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, auto));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+  align-items: flex-start;
 }
 
 .video-thumb video {
-  height: 80px;        /* tutte la stessa altezza */
+  height: 60px;        /* tutte la stessa altezza */
   width: auto;         /* larghezza che si adatta */
   object-fit: cover;   /* evita distorsioni */
   border-radius: 10px;
