@@ -812,7 +812,7 @@ document.getElementById("lang-select").addEventListener("change", e => {
 
 
 /* ============================================================
-   CAROSELLO PREMIUM
+   CAROSELLO PREMIUM — VERSIONE DEFINITIVA
 ============================================================ */
 document.querySelectorAll(".carousel").forEach(carousel => {
 
@@ -820,76 +820,50 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   const imgs = [...track.children];
   const left = carousel.querySelector(".carousel-btn.left");
   const right = carousel.querySelector(".carousel-btn.right");
-  const indicators = carousel.querySelector(".carousel-indicators");
+  const counter = carousel.querySelector(".carousel-counter");
 
   let index = 0;
-  let startX = 0;
-  let currentX = 0;
-  let dragging = false;
 
-  /* Indicatori fissi (3 puntini) */
-  indicators.innerHTML = `
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-  `;
-
-  const updateIndicators = () => {
-    const dots = indicators.querySelectorAll("span");
-    const pos = index % 3;
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === pos));
-  };
-
-  const goTo = i => {
-    index = (i + imgs.length) % imgs.length;
+  const update = () => {
     const imgWidth = imgs[0].clientWidth;
-    track.style.transition = "transform 0.35s ease";
     track.style.transform = `translateX(-${index * imgWidth}px)`;
-    updateIndicators();
+    counter.textContent = `${index + 1} / ${imgs.length}`;
   };
 
-  /* Frecce */
-  if (right) {
-    right.addEventListener("click", e => {
-      e.stopPropagation();
-      goTo(index + 1);
-    });
-  }
+  right.addEventListener("click", e => {
+    e.stopPropagation();
+    index = (index + 1) % imgs.length;
+    update();
+  });
 
-  if (left) {
-    left.addEventListener("click", e => {
-      e.stopPropagation();
-      goTo(index - 1);
-    });
-  }
+  left.addEventListener("click", e => {
+    e.stopPropagation();
+    index = (index - 1 + imgs.length) % imgs.length;
+    update();
+  });
 
   /* Swipe mobile */
+  let startX = 0;
+  let dragging = false;
+
   carousel.addEventListener("touchstart", e => {
     startX = e.touches[0].clientX;
     dragging = true;
-    track.style.transition = "none";
   });
 
-  carousel.addEventListener("touchmove", e => {
+  carousel.addEventListener("touchend", e => {
     if (!dragging) return;
-    currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
-    const imgWidth = imgs[0].clientWidth;
-    track.style.transform = `translateX(${-(index * imgWidth) + diff}px)`;
-  });
-
-  carousel.addEventListener("touchend", () => {
+    const diff = e.changedTouches[0].clientX - startX;
+    if (diff < -50) index = (index + 1) % imgs.length;
+    if (diff > 50) index = (index - 1 + imgs.length) % imgs.length;
+    update();
     dragging = false;
-    const diff = currentX - startX;
-    if (Math.abs(diff) > 50) goTo(index + (diff < 0 ? 1 : -1));
-    else goTo(index);
   });
 
-  /* Ricalcolo su resize */
-  window.addEventListener("resize", () => {
-    const imgWidth = imgs[0].clientWidth;
-    track.style.transform = `translateX(-${index * imgWidth}px)`;
-  });
+  /* Resize */
+  window.addEventListener("resize", update);
+
+  update();
 });
 
 
