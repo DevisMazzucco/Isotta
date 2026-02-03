@@ -232,55 +232,50 @@
   /* ===========================
      MINIATURE VIDEO
   ============================ */
-  .week-video {
-    margin-top: 25px;
-    text-align: center;
-  }
-
-  .video-title {
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--oro);
-    font-size: 1.2em;
-    letter-spacing: 0.5px;
-  }
-
+/* Galleria video */
 .video-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
+.video-thumb {
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Miniature tutte alte uguali */
 .video-thumb video {
   height: 70px;      /* tutte la stessa altezza */
   width: auto;       /* larghezza che si adatta */
-  object-fit: cover; /* evita distorsioni */
-  border-radius: 10px;
+  object-fit: cover;
   display: block;
+  border-radius: 10px;
 }
 
-  .video-thumb img {
-    width: 100%;
-    border-radius: 14px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-  }
+/* Lightbox */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
 
-  .video-thumb:hover {
-    transform: scale(1.03);
-  }
+.video-lightbox video {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 14px;
+}
 
-  .play-icon {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3em;
-    color: white;
-    text-shadow: 0 0 12px black;
-    pointer-events: none;
-  }
+.video-lightbox.hidden {
+  display: none;
+}
 
   /* ===========================
      LIGHTBOX
@@ -536,7 +531,9 @@
           🎥 Video della settimana
       </h4>
 
-      <div class="video-gallery">
+<div class="video-lightbox hidden">
+    <video controls autoplay></video>
+</div>
 
         <div class="video-thumb" data-video="img/settimana1-video1.mp4">
           <img src="img/settimana1-video1-thumb.jpg" alt="Video 1 settimana 1">
@@ -1110,5 +1107,27 @@ if (ctx) {
   });
 }
 </script>
+
+<script>
+const videoThumbs = document.querySelectorAll(".video-thumb");
+const videoLightbox = document.querySelector(".video-lightbox");
+const videoPlayer = videoLightbox.querySelector("video");
+
+videoThumbs.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    const src = thumb.dataset.video;
+    videoPlayer.src = src;
+    videoLightbox.classList.remove("hidden");
+    videoPlayer.play();
+  });
+});
+
+videoLightbox.addEventListener("click", () => {
+  videoPlayer.pause();
+  videoPlayer.src = "";
+  videoLightbox.classList.add("hidden");
+});
+</script>      
+      
 </body>
 </html>
