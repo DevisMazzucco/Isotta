@@ -245,19 +245,21 @@
     letter-spacing: 0.5px;
   }
 
-/* Galleria video */
-.video-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+  .video-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
 
-.video-thumb {
-  position: relative;
-  cursor: pointer;
-  border-radius: 10px;
-  overflow: hidden;
-}
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    max-width: 180px;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
 
 
   .video-thumb img {
@@ -768,7 +770,7 @@
 
       <div class="video-gallery">
 
-        <div class="video-thumb" data-video="img/settimana4-video1.mp4">
+       <!--   <div class="video-thumb" data-video="img/settimana4-video1.mp4">
           <img src="img/settimana4-video1-thumb.jpg" alt="Video 1 settimana 4">
           <span class="play-icon">▶</span>
         </div>
@@ -791,7 +793,7 @@
         <div class="video-thumb" data-video="img/settimana4-video5.mp4">
           <img src="img/settimana4-video5-thumb.jpg" alt="Video 5 settimana 4">
           <span class="play-icon">▶</span>
-        </div>
+        </div>-->
         
       </div>
     </div>
