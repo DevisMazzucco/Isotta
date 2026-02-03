@@ -1,66 +1,4 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title data-it="Cuccioli Bobtail 2026 – Settimana per settimana"
-         data-en="Bobtail Puppies 2026 – Week by week">
-         Cuccioli Bobtail 2026 – Settimana per settimana
-  </title>
-
-  <meta name="description"
-        data-it="Crescita dei cuccioli Bobtail 2026 settimana per settimana: foto, sviluppo, carattere e aggiornamenti."
-        data-en="Growth of Bobtail puppies 2026 week by week: photos, development, temperament and updates.">
-
-  <style>
-
-  /* ===========================
-     PALETTE & VARIABILI
-  ============================ */
-  :root {
-    --blu: #010E80;
-    --oro: #A39261;
-    --bg-dark: #0f0f0f;
-    --bg-card: #141414;
-    --bg-soft: #1a1a1a;
-    --text-light: #e6e6e6;
-    --border-soft: rgba(163,146,97,0.35);
-    --shadow-soft: 0 0 18px rgba(0,0,0,0.45);
-  }
-
-  /* ===========================
-     BASE
-  ============================ */
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: var(--bg-dark);
-    color: var(--text-light);
-    animation: fadeIn 0.6s ease;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ===========================
-     HEADER
-  ============================ */
-  header {
-    text-align: center;
-    padding: 50px 20px 40px;
-    background: url('img/header-dog.jpeg') center/cover no-repeat;
-    color: white;
-    position: relative;
-    box-shadow: 0 0 25px rgba(0,0,0,0.5);
-  }
-
-  header::before {
-    content: "";
-    position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.55);
   }
@@ -250,72 +188,60 @@
   letter-spacing: 0.5px;
 }
 
- /* ===========================
-   VIDEO GALLERY ORDINATA
-=========================== */
+  /* ===========================
+     MINIATURE VIDEO
+  ============================ */
+  .week-video {
+    margin-top: 25px;
+    text-align: center;
+  }
 
-.video-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 14px;
-  margin-top: 20px;
-}
+  .video-title {
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--oro);
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+  }
 
-.video-thumb {
-  position: relative;
-  cursor: pointer;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 2px solid var(--border-soft);
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
+  .video-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
 
-.video-thumb:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    max-width: 180px;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
 
-.video-thumb video {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
-}
+  .video-thumb img {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+  }
 
-/* Icona play */
-.video-thumb::after {
-  content: "▶";
-  position: absolute;
-  font-size: 28px;
-  color: white;
-  bottom: 6px;
-  right: 10px;
-  text-shadow: 0 0 6px black;
-  opacity: 0.9;
-}
+  .video-thumb:hover {
+    transform: scale(1.03);
+  }
 
-/* Lightbox video */
-.video-lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 20px;
-}
-
-.video-lightbox video {
-  width: 90%;
-  max-width: 700px;
-  border-radius: 14px;
-}
-
-.video-lightbox.hidden {
-  display: none;
-}
+  .play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    color: white;
+    text-shadow: 0 0 12px black;
+    pointer-events: none;
+  }
 
   /* ===========================
      LIGHTBOX
@@ -493,7 +419,7 @@
   <a href="#week1" data-it="Settimana 1" data-en="Week 1">Settimana 1</a>
   <a href="#week2" data-it="Settimana 2" data-en="Week 2">Settimana 2</a>
   <a href="#week3" data-it="Settimana 3" data-en="Week 3">Settimana 3</a>
-  <a href="#week4" data-it="Settimana 4" data-en="Week 4">Settimana 4</a>
+  <a href="#week3" data-it="Settimana 4" data-en="Week 4">Settimana 4</a>
 
   <a href="index.html#contatti"
      class="btn-contact"
@@ -564,7 +490,6 @@
     </div>
 
     <!-- VIDEO DELLA SETTIMANA -->
-    
     <div class="week-video">
       <h4 class="video-title"
           data-it="🎥 Video della settimana"
@@ -585,11 +510,7 @@
         </div>
 
       </div>
-<!-- Lightbox video -->
-<div class="video-lightbox hidden">
-    <video controls autoplay></video>
-</div>
-</div>
+    </div>
   </div>
 
   <!-- ===========================
@@ -659,11 +580,7 @@
         </div>
 
       </div>
-<!-- Lightbox video -->
-<div class="video-lightbox hidden">
-    <video controls autoplay></video>
-</div>
-</div>
+    </div>
   </div>
 
   <!-- ===========================
@@ -745,11 +662,7 @@
         </div>
 
       </div>
-<!-- Lightbox video -->
-<div class="video-lightbox hidden">
-    <video controls autoplay></video>
-</div>
-</div>
+    </div>
   </div>
 
    <!-- ===========================
@@ -812,11 +725,7 @@
         </div>
 
       </div>
-<!-- Lightbox video -->
-<div class="video-lightbox hidden">
-    <video controls autoplay></video>
-</div>
-</div>
+    </div>
   </div>
 
 </section>
@@ -985,28 +894,6 @@ lightbox.addEventListener("click", e => {
   if (e.target === lightbox) closeLB();
 });
 
-
-      /* ============================================================
-   VIDEO GALLERY — MINIATURE + LIGHTBOX
-============================================================ */
-const videoThumbs = document.querySelectorAll(".video-thumb");
-const videoLightbox = document.querySelector(".video-lightbox");
-const videoPlayer = videoLightbox.querySelector("video");
-
-videoThumbs.forEach(thumb => {
-  thumb.addEventListener("click", () => {
-    const src = thumb.dataset.video;
-    videoPlayer.src = src;
-    videoLightbox.classList.remove("hidden");
-    videoPlayer.play();
-  });
-});
-
-videoLightbox.addEventListener("click", () => {
-  videoPlayer.pause();
-  videoPlayer.src = "";
-  videoLightbox.classList.add("hidden");
-});
 
 /* ============================================================
    LIGHTBOX VIDEO — VERSIONE B (video dentro la galleria)
