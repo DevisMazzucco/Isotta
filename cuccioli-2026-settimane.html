@@ -245,21 +245,19 @@
     letter-spacing: 0.5px;
   }
 
-  .video-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-  }
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
 
-  .video-thumb {
-    position: relative;
-    width: 100%;
-    max-width: 100px;
-    cursor: pointer;
-    transition: 0.25s ease;
-  }
+.video-thumb {
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s ease;
+  display: inline-block;   /* permette larghezze variabili */
+}
 
   .video-thumb img {
     width: 100%;
@@ -271,6 +269,14 @@
   .video-thumb:hover {
     transform: scale(1.03);
   }
+
+    .video-thumb img {
+  height: 70px;        /* tutte la stessa altezza */
+  width: auto;         /* larghezza che si adatta */
+  object-fit: cover;   /* evita distorsioni */
+  display: block;
+  border-radius: 10px;
+}
 
   .play-icon {
     position: absolute;
