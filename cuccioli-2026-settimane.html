@@ -166,37 +166,68 @@
     letter-spacing: 0.3px;
   }
 
-  /* ===========================
-     CAROSELLO
-  ============================ */
-  .carousel {
-    position: relative;
-    overflow: hidden;
-    border-radius: 14px;
-    margin-top: 20px;
-  }
+/* ===========================
+   CAROSELLO MIGLIORATO
+=========================== */
 
-  .carousel-track {
-    display: flex;
-    transition: transform 0.35s ease;
-  }
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  margin-top: 20px;
+}
 
-  .carousel img {
-    height: 120px;
-    width: auto;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
-    object-fit: cover;
-    border: 1px solid var(--border-soft);
-  }
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
 
-  .carousel img:hover {
-    transform: scale(1.06);
-    opacity: 0.95;
-    box-shadow: 0 0 12px rgba(163,146,97,0.45);
-  }
+.carousel-track img {
+  width: 180px;       /* dimensione uniforme */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border: 1px solid var(--border-soft);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
 
+.carousel-track img:hover {
+  transform: scale(1.06);
+  opacity: 0.95;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.carousel-btn {
+  background: rgba(0,0,0,0.55);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 1.4em;
+  transition: 0.25s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(163,146,97,0.8);
+}
+
+.carousel-counter {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: var(--oro);
+  letter-spacing: 0.5px;
+}
   /* FRECCE */
   .carousel-controls {
     display: flex;
@@ -538,7 +569,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-
+      <div class="carousel-counter">1 / 10</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -603,7 +634,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-
+      <div class="carousel-counter">1 / 10</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -675,7 +706,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-
+      <div class="carousel-counter">1 / 10</div>
       <div class="carousel-indicators"></div>
     </div>
 
