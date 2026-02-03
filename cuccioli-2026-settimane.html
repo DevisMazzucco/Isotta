@@ -250,60 +250,72 @@
   letter-spacing: 0.5px;
 }
 
-  /* ===========================
-     MINIATURE VIDEO
-  ============================ */
-  .week-video {
-    margin-top: 25px;
-    text-align: center;
-  }
+ /* ===========================
+   VIDEO GALLERY ORDINATA
+=========================== */
 
-  .video-title {
-    text-align: center;
-    margin-bottom: 10px;
-    color: var(--oro);
-    font-size: 1.2em;
-    letter-spacing: 0.5px;
-  }
+.video-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
 
-  .video-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 15px;
-    flex-wrap: wrap;
-  }
+.video-thumb {
+  position: relative;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--border-soft);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
 
-  .video-thumb {
-    position: relative;
-    width: 100%;
-    max-width: 180px;
-    cursor: pointer;
-    transition: 0.25s ease;
-  }
+.video-thumb:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
 
-  .video-thumb img {
-    width: 100%;
-    border-radius: 14px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-  }
+.video-thumb video {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
 
-  .video-thumb:hover {
-    transform: scale(1.03);
-  }
+/* Icona play */
+.video-thumb::after {
+  content: "▶";
+  position: absolute;
+  font-size: 28px;
+  color: white;
+  bottom: 6px;
+  right: 10px;
+  text-shadow: 0 0 6px black;
+  opacity: 0.9;
+}
 
-  .play-icon {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3em;
-    color: white;
-    text-shadow: 0 0 12px black;
-    pointer-events: none;
-  }
+/* Lightbox video */
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.video-lightbox video {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 14px;
+}
+
+.video-lightbox.hidden {
+  display: none;
+}
 
   /* ===========================
      LIGHTBOX
@@ -552,6 +564,7 @@
     </div>
 
     <!-- VIDEO DELLA SETTIMANA -->
+    
     <div class="week-video">
       <h4 class="video-title"
           data-it="🎥 Video della settimana"
@@ -572,7 +585,11 @@
         </div>
 
       </div>
-    </div>
+<!-- Lightbox video -->
+<div class="video-lightbox hidden">
+    <video controls autoplay></video>
+</div>
+
   </div>
 
   <!-- ===========================
@@ -642,7 +659,11 @@
         </div>
 
       </div>
-    </div>
+<!-- Lightbox video -->
+<div class="video-lightbox hidden">
+    <video controls autoplay></video>
+</div>
+
   </div>
 
   <!-- ===========================
@@ -724,7 +745,11 @@
         </div>
 
       </div>
-    </div>
+<!-- Lightbox video -->
+<div class="video-lightbox hidden">
+    <video controls autoplay></video>
+</div>
+
   </div>
 
    <!-- ===========================
@@ -787,7 +812,11 @@
         </div>
 
       </div>
-    </div>
+<!-- Lightbox video -->
+<div class="video-lightbox hidden">
+    <video controls autoplay></video>
+</div>
+
   </div>
 
 </section>
