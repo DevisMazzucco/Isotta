@@ -259,24 +259,19 @@
   display: inline-block;   /* permette larghezze variabili */
 }
 
-  .video-thumb img {
-    width: 100%;
-    border-radius: 14px;
-    border: 1px solid var(--border-soft);
-    box-shadow: var(--shadow-soft);
-  }
+.video-thumb img {
+  height: 150px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
 
   .video-thumb:hover {
     transform: scale(1.03);
   }
-
-    .video-thumb img {
-  height: 150px;        /* tutte la stessa altezza */
-  width: auto;         /* larghezza che si adatta */
-  object-fit: cover;   /* evita distorsioni */
-  display: block;
-  border-radius: 10px;
-}
 
   .play-icon {
     position: absolute;
@@ -533,7 +528,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-      <div class="carousel-counter">1 / 10</div>
+      <div class="carousel-counter">1 / 11</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -598,7 +593,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-      <div class="carousel-counter">1 / 10</div>
+      <div class="carousel-counter">1 / 14</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -671,7 +666,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-      <div class="carousel-counter">1 / 10</div>
+      <div class="carousel-counter">1 / 17</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -749,7 +744,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-      <div class="carousel-counter">1 / 10</div>
+      <div class="carousel-counter">1 / 11</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -808,7 +803,7 @@
         <button class="carousel-btn left">❮</button>
         <button class="carousel-btn right">❯</button>
       </div>
-      <div class="carousel-counter">1 / 10</div>
+      <div class="carousel-counter">1 / 3</div>
       <div class="carousel-indicators"></div>
     </div>
 
@@ -914,13 +909,12 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   let index = 0;
 
   const update = () => {
-    if (!imgs[0].complete) return;   // evita update prima del caricamento
+    if (!imgs[0].complete) return;
     const imgWidth = imgs[0].clientWidth;
     track.style.transform = `translateX(-${index * imgWidth}px)`;
     counter.textContent = `${index + 1} / ${imgs.length}`;
   };
 
-  // Aggiorna quando la prima immagine è caricata
   imgs[0].addEventListener("load", update);
 
   right.addEventListener("click", e => {
@@ -935,7 +929,6 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     update();
   });
 
-  // Swipe mobile
   let startX = 0;
   let dragging = false;
 
