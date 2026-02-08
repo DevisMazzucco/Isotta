@@ -961,8 +961,19 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 
 
 /* ============================================================
-   LIGHTBOX VIDEO — VERSIONE B (video dentro la galleria)
+   LIGHTBOX UNICO (IMMAGINI + VIDEO)
 ============================================================ */
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lightbox-img");
+const lbCap = document.getElementById("lightbox-caption");
+const lbCounter = document.getElementById("lightbox-counter");
+const prev = document.getElementById("lightbox-prev");
+const next = document.getElementById("lightbox-next");
+
+let currentImages = [];
+let currentIndex = 0;
+
+/* GALLERIA MISTA PER OGNI SETTIMANA */
 document.querySelectorAll(".week-block").forEach(week => {
 
   const images = Array.from(week.querySelector(".carousel-track").children);
@@ -970,7 +981,7 @@ document.querySelectorAll(".week-block").forEach(week => {
 
   const gallery = [];
 
-  // Aggiunge immagini
+  // Immagini
   images.forEach(img => {
     gallery.push({
       type: "image",
@@ -985,7 +996,7 @@ document.querySelectorAll(".week-block").forEach(week => {
     });
   });
 
-  // Aggiunge video
+  // Video
   videos.forEach(v => {
     const src = v.getAttribute("data-video");
 
@@ -1002,17 +1013,15 @@ document.querySelectorAll(".week-block").forEach(week => {
   });
 });
 
-
 /* Apertura lightbox misto (immagini + video) */
 function openMixedLB() {
-
   const item = currentImages[currentIndex];
-  const lbCounter = document.getElementById("lightbox-counter");
+
+  // aggiorna contatore
   lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
-  
-  // Rimuove eventuale video precedente
+
+  // rimuove eventuale video precedente
   const oldVideo = document.getElementById("lb-video");
-  
   if (oldVideo) oldVideo.remove();
 
   if (item.type === "image") {
@@ -1042,36 +1051,46 @@ function openMixedLB() {
   lightbox.style.opacity = "1";
 }
 
-
 /* Navigazione avanti/indietro */
 function showMixed(i) {
   currentIndex = (i + currentImages.length) % currentImages.length;
   openMixedLB();
 }
 
-prev.addEventListener("click", () => showMixed(currentIndex - 1));
-next.addEventListener("click", () => showMixed(currentIndex + 1));
+if (prev) prev.addEventListener("click", e => {
+  e.stopPropagation();
+  showMixed(currentIndex - 1);
+});
 
-/* Chiudi lightbox video */
-lightbox.addEventListener("click", e => {
-  if (e.target === lightbox) {
+if (next) next.addEventListener("click", e => {
+  e.stopPropagation();
+  showMixed(currentIndex + 1);
+});
+
+/* Chiusura generica */
+function closeLB() {
+  lightbox.style.transition = "opacity 0.25s ease";
+  lightbox.style.opacity = "0";
+  setTimeout(() => {
     const v = document.getElementById("lb-video");
     if (v) v.remove();
     lbImg.style.display = "block";
+    lightbox.style.display = "none";
+    lightbox.style.opacity = "1";
+  }, 250);
+}
+
+/* Chiudi cliccando sullo sfondo */
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) {
     closeLB();
   }
 });
 
-
-/* ============================================================
-   CHIUSURA CON LA X
-============================================================ */
+/* Chiudi con la X */
 const closeBtn = document.getElementById("lightbox-close");
 if (closeBtn) {
   closeBtn.addEventListener("click", () => {
-    const v = document.getElementById("lb-video");
-    if (v) v.remove();
-    lbImg.style.display = "block";
     closeLB();
   });
 }
