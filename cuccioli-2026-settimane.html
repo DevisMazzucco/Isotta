@@ -914,10 +914,14 @@ document.querySelectorAll(".carousel").forEach(carousel => {
   let index = 0;
 
   const update = () => {
+    if (!imgs[0].complete) return;   // evita update prima del caricamento
     const imgWidth = imgs[0].clientWidth;
     track.style.transform = `translateX(-${index * imgWidth}px)`;
     counter.textContent = `${index + 1} / ${imgs.length}`;
   };
+
+  // Aggiorna quando la prima immagine è caricata
+  imgs[0].addEventListener("load", update);
 
   right.addEventListener("click", e => {
     e.stopPropagation();
@@ -931,7 +935,7 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     update();
   });
 
-  /* Swipe mobile */
+  // Swipe mobile
   let startX = 0;
   let dragging = false;
 
@@ -949,7 +953,6 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     dragging = false;
   });
 
-  /* Resize */
   window.addEventListener("resize", update);
 
   update();
