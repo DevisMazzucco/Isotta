@@ -317,6 +317,13 @@
     opacity: 0.9;
   }
 
+ #lightbox-counter {
+  margin-top: 10px;
+  color: var(--oro);
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
+}
+
   .lightbox-arrow {
     position: fixed;
     top: 50%;
@@ -850,6 +857,7 @@
   <img id="lightbox-img" src="" alt="">
   <span id="lightbox-next" class="lightbox-arrow">❯</span>
   <div id="lightbox-caption"></div>
+  <div id="lightbox-counter"></div>
 </div>
 
 <!-- PULSANTE INDEX -->
@@ -979,6 +987,8 @@ function openLB() {
   lbImg.src = img.src;
   lbCap.textContent = img.alt || "";
   lbImg.style.display = "block";
+  const lbCounter = document.getElementById("lightbox-counter");
+  lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 
   /* Rimuove eventuale video precedente */
   const oldVideo = document.getElementById("lb-video");
@@ -991,6 +1001,8 @@ function openLB() {
 function show(i) {
   currentIndex = (i + currentImages.length) % currentImages.length;
   openLB();
+  const lbCounter = document.getElementById("lightbox-counter");
+  lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 }
 
 if (prev) prev.addEventListener("click", () => show(currentIndex - 1));
@@ -1057,9 +1069,12 @@ document.querySelectorAll(".week-block").forEach(week => {
 function openMixedLB() {
 
   const item = currentImages[currentIndex];
-
+  const lbCounter = document.getElementById("lightbox-counter");
+  lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+  
   // Rimuove eventuale video precedente
   const oldVideo = document.getElementById("lb-video");
+  
   if (oldVideo) oldVideo.remove();
 
   if (item.type === "image") {
