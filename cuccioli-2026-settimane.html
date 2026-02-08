@@ -1027,7 +1027,7 @@ lightbox.addEventListener("click", e => {
 ============================================================ */
 document.querySelectorAll(".week-block").forEach(week => {
 
-  const images = [...week.querySelectorAll(".carousel-track img")];
+  const images = Array.from(week.querySelector(".carousel-track").children);
   const videos = [...week.querySelectorAll(".video-thumb")];
 
   const gallery = [];
