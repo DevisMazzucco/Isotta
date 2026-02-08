@@ -966,33 +966,34 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 const lightbox = document.getElementById("lightbox");
 const lbImg = document.getElementById("lightbox-img");
 const lbCap = document.getElementById("lightbox-caption");
+const lbCounter = document.getElementById("lightbox-counter");
 const prev = document.getElementById("lightbox-prev");
 const next = document.getElementById("lightbox-next");
 
 let currentImages = [];
 let currentIndex = 0;
 
-/* Colleziona tutte le immagini cliccabili */
+/* Colleziona tutte le immagini cliccabili del carosello */
 document.querySelectorAll(".carousel-track img").forEach(img => {
   img.addEventListener("click", () => {
-    const carousel = img.closest(".carousel-track");
-    currentImages = Array.from(carousel.children);
+    const track = img.closest(".carousel-track");
+    // ORDINE CORRETTO: esattamente come in HTML
+    currentImages = Array.from(track.children);
     currentIndex = currentImages.indexOf(img);
     openLB();
   });
 });
 
 function openLB() {
-  const img = currentImages[currentIndex];
-  lbImg.src = img.src;
-  lbCap.textContent = img.alt || "";
-  lbImg.style.display = "block";
-  const lbCounter = document.getElementById("lightbox-counter");
-  lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+  const el = currentImages[currentIndex];
 
-  /* Rimuove eventuale video precedente */
-  const oldVideo = document.getElementById("lb-video");
-  if (oldVideo) oldVideo.remove();
+  // Mostra immagine
+  lbImg.src = el.src;
+  lbImg.style.display = "block";
+  lbCap.textContent = el.alt || "";
+
+  // Aggiorna contatore
+  lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 
   lightbox.style.display = "flex";
   lightbox.style.opacity = "1";
@@ -1001,12 +1002,17 @@ function openLB() {
 function show(i) {
   currentIndex = (i + currentImages.length) % currentImages.length;
   openLB();
-  const lbCounter = document.getElementById("lightbox-counter");
-  lbCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
 }
 
-if (prev) prev.addEventListener("click", () => show(currentIndex - 1));
-if (next) next.addEventListener("click", () => show(currentIndex + 1));
+if (prev) prev.addEventListener("click", e => {
+  e.stopPropagation();
+  show(currentIndex - 1);
+});
+
+if (next) next.addEventListener("click", e => {
+  e.stopPropagation();
+  show(currentIndex + 1);
+});
 
 function closeLB() {
   lightbox.style.transition = "opacity 0.25s ease";
