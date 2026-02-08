@@ -976,7 +976,7 @@ let currentIndex = 0;
 document.querySelectorAll(".carousel-track img").forEach(img => {
   img.addEventListener("click", () => {
     const carousel = img.closest(".carousel-track");
-    currentImages = [...carousel.querySelectorAll("img")];
+    currentImages = Array.from(carousel.children);
     currentIndex = currentImages.indexOf(img);
     openLB();
   });
